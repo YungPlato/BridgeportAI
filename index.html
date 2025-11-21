@@ -84,7 +84,7 @@
             transition: all 0.3s ease-in-out;
         }
         .hidden-grid {
-            display: none;
+            display: none !important;
         }
         
         canvas {
@@ -180,6 +180,15 @@
     <div id="home" class="page-section active">
         <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
+            <!-- Video Background -->
+            <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
+                <video autoplay loop muted playsinline class="absolute w-full h-full object-cover opacity-40">
+                    <source src="assets/hero-background.mp4" type="video/mp4">
+                </video>
+                <!-- Overlay for readability -->
+                <div class="absolute inset-0 bg-dark/60"></div>
+            </div>
+
             <!-- Particles Background -->
             <div id="particles-js"></div>
             
