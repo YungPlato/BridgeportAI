@@ -1,0 +1,917 @@
+
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridgeport AI Solutions | Future-Proof Your Business</title>
+    <meta name="description" content="Bridgeport's premier AI agency and learning studio. Websites, Automation, and AI Classes for local businesses.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400;600&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 4px; }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Animated Gradient Text */
+        .animate-text {
+            background-size: 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: animated-gradient 3s linear infinite alternate;
+        }
+
+        @keyframes animated-gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+        }
+        
+        /* Page Transitions */
+        .page-section {
+            display: none;
+            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); filter: blur(10px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+
+        /* Pricing Toggle Animation */
+        .pricing-grid {
+            transition: all 0.3s ease-in-out;
+        }
+        .hidden-grid {
+            display: none;
+        }
+        
+        canvas {
+            display: block;
+            vertical-align: bottom;
+        }
+        
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        /* Pulse Animation for CTA */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); }
+        }
+        .cta-pulse {
+            animation: pulse-glow 2s infinite;
+        }
+        
+        /* FAQ Details */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0f172a', // Slate 900
+                        primary: '#3b82f6', // Blue 500
+                        accent: '#f97316', // Orange 500
+                        studio: '#10b981', // Emerald 500
+                        purple: '#a855f7',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-white overflow-x-hidden flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" onclick="showPage('home')" class="flex items-center gap-3 group cursor-pointer">
+                <img src="logo.png" alt="Bridgeport AI" class="h-10 w-auto group-hover:scale-110 transition duration-300"> 
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <button onclick="showPage('home')" class="hover:text-primary transition">Home</button>
+                <button onclick="showPage('services')" class="hover:text-primary transition font-bold text-white flex items-center">
+                    <i class="fa-solid fa-bolt text-primary mr-2"></i> Agency Services
+                </button>
+                <button onclick="showPage('studio')" class="hover:text-studio transition font-bold text-white"><i class="fa-solid fa-graduation-cap mr-1 text-studio"></i> The Studio</button>
+                <button onclick="showPage('pricing')" class="hover:text-primary transition">Pricing</button>
+                <button onclick="showPage('about')" class="hover:text-primary transition">Our Mission</button>
+                <a href="#contact" class="cta-pulse px-6 py-2 rounded-full bg-gradient-to-r from-primary to-blue-600 text-white hover:scale-105 transition duration-300 font-bold">
+                    Start Now
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-2xl text-white" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark border-b border-white/10 p-4 absolute w-full z-40">
+            <div class="flex flex-col gap-4">
+                <button onclick="showPage('home'); toggleMobileMenu()" class="text-left text-gray-300 hover:text-primary">Home</button>
+                <button onclick="showPage('services'); toggleMobileMenu()" class="text-left text-gray-300 hover:text-primary">Agency Services</button>
+                <button onclick="showPage('studio'); toggleMobileMenu()" class="text-left text-studio font-bold">The Studio</button>
+                <button onclick="showPage('pricing'); toggleMobileMenu()" class="text-left text-gray-300 hover:text-primary">Pricing</button>
+                <button onclick="showPage('about'); toggleMobileMenu()" class="text-left text-gray-300 hover:text-primary">About</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HOME PAGE ==================== -->
+    <div id="home" class="page-section active">
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
+            <!-- Particles Background -->
+            <div id="particles-js"></div>
+            
+            <!-- Glows -->
+            <div class="absolute top-20 left-[-10%] w-96 h-96 bg-primary/20 rounded-full blur-[128px] pointer-events-none"></div>
+            <div class="absolute bottom-20 right-[-10%] w-96 h-96 bg-studio/10 rounded-full blur-[128px] pointer-events-none"></div>
+
+            <div class="text-center max-w-5xl relative z-10" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="flex justify-center gap-4 mb-8">
+                    <div class="px-4 py-1 rounded-full glass text-primary text-xs font-bold tracking-wide uppercase flex items-center border-primary/30">
+                        <i class="fa-solid fa-bolt mr-2"></i> We Build It For You
+                    </div>
+                    <div class="px-4 py-1 rounded-full glass text-studio text-xs font-bold tracking-wide uppercase flex items-center border-studio/30">
+                        <i class="fa-solid fa-graduation-cap mr-2"></i> You Learn To Build It
+                    </div>
+                </div>
+                
+                <h1 class="text-5xl md:text-8xl font-bold leading-tight mb-8">
+                    Bridgeport's Digital <br> 
+                    <span class="animate-text bg-gradient-to-r from-primary via-purple to-studio">Transformation Hub.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+                    We are a hybrid <strong>AI Agency</strong> and <strong>Learning Studio</strong>. Whether you need a website built <em>for</em> you, or you want to learn how to use AI <em>yourself</em>, we are the bridge to your future.
+                </p>
+                <div class="flex flex-col md:flex-row gap-6 justify-center">
+                    <button onclick="showPage('services')" class="px-8 py-4 rounded-full bg-gradient-to-r from-primary to-blue-600 text-white font-bold text-lg hover:scale-105 transition duration-300 shadow-[0_0_30px_rgba(59,130,246,0.4)]">
+                        Hire The Agency
+                    </button>
+                    <button onclick="showPage('studio')" class="px-8 py-4 rounded-full glass border border-studio/50 text-white font-bold text-lg hover:bg-studio/10 transition duration-300 hover:scale-105 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+                        Enter The Studio
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECH STACK MARQUEE (New) -->
+        <section class="py-10 border-y border-white/5 bg-black/30 overflow-hidden relative z-20">
+            <div class="max-w-7xl mx-auto px-6 mb-6 text-center">
+                <p class="text-xs text-gray-500 uppercase tracking-widest font-bold">Powered by Industry Standard Tech</p>
+            </div>
+            <div class="relative flex overflow-x-hidden group w-full">
+                <div class="py-2 animate-marquee whitespace-nowrap flex items-center gap-16 min-w-full">
+                    <!-- Tech Icons (Duplicated for seamless scroll) -->
+                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-brands fa-stripe text-4xl mr-3"></i> Stripe</span>
+                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-brands fa-google text-3xl mr-3"></i> Google AI</span>
+                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-brands fa-aws text-3xl mr-3"></i> AWS</span>
+                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-brands fa-meta text-3xl mr-3"></i> Meta</span>
+                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-solid fa-bolt text-3xl mr-3"></i> OpenAI</span>
+                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-solid fa-robot text-3xl mr-3"></i> Midjourney</span>
+                    
+                    <!-- Duplicate Set -->
+                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-brands fa-stripe text-4xl mr-3"></i> Stripe</span>
+                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-brands fa-google text-3xl mr-3"></i> Google AI</span>
+                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-brands fa-aws text-3xl mr-3"></i> AWS</span>
+                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-brands fa-meta text-3xl mr-3"></i> Meta</span>
+                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-solid fa-bolt text-3xl mr-3"></i> OpenAI</span>
+                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-solid fa-robot text-3xl mr-3"></i> Midjourney</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Services Preview -->
+        <section class="py-20 px-6 bg-black/20 relative z-20">
+            <div class="max-w-7xl mx-auto text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">How We Help</h2>
+                <div class="grid md:grid-cols-3 gap-8 mt-10">
+                    <div class="glass p-6 rounded-2xl hover:bg-white/5 transition cursor-pointer" onclick="showPage('services')">
+                        <i class="fa-solid fa-laptop-code text-primary text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold">Web Design</h3>
+                    </div>
+                    <div class="glass p-6 rounded-2xl hover:bg-white/5 transition cursor-pointer" onclick="showPage('studio')">
+                        <i class="fa-solid fa-chalkboard-user text-studio text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold">AI Classes</h3>
+                    </div>
+                    <div class="glass p-6 rounded-2xl hover:bg-white/5 transition cursor-pointer" onclick="showPage('services')">
+                        <i class="fa-solid fa-robot text-accent text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold">Automation</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS (New) -->
+        <section class="py-24 px-6 relative z-20">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Real Results</h2>
+                    <p class="text-gray-400">Don't just take our word for it.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="glass p-8 rounded-3xl relative group hover:bg-white/5 transition duration-500" data-tilt>
+                        <i class="fa-solid fa-quote-left text-6xl text-primary/10 absolute top-4 left-4 group-hover:text-primary/20 transition"></i>
+                        <p class="text-gray-300 mb-8 pt-6 relative z-10 text-lg leading-relaxed">"I was quoted $5k for a website by another agency. Bridgeport AI built a better one for $499 in 3 days. The process was unreal."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 border border-white/20"></div>
+                            <div>
+                                <h4 class="font-bold text-white">Mike T.</h4>
+                                <p class="text-xs text-primary font-bold uppercase tracking-wider">Local HVAC Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="glass p-8 rounded-3xl relative group hover:bg-white/5 transition duration-500" data-tilt>
+                        <i class="fa-solid fa-quote-left text-6xl text-studio/10 absolute top-4 left-4 group-hover:text-studio/20 transition"></i>
+                        <p class="text-gray-300 mb-8 pt-6 relative z-10 text-lg leading-relaxed">"The AI class changed my life. I write all my real estate listings in seconds now instead of hours. Highly recommend for anyone busy."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 border border-white/20"></div>
+                            <div>
+                                <h4 class="font-bold text-white">Sarah J.</h4>
+                                <p class="text-xs text-studio font-bold uppercase tracking-wider">Realtor</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="glass p-8 rounded-3xl relative group hover:bg-white/5 transition duration-500" data-tilt>
+                        <i class="fa-solid fa-quote-left text-6xl text-accent/10 absolute top-4 left-4 group-hover:text-accent/20 transition"></i>
+                        <p class="text-gray-300 mb-8 pt-6 relative z-10 text-lg leading-relaxed">"Social media used to stress me out completely. Now it runs on autopilot. My sales are up 30% and I don't even have to think about it."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 border border-white/20"></div>
+                            <div>
+                                <h4 class="font-bold text-white">David R.</h4>
+                                <p class="text-xs text-accent font-bold uppercase tracking-wider">Coffee Shop Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION (New) -->
+        <section class="py-24 px-6 bg-black/30 relative z-20">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">Common Questions</h2>
+                <div class="space-y-4">
+                    <!-- Q1 -->
+                    <details class="glass p-6 rounded-2xl group cursor-pointer hover:bg-white/5 transition">
+                        <summary class="font-bold text-lg flex justify-between items-center text-gray-200 select-none">
+                            <span>Do I need to know how to code?</span>
+                            <span class="transition-transform duration-300 group-open:rotate-180 text-primary"><i class="fa-solid fa-chevron-down"></i></span>
+                        </summary>
+                        <p class="text-gray-400 mt-4 leading-relaxed pl-2 border-l-2 border-primary/30 ml-1">
+                            Absolutely not. For our Agency services, we handle 100% of the technical heavy lifting. For our Studio classes, we teach you how to use user-friendly AI tools that require zero coding knowledge.
+                        </p>
+                    </details>
+                    <!-- Q2 -->
+                    <details class="glass p-6 rounded-2xl group cursor-pointer hover:bg-white/5 transition">
+                        <summary class="font-bold text-lg flex justify-between items-center text-gray-200 select-none">
+                            <span>Why are you cheaper than other agencies?</span>
+                            <span class="transition-transform duration-300 group-open:rotate-180 text-primary"><i class="fa-solid fa-chevron-down"></i></span>
+                        </summary>
+                        <p class="text-gray-400 mt-4 leading-relaxed pl-2 border-l-2 border-primary/30 ml-1">
+                            Efficiency. Most agencies charge for hours of manual coding and copywriting. We use advanced AI to do 80% of that work in minutes, then spend our time polishing the design. We pass those savings directly to you.
+                        </p>
+                    </details>
+                    <!-- Q3 -->
+                    <details class="glass p-6 rounded-2xl group cursor-pointer hover:bg-white/5 transition">
+                        <summary class="font-bold text-lg flex justify-between items-center text-gray-200 select-none">
+                            <span>How long does a website take?</span>
+                            <span class="transition-transform duration-300 group-open:rotate-180 text-primary"><i class="fa-solid fa-chevron-down"></i></span>
+                        </summary>
+                        <p class="text-gray-400 mt-4 leading-relaxed pl-2 border-l-2 border-primary/30 ml-1">
+                            Our typical turnaround for a Launch Kit website is 3-5 business days. Once we have your info, we move fast.
+                        </p>
+                    </details>
+                    <!-- Q4 -->
+                    <details class="glass p-6 rounded-2xl group cursor-pointer hover:bg-white/5 transition">
+                        <summary class="font-bold text-lg flex justify-between items-center text-gray-200 select-none">
+                            <span>Is there a monthly fee for the website?</span>
+                            <span class="transition-transform duration-300 group-open:rotate-180 text-primary"><i class="fa-solid fa-chevron-down"></i></span>
+                        </summary>
+                        <p class="text-gray-400 mt-4 leading-relaxed pl-2 border-l-2 border-primary/30 ml-1">
+                            For the Launch Kit ($499), it is a one-time design fee. You will only pay for your own domain hosting (usually ~$10-20/month) which we help you set up in your own name so you own it forever.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== AGENCY SERVICES PAGE ==================== -->
+    <div id="services" class="page-section">
+        <section class="pt-32 pb-20 px-6 relative">
+            <!-- AGENCY LIGHTING: Blue Glow at Top -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-96 bg-primary/15 blur-[120px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-primary font-bold tracking-widest uppercase text-sm">For Businesses & Individuals</span>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 mt-2">We Build It For You</h1>
+                    <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                        Whether you run a company or you're just launching a side hustle, we provide the professional tech you need to look amazing.
+                    </p>
+                </div>
+
+                <!-- Service Grid (Removed Bottom Row: Automation, Chatbots, Local SEO) -->
+                <div class="grid md:grid-cols-3 gap-8 mb-20">
+                    
+                    <!-- Web Design -->
+                    <div class="glass p-8 rounded-3xl hover:bg-white/5 transition duration-300" data-aos="fade-up" data-tilt>
+                        <div class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center text-primary text-2xl mb-6">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Websites & Portfolios</h3>
+                        <p class="text-gray-400 mb-4 text-sm">Professional, mobile-friendly sites for businesses or personal portfolios.</p>
+                        <ul class="text-sm text-gray-300 space-y-2">
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Business Websites</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Personal Portfolios</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Landing Pages</li>
+                        </ul>
+                    </div>
+
+                    <!-- Logo Design -->
+                    <div class="glass p-8 rounded-3xl hover:bg-white/5 transition duration-300" data-aos="fade-up" data-aos-delay="100" data-tilt>
+                        <div class="w-14 h-14 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400 text-2xl mb-6">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Logo & Branding</h3>
+                        <p class="text-gray-400 mb-4 text-sm">Give your idea a real identity. Perfect for startups and creators.</p>
+                        <ul class="text-sm text-gray-300 space-y-2">
+                            <li><i class="fa-solid fa-check text-pink-400 mr-2"></i> Custom Logo Design</li>
+                            <li><i class="fa-solid fa-check text-pink-400 mr-2"></i> Brand Style Guides</li>
+                            <li><i class="fa-solid fa-check text-pink-400 mr-2"></i> Social Media Graphics</li>
+                        </ul>
+                    </div>
+
+                    <!-- Content & Writing -->
+                    <div class="glass p-8 rounded-3xl hover:bg-white/5 transition duration-300" data-aos="fade-up" data-aos-delay="200" data-tilt>
+                        <div class="w-14 h-14 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 text-2xl mb-6">
+                            <i class="fa-solid fa-feather"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Content & Writing</h3>
+                        <p class="text-gray-400 mb-4 text-sm">Professional bios, resumes, or website copy that sounds exactly like you.</p>
+                        <ul class="text-sm text-gray-300 space-y-2">
+                            <li><i class="fa-solid fa-check text-yellow-400 mr-2"></i> Professional Bios</li>
+                            <li><i class="fa-solid fa-check text-yellow-400 mr-2"></i> Blog Writing</li>
+                            <li><i class="fa-solid fa-check text-yellow-400 mr-2"></i> Resume Polishing</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- NEW CALL TO ACTION STRIP -->
+                <div class="glass rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-primary/30 mb-20 shadow-[0_0_30px_rgba(59,130,246,0.15)]">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">Not sure where to start?</h3>
+                        <p class="text-gray-300">Book a free 15-minute strategy call. We'll audit your business and tell you exactly what you need.</p>
+                    </div>
+                    <a href="#contact" class="px-8 py-3 rounded-xl bg-white text-dark font-bold hover:scale-105 transition shadow-lg whitespace-nowrap">
+                        Book Free Strategy Call
+                    </a>
+                </div>
+                
+                <!-- Process Section -->
+                <div class="mt-12">
+                    <h2 class="text-3xl font-bold text-center mb-16">How We Work</h2>
+                    <!-- PREMIUM PROCESS VISUAL -->
+                    <div class="relative">
+                        <!-- Connector Line (Desktop only) -->
+                        <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-primary/20 via-primary/50 to-primary/20 -translate-y-1/2 z-0"></div>
+                        
+                        <div class="grid md:grid-cols-4 gap-8 relative z-10">
+                            <!-- Step 1 -->
+                            <div class="group text-center">
+                                <div class="w-16 h-16 rounded-full bg-dark border-4 border-primary flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition duration-300 shadow-[0_0_20px_rgba(59,130,246,0.4)]">
+                                    <span class="text-2xl font-bold text-white">1</span>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition">Discovery</h4>
+                                <p class="text-sm text-gray-400">We learn your goals.</p>
+                            </div>
+                            <!-- Step 2 -->
+                            <div class="group text-center">
+                                <div class="w-16 h-16 rounded-full bg-dark border-4 border-primary/60 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition duration-300 group-hover:border-primary shadow-[0_0_20px_rgba(59,130,246,0.2)]">
+                                    <span class="text-2xl font-bold text-white">2</span>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition">Build</h4>
+                                <p class="text-sm text-gray-400">We create the assets.</p>
+                            </div>
+                            <!-- Step 3 -->
+                            <div class="group text-center">
+                                <div class="w-16 h-16 rounded-full bg-dark border-4 border-primary/60 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition duration-300 group-hover:border-primary shadow-[0_0_20px_rgba(59,130,246,0.2)]">
+                                    <span class="text-2xl font-bold text-white">3</span>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition">Review</h4>
+                                <p class="text-sm text-gray-400">You approve everything.</p>
+                            </div>
+                            <!-- Step 4 -->
+                            <div class="group text-center">
+                                <div class="w-16 h-16 rounded-full bg-dark border-4 border-primary/30 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition duration-300 group-hover:border-primary shadow-[0_0_20px_rgba(59,130,246,0.1)]">
+                                    <span class="text-2xl font-bold text-white">4</span>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition">Launch</h4>
+                                <p class="text-sm text-gray-400">We go live.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== THE STUDIO PAGE ==================== -->
+    <div id="studio" class="page-section">
+        <section class="pt-32 pb-20 px-6 relative">
+            <!-- Studio Green Glow -->
+            <div class="absolute top-0 right-0 w-full h-96 bg-studio/10 blur-[100px] pointer-events-none"></div>
+            
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <span class="text-studio font-bold tracking-widest uppercase text-sm"><i class="fa-solid fa-heart mr-2"></i> Community Learning</span>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 mt-2">Welcome to The Studio</h1>
+                    <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                        A friendly, non-judgmental space for Bridgeport locals to learn AI. No tech skills? No problem. We learn together.
+                    </p>
+                </div>
+
+                <!-- Main Offerings with Prices -->
+                <div class="grid md:grid-cols-3 gap-8 mb-20">
+                    <!-- Class 1 -->
+                    <div class="glass p-8 rounded-3xl border-t-4 border-studio hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-tilt>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold">AI 101</h3>
+                                <p class="text-studio font-bold text-xs uppercase tracking-wide mt-1">Beginner Friendly</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-3xl font-bold text-white">$49</span>
+                                <p class="text-xs text-gray-400">per seat</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-6">Never used ChatGPT? This is for you. We sit down with coffee and walk through the basics of using AI to write emails and plan your day.</p>
+                        <ul class="space-y-2 text-sm text-gray-300 mb-8">
+                            <li><i class="fa-solid fa-check text-studio mr-2"></i> 90 Minute Session</li>
+                            <li><i class="fa-solid fa-check text-studio mr-2"></i> Bring Your Own Laptop</li>
+                            <li><i class="fa-solid fa-check text-studio mr-2"></i> "Cheat Sheet" Included</li>
+                        </ul>
+                        <a href="#contact" class="block w-full py-3 text-center rounded-xl bg-studio hover:bg-green-600 text-white transition font-bold shadow-lg shadow-studio/20">Book Your Spot</a>
+                    </div>
+
+                    <!-- Class 2 -->
+                    <div class="glass p-8 rounded-3xl border-t-4 border-cyan-400 hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-aos-delay="100" data-tilt>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold">Prompt Pro</h3>
+                                <p class="text-cyan-400 font-bold text-xs uppercase tracking-wide mt-1">Intermediate</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-3xl font-bold text-white">$79</span>
+                                <p class="text-xs text-gray-400">per seat</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-6">Already using AI? Let's make you an expert. Learn the "secret language" to get perfect results for coding, marketing copy, and images.</p>
+                        <ul class="space-y-2 text-sm text-gray-300 mb-8">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> 2 Hour Deep Dive</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Advanced Templates</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Certificate of Completion</li>
+                        </ul>
+                        <a href="#contact" class="block w-full py-3 text-center rounded-xl border border-cyan-400/30 hover:bg-cyan-400/10 text-white transition font-bold">Join Waitlist</a>
+                    </div>
+
+                    <!-- Coaching -->
+                    <div class="glass p-8 rounded-3xl border-t-4 border-purple-400 hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-aos-delay="200" data-tilt>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold">1-on-1</h3>
+                                <p class="text-purple-400 font-bold text-xs uppercase tracking-wide mt-1">Private Coaching</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-3xl font-bold text-white">$149</span>
+                                <p class="text-xs text-gray-400">per hour</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-6">Specific problem? We sit down with you (in-person or Zoom) and solve it live. We build your workflow while you watch and learn.</p>
+                        <ul class="space-y-2 text-sm text-gray-300 mb-8">
+                            <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Personalized Agenda</li>
+                            <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Workflow Audit</li>
+                            <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Recording Provided</li>
+                        </ul>
+                        <a href="#contact" class="block w-full py-3 text-center rounded-xl border border-purple-400/30 hover:bg-purple-400/10 text-white transition font-bold">Request Session</a>
+                    </div>
+                </div>
+
+                <!-- Why Learn Section (Friendlier) -->
+                <div class="glass p-10 rounded-3xl flex flex-col md:flex-row items-center gap-10">
+                    <div class="md:w-1/2">
+                        <h3 class="text-3xl font-bold mb-4">A Safe Space to Learn</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed mb-4">
+                            We know tech can be scary. That's why The Studio isn't a classroom—it's a community hub. 
+                        </p>
+                        <p class="text-gray-400 mb-6">
+                            Ask the "dumb" questions. Make mistakes. We are all neighbors here figuring out the future together.
+                        </p>
+                        <div class="flex gap-4">
+                            <div class="px-4 py-2 rounded-lg bg-studio/10 border border-studio/20 text-studio text-sm font-bold">
+                                <i class="fa-solid fa-mug-hot mr-2"></i> Coffee Included
+                            </div>
+                            <div class="px-4 py-2 rounded-lg bg-studio/10 border border-studio/20 text-studio text-sm font-bold">
+                                <i class="fa-solid fa-user-group mr-2"></i> Small Groups
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="relative w-full max-w-md">
+                            <div class="absolute inset-0 bg-gradient-to-r from-studio to-cyan-400 rounded-2xl blur-2xl opacity-20"></div>
+                            <div class="relative w-full h-64 bg-dark/80 backdrop-blur-xl rounded-2xl flex flex-col items-center justify-center border border-white/10 p-6 text-center">
+                                <i class="fa-solid fa-hands-holding-circle text-6xl text-studio mb-4"></i>
+                                <h4 class="text-xl font-bold">"I finally understand ChatGPT!"</h4>
+                                <p class="text-gray-400 text-sm mt-2">- Sarah, Local Bakery Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== PRICING PAGE (CONSOLIDATED) ==================== -->
+    <div id="pricing" class="page-section">
+        <section class="pt-32 pb-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6">Transparent Pricing</h1>
+                    <p class="text-xl text-gray-400">Everything we offer, all in one place.</p>
+                </div>
+
+                <!-- Functional Toggle Switch -->
+                <div class="flex justify-center mb-16">
+                    <div class="glass p-1.5 rounded-full flex relative">
+                        <!-- Animated Background Pill -->
+                        <div id="toggle-pill" class="absolute top-1.5 bottom-1.5 left-1.5 w-[calc(50%-6px)] bg-white rounded-full transition-all duration-300 z-0"></div>
+                        
+                        <button onclick="switchPricing('agency')" id="btn-agency" class="relative z-10 px-8 py-3 rounded-full text-dark font-bold transition-colors duration-300 w-48">
+                            Agency Services
+                        </button>
+                        <button onclick="switchPricing('studio')" id="btn-studio" class="relative z-10 px-8 py-3 rounded-full text-gray-400 font-medium transition-colors duration-300 w-48">
+                            Studio Classes
+                        </button>
+                    </div>
+                </div>
+
+                <!-- AGENCY PRICING GRID -->
+                <div id="agency-pricing" class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start pricing-grid">
+                    <!-- Growth (Moved to first slot) -->
+                    <div class="glass p-8 rounded-3xl hover:bg-white/5 transition" data-tilt>
+                        <h3 class="text-xl font-bold text-gray-300 mb-2">Social Growth</h3>
+                        <div class="text-4xl font-bold text-white mb-4">$299</div>
+                        <p class="text-sm text-gray-400 mb-8">Per month</p>
+                        <div class="h-px bg-white/10 w-full mb-8"></div>
+                        <ul class="text-left space-y-4 mb-8 text-gray-300 text-sm">
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> 12 Branded Posts / Mo</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Content Calendar</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Post Scheduling</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Monthly Report</li>
+                        </ul>
+                        <a href="#contact" class="block w-full py-3 rounded-xl border border-white/20 hover:bg-white/10 transition font-semibold text-center">Subscribe</a>
+                    </div>
+
+                    <!-- Launch Kit (Highlighted) -->
+                    <div class="glass p-8 rounded-3xl border-2 border-primary shadow-[0_0_40px_rgba(59,130,246,0.2)] transform scale-105 bg-dark relative" data-tilt>
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg">BEST VALUE</div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Launch Kit</h3>
+                        <div class="text-5xl font-bold text-white mb-4">$499</div>
+                        <p class="text-sm text-gray-400 mb-8">One-time</p>
+                        <div class="h-px bg-white/10 w-full mb-8"></div>
+                        <ul class="text-left space-y-4 mb-8 text-gray-300">
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> <strong>5-Page</strong> Custom Website</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Logo & Brand Identity</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Google Map Setup</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> 30 Days Support</li>
+                        </ul>
+                        <a href="#contact" class="block w-full py-4 rounded-xl bg-primary hover:bg-blue-600 transition font-bold text-white shadow-lg text-center">Get Started</a>
+                    </div>
+
+                    <!-- Enterprise / Custom (Replaced Logo Kit) -->
+                    <div class="glass p-8 rounded-3xl hover:bg-white/5 transition" data-tilt>
+                        <h3 class="text-xl font-bold text-gray-300 mb-2">Enterprise</h3>
+                        <div class="text-4xl font-bold text-white mb-4">Custom</div>
+                        <p class="text-sm text-gray-400 mb-8">Tailored Solutions</p>
+                        <div class="h-px bg-white/10 w-full mb-8"></div>
+                        <ul class="text-left space-y-4 mb-8 text-gray-300 text-sm">
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Custom AI Chatbots</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Full CRM Integrations</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Workflow Automation</li>
+                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Priority 24/7 Support</li>
+                        </ul>
+                        <a href="#contact" class="block w-full py-3 rounded-xl border border-white/20 hover:bg-white/10 transition font-semibold text-center">Contact Us</a>
+                    </div>
+                </div>
+
+                <!-- STUDIO PRICING GRID (Hidden by default) -->
+                <div id="studio-pricing" class="hidden-grid grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start pricing-grid">
+                    <!-- AI 101 -->
+                    <div class="glass p-8 rounded-3xl hover:bg-white/5 transition" data-tilt>
+                        <h3 class="text-xl font-bold text-gray-300 mb-2">AI 101 Class</h3>
+                        <div class="text-4xl font-bold text-white mb-4">$49</div>
+                        <p class="text-sm text-gray-400 mb-8">Per seat</p>
+                        <div class="h-px bg-white/10 w-full mb-8"></div>
+                        <ul class="text-left space-y-4 mb-8 text-gray-300 text-sm">
+                            <li><i class="fa-solid fa-check text-studio mr-2"></i> Intro to ChatGPT</li>
+                            <li><i class="fa-solid fa-check text-studio mr-2"></i> Beginner Friendly</li>
+                            <li><i class="fa-solid fa-check text-studio mr-2"></i> PDF Guide Included</li>
+                        </ul>
+                        <a href="#contact" class="block w-full py-3 rounded-xl bg-studio hover:bg-green-600 text-white transition font-bold text-center">Book Class</a>
+                    </div>
+
+                    <!-- Prompt Pro -->
+                    <div class="glass p-8 rounded-3xl border-2 border-cyan-400 shadow-[0_0_40px_rgba(34,211,238,0.2)] transform scale-105 bg-dark relative" data-tilt>
+                        <h3 class="text-2xl font-bold text-white mb-2">Prompt Pro</h3>
+                        <div class="text-5xl font-bold text-white mb-4">$79</div>
+                        <p class="text-sm text-gray-400 mb-8">Per seat</p>
+                        <div class="h-px bg-white/10 w-full mb-8"></div>
+                        <ul class="text-left space-y-4 mb-8 text-gray-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Advanced Techniques</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Image Gen Training</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Coding with AI</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Certificate</li>
+                        </ul>
+                        <a href="#contact" class="block w-full py-4 rounded-xl bg-cyan-600 hover:bg-cyan-500 transition font-bold text-white shadow-lg text-center">Book Class</a>
+                    </div>
+
+                    <!-- Coaching -->
+                    <div class="glass p-8 rounded-3xl hover:bg-white/5 transition" data-tilt>
+                        <h3 class="text-xl font-bold text-gray-300 mb-2">1-on-1 Coaching</h3>
+                        <div class="text-4xl font-bold text-white mb-4">$149</div>
+                        <p class="text-sm text-gray-400 mb-8">Per hour</p>
+                        <div class="h-px bg-white/10 w-full mb-8"></div>
+                        <ul class="text-left space-y-4 mb-8 text-gray-300 text-sm">
+                            <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Private Session</li>
+                            <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Custom Agenda</li>
+                            <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Workflow Audit</li>
+                        </ul>
+                        <a href="#contact" class="block w-full py-3 rounded-xl border border-white/20 hover:bg-white/10 transition font-semibold text-center">Request Time</a>
+                    </div>
+                </div>
+                
+                <!-- Custom Contact -->
+                <div class="mt-16 text-center glass max-w-2xl mx-auto p-6 rounded-2xl">
+                    <p class="text-gray-300 mb-4">Need something else? Chatbots, Local SEO, or Enterprise Automation?</p>
+                    <a href="#contact" class="text-primary font-bold text-lg hover:underline">Contact us for a custom quote &rarr;</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== ABOUT PAGE ==================== -->
+    <div id="about" class="page-section">
+        <section class="pt-32 pb-20 px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h1 class="text-5xl font-bold mb-6">Our Mission</h1>
+                    <p class="text-xl text-gray-400">It's about more than just code.</p>
+                </div>
+
+                <div class="glass p-12 rounded-3xl mb-12 relative overflow-hidden" data-aos="fade-up">
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 rounded-full blur-[80px]"></div>
+                    
+                    <h2 class="text-3xl font-bold mb-6">Bridgeport was once the industrial capital of the world.</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        We built the machines that powered a nation. But as the world shifted to digital, too many of our local businesses were left fighting to catch up.
+                    </p>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        I started Bridgeport AI Solutions because I refused to watch my community fall behind. Artificial Intelligence is the greatest equalizer in history. It gives a small pizza shop the marketing power of a corporation. It gives a local accountant the efficiency of a Wall Street firm.
+                    </p>
+                    <h3 class="text-2xl font-bold text-white mt-8 mb-4">We are building the Digital Capital.</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        This isn't just a web design agency. This is an infrastructure project. Every website we launch, every student we teach, and every system we automate is a brick in the foundation of Bridgeport's future.
+                    </p>
+                    <div class="mt-10 pt-10 border-t border-white/10 flex items-center gap-4">
+                        <img src="logo.png" alt="Logo" class="h-12 opacity-50">
+                        <div>
+                            <p class="font-bold text-white">The Founder</p>
+                            <p class="text-sm text-gray-500">Bridgeport AI Solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== CONTACT SECTION (SHARED) ==================== -->
+    <section id="contact" class="py-24 px-6 border-t border-white/5 bg-black/40">
+        <div class="max-w-3xl mx-auto glass p-10 rounded-3xl" data-aos="flip-up">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold mb-4">Let's Build The Future</h2>
+                <p class="text-gray-400">Tell us what you need. We are ready.</p>
+            </div>
+
+            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-bold mb-2 text-gray-300">Name</label>
+                        <input type="text" name="name" class="w-full p-4 rounded-xl bg-black/30 border border-white/10 text-white focus:border-primary focus:outline-none transition" placeholder="John Doe" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2 text-gray-300">Email</label>
+                        <input type="email" name="email" class="w-full p-4 rounded-xl bg-black/30 border border-white/10 text-white focus:border-primary focus:outline-none transition" placeholder="john@example.com" required>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold mb-2 text-gray-300">Interested In</label>
+                    <select name="service" class="w-full p-4 rounded-xl bg-black/30 border border-white/10 text-white focus:border-primary focus:outline-none transition">
+                        <option class="bg-dark" disabled selected>Select an option...</option>
+                        <optgroup label="Agency Services">
+                            <option class="bg-dark">Business Launch Kit ($499)</option>
+                            <option class="bg-dark">Social Media ($299/mo)</option>
+                            <option class="bg-dark">Logo & Branding ($199)</option>
+                            <option class="bg-dark">Custom Website/Chatbot</option>
+                        </optgroup>
+                        <optgroup label="The Studio">
+                            <option class="bg-dark">AI 101 Class ($49)</option>
+                            <option class="bg-dark">Prompt Pro Class ($79)</option>
+                            <option class="bg-dark">1-on-1 Coaching ($149/hr)</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold mb-2 text-gray-300">Message</label>
+                    <textarea name="message" class="w-full p-4 rounded-xl bg-black/30 border border-white/10 text-white focus:border-primary focus:outline-none transition h-32" placeholder="Tell us about your goals..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-primary to-blue-600 text-white font-bold text-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] hover:scale-[1.02] transition duration-300">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/5 text-center text-gray-500 text-sm bg-dark">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>&copy; 2025 Bridgeport AI Solutions. Built with Future Tech.</p>
+            <div class="flex gap-4 text-lg">
+                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dependencies and Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <script>
+        // 1. Initialize Animations
+        AOS.init({
+            once: false,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // 2. Particles Config
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#3b82f6" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.3, "random": true },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#3b82f6", "opacity": 0.2, "width": 1 },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } } }
+            },
+            "retina_detect": true
+        });
+
+        // 3. Page Navigation Logic
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            const activePage = document.getElementById(pageId);
+            if(activePage) {
+                activePage.classList.add('active');
+            }
+
+            window.scrollTo(0, 0);
+            setTimeout(() => { AOS.refresh(); }, 100);
+        }
+
+        // 4. Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // 5. Pricing Switch Logic
+        function switchPricing(type) {
+            const agencyGrid = document.getElementById('agency-pricing');
+            const studioGrid = document.getElementById('studio-pricing');
+            const pill = document.getElementById('toggle-pill');
+            const btnAgency = document.getElementById('btn-agency');
+            const btnStudio = document.getElementById('btn-studio');
+
+            if (type === 'agency') {
+                agencyGrid.style.display = 'grid';
+                studioGrid.style.display = 'none';
+                
+                pill.style.transform = 'translateX(0)';
+                pill.style.width = '192px'; // Matches button width
+                
+                btnAgency.classList.add('text-dark', 'font-bold');
+                btnAgency.classList.remove('text-gray-400', 'font-medium');
+                
+                btnStudio.classList.add('text-gray-400', 'font-medium');
+                btnStudio.classList.remove('text-dark', 'font-bold');
+            } else {
+                agencyGrid.style.display = 'none';
+                studioGrid.style.display = 'grid';
+                
+                pill.style.transform = 'translateX(192px)'; // Shifts to the right
+                
+                btnStudio.classList.add('text-dark', 'font-bold');
+                btnStudio.classList.remove('text-gray-400', 'font-medium');
+                
+                btnAgency.classList.add('text-gray-400', 'font-medium');
+                btnAgency.classList.remove('text-dark', 'font-bold');
+            }
+            
+            // Refresh tilt logic for new visible cards
+            setTimeout(() => {
+                VanillaTilt.init(document.querySelectorAll("[data-tilt]"));
+            }, 100);
+        }
+    </script>
+</body>
+</html>
