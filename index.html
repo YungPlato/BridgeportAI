@@ -240,7 +240,7 @@
         <!-- ==================== HOME PAGE ==================== -->
         <div id="home" class="page-section active">
             <!-- Hero Section -->
-        <section class="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
+            <section class="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
             <!-- Video Background -->
             <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
                 <video autoplay loop muted playsinline preload="metadata" class="absolute w-full h-full object-cover opacity-40">
@@ -481,8 +481,6 @@
         </section>
     </div>
 
-        </div>
-
         <!-- ==================== AGENCY SERVICES PAGE ==================== -->
         <div id="services" class="page-section">
             <section class="pt-32 pb-20 px-6 relative">
@@ -604,8 +602,6 @@
         </section>
     </div>
 
-        </div>
-
         <!-- ==================== THE STUDIO PAGE ==================== -->
         <div id="studio" class="page-section">
             <section class="pt-32 pb-20 px-6 relative">
@@ -720,8 +716,6 @@
             </div>
         </section>
     </div>
-
-        </div>
 
         <!-- ==================== PRICING PAGE (CONSOLIDATED) ==================== -->
         <div id="pricing" class="page-section">
@@ -850,8 +844,6 @@
             </div>
         </section>
     </div>
-
-        </div>
 
         <!-- ==================== ABOUT PAGE ==================== -->
         <div id="about" class="page-section">
@@ -1054,6 +1046,9 @@
                 agencyGrid.style.display = 'grid';
                 studioGrid.style.display = 'none';
                 
+                agencyGrid.classList.remove('hidden-grid');
+                studioGrid.classList.add('hidden-grid');
+
                 pill.style.transform = 'translateX(0)';
                 pill.style.width = '192px'; // Matches button width
                 
@@ -1066,6 +1061,9 @@
                 agencyGrid.style.display = 'none';
                 studioGrid.style.display = 'grid';
                 
+                agencyGrid.classList.add('hidden-grid');
+                studioGrid.classList.remove('hidden-grid');
+
                 pill.style.transform = 'translateX(192px)'; // Shifts to the right
                 
                 btnStudio.classList.add('text-dark', 'font-bold');
