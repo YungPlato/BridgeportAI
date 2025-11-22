@@ -29,30 +29,64 @@
 
         /* Glassmorphism */
         .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .glass:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.15);
         }
         
         .glass-nav {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         /* Animated Gradient Text */
         .animate-text {
-            background-size: 200%;
+            background: linear-gradient(to right, #3b82f6, #a855f7, #10b981, #3b82f6);
+            background-size: 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: animated-gradient 3s linear infinite alternate;
+            animation: animated-gradient 6s linear infinite;
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(to right, #FDB931, #ffd700, #FDB931);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         @keyframes animated-gradient {
             0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Premium Button Glows */
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-glow::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.1) 60%, rgba(255,255,255,0) 100%);
+            transform: rotate(45deg) translateY(-100%);
+            transition: transform 0.6s;
+        }
+        .btn-glow:hover::after {
+            transform: rotate(45deg) translateY(0%);
         }
         
         /* Marquee Animation */
@@ -67,16 +101,34 @@
         /* Page Transitions */
         .page-section {
             display: none;
-            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
         
         .page-section.active {
             display: block;
+            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .page-section.exiting {
+            display: block;
+            animation: fadeOut 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 0;
         }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); filter: blur(10px); }
             to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateY(0); filter: blur(0); }
+            to { opacity: 0; transform: translateY(-20px); filter: blur(10px); }
         }
 
         /* Pricing Toggle Animation */
@@ -103,11 +155,18 @@
 
         /* Pulse Animation for CTA */
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
-            50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); }
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); transform: scale(1); }
+            50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); transform: scale(1.02); }
         }
         .cta-pulse {
-            animation: pulse-glow 2s infinite;
+            animation: pulse-glow 3s infinite;
+        }
+
+        /* Premium Icon Styles */
+        .icon-premium {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: inset 0 0 15px rgba(255,255,255,0.05);
         }
         
         /* FAQ Details */
@@ -141,7 +200,7 @@
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" onclick="showPage('home')" class="flex items-center gap-3 group cursor-pointer">
-                <img src="logo.png" alt="Bridgeport AI" class="h-10 w-auto group-hover:scale-110 transition duration-300"> 
+                <img src="logo.png" alt="Bridgeport AI" class="h-10 w-auto group-hover:scale-110 transition duration-300" loading="lazy">
             </a>
             
             <!-- Desktop Menu -->
@@ -182,7 +241,7 @@
         <section class="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
             <!-- Video Background -->
             <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
-                <video autoplay loop muted playsinline class="absolute w-full h-full object-cover opacity-40">
+                <video autoplay loop muted playsinline preload="metadata" class="absolute w-full h-full object-cover opacity-40">
                     <source src="assets/hero-background.mp4" type="video/mp4">
                 </video>
                 <!-- Overlay for readability -->
@@ -214,10 +273,10 @@
                     We are a hybrid <strong>AI Agency</strong> and <strong>Learning Studio</strong>. Whether you need a website built <em>for</em> you, or you want to learn how to use AI <em>yourself</em>, we are the bridge to your future.
                 </p>
                 <div class="flex flex-col md:flex-row gap-6 justify-center">
-                    <button onclick="showPage('services')" class="px-8 py-4 rounded-full bg-gradient-to-r from-primary to-blue-600 text-white font-bold text-lg hover:scale-105 transition duration-300 shadow-[0_0_30px_rgba(59,130,246,0.4)]">
+                <button onclick="showPage('services')" class="btn-glow px-8 py-4 rounded-full bg-gradient-to-r from-primary to-blue-600 text-white font-bold text-lg hover:scale-105 transition duration-300 shadow-[0_0_30px_rgba(59,130,246,0.4)]">
                         Hire The Agency
                     </button>
-                    <button onclick="showPage('studio')" class="px-8 py-4 rounded-full glass border border-studio/50 text-white font-bold text-lg hover:bg-studio/10 transition duration-300 hover:scale-105 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+                <button onclick="showPage('studio')" class="btn-glow px-8 py-4 rounded-full glass border border-studio/50 text-white font-bold text-lg hover:bg-studio/10 transition duration-300 hover:scale-105 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
                         Enter The Studio
                     </button>
                 </div>
@@ -256,15 +315,21 @@
                 <h2 class="text-3xl font-bold mb-4">How We Help</h2>
                 <div class="grid md:grid-cols-3 gap-8 mt-10">
                     <div class="glass p-6 rounded-2xl hover:bg-white/5 transition cursor-pointer" onclick="showPage('services')">
-                        <i class="fa-solid fa-laptop-code text-primary text-3xl mb-4"></i>
+                        <div class="w-16 h-16 rounded-full icon-premium flex items-center justify-center mb-4 mx-auto">
+                            <i class="fa-solid fa-laptop-code text-primary text-3xl"></i>
+                        </div>
                         <h3 class="text-xl font-bold">Web Design</h3>
                     </div>
                     <div class="glass p-6 rounded-2xl hover:bg-white/5 transition cursor-pointer" onclick="showPage('studio')">
-                        <i class="fa-solid fa-chalkboard-user text-studio text-3xl mb-4"></i>
+                        <div class="w-16 h-16 rounded-full icon-premium flex items-center justify-center mb-4 mx-auto">
+                            <i class="fa-solid fa-chalkboard-user text-studio text-3xl"></i>
+                        </div>
                         <h3 class="text-xl font-bold">AI Classes</h3>
                     </div>
                     <div class="glass p-6 rounded-2xl hover:bg-white/5 transition cursor-pointer" onclick="showPage('services')">
-                        <i class="fa-solid fa-robot text-accent text-3xl mb-4"></i>
+                        <div class="w-16 h-16 rounded-full icon-premium flex items-center justify-center mb-4 mx-auto">
+                            <i class="fa-solid fa-robot text-accent text-3xl"></i>
+                        </div>
                         <h3 class="text-xl font-bold">Automation</h3>
                     </div>
                 </div>
@@ -845,13 +910,13 @@
         // 2. Particles Config
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 30, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#3b82f6" },
                 "shape": { "type": "circle" },
                 "opacity": { "value": 0.3, "random": true },
                 "size": { "value": 3, "random": true },
                 "line_linked": { "enable": true, "distance": 150, "color": "#3b82f6", "opacity": 0.2, "width": 1 },
-                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+                "move": { "enable": true, "speed": 1, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
             },
             "interactivity": {
                 "detect_on": "canvas",
@@ -862,19 +927,45 @@
         });
 
         // 3. Page Navigation Logic
+        let isTransitioning = false;
+
         function showPage(pageId) {
-            const pages = document.querySelectorAll('.page-section');
-            pages.forEach(page => {
-                page.classList.remove('active');
-            });
+            if (isTransitioning) return;
 
-            const activePage = document.getElementById(pageId);
-            if(activePage) {
-                activePage.classList.add('active');
+            const activePage = document.querySelector('.page-section.active');
+            const targetPage = document.getElementById(pageId);
+
+            // If clicking the same page, do nothing
+            if (activePage === targetPage) return;
+
+            if (activePage) {
+                isTransitioning = true;
+
+                // Exit current page
+                activePage.classList.remove('active');
+                activePage.classList.add('exiting');
+
+                // Scroll to top smoothly before the new page comes in
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                setTimeout(() => {
+                    activePage.classList.remove('exiting');
+
+                    // Enter new page
+                    if(targetPage) {
+                        targetPage.classList.add('active');
+                        // Re-trigger AOS animations
+                        setTimeout(() => { AOS.refresh(); }, 100);
+                    }
+                    isTransitioning = false;
+                }, 400); // Matches fadeOut duration
+            } else {
+                // Initial load
+                if(targetPage) {
+                    targetPage.classList.add('active');
+                    setTimeout(() => { AOS.refresh(); }, 100);
+                }
             }
-
-            window.scrollTo(0, 0);
-            setTimeout(() => { AOS.refresh(); }, 100);
         }
 
         // 4. Mobile Menu Toggle
