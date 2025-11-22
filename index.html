@@ -141,7 +141,7 @@
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" onclick="showPage('home')" class="flex items-center gap-3 group cursor-pointer">
-                <img src="logo.png" alt="Bridgeport AI" class="h-10 w-auto group-hover:scale-110 transition duration-300"> 
+                <img src="logo.png" alt="Bridgeport AI" class="h-10 w-auto group-hover:scale-110 transition duration-300" loading="lazy">
             </a>
             
             <!-- Desktop Menu -->
@@ -182,7 +182,7 @@
         <section class="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
             <!-- Video Background -->
             <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
-                <video autoplay loop muted playsinline class="absolute w-full h-full object-cover opacity-40">
+                <video autoplay loop muted playsinline preload="metadata" class="absolute w-full h-full object-cover opacity-40">
                     <source src="assets/hero-background.mp4" type="video/mp4">
                 </video>
                 <!-- Overlay for readability -->
@@ -280,11 +280,11 @@
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- Card 1 -->
-                    <div class="glass p-8 rounded-3xl relative group hover:bg-white/5 transition duration-500" data-tilt>
+                    <div class="glass p-8 rounded-3xl relative group hover:bg-white/10 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] hover:-translate-y-2 transition duration-500" data-tilt>
                         <i class="fa-solid fa-quote-left text-6xl text-primary/10 absolute top-4 left-4 group-hover:text-primary/20 transition"></i>
                         <p class="text-gray-300 mb-8 pt-6 relative z-10 text-lg leading-relaxed">"I was quoted $5k for a website by another agency. Bridgeport AI built a better one for $499 in 3 days. The process was unreal."</p>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 border border-white/20"></div>
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Mike T." class="w-12 h-12 rounded-full border-2 border-primary/50 object-cover">
                             <div>
                                 <h4 class="font-bold text-white">Mike T.</h4>
                                 <p class="text-xs text-primary font-bold uppercase tracking-wider">Local HVAC Owner</p>
@@ -292,11 +292,11 @@
                         </div>
                     </div>
                     <!-- Card 2 -->
-                    <div class="glass p-8 rounded-3xl relative group hover:bg-white/5 transition duration-500" data-tilt>
+                    <div class="glass p-8 rounded-3xl relative group hover:bg-white/10 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] hover:-translate-y-2 transition duration-500" data-tilt>
                         <i class="fa-solid fa-quote-left text-6xl text-studio/10 absolute top-4 left-4 group-hover:text-studio/20 transition"></i>
                         <p class="text-gray-300 mb-8 pt-6 relative z-10 text-lg leading-relaxed">"The AI class changed my life. I write all my real estate listings in seconds now instead of hours. Highly recommend for anyone busy."</p>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 border border-white/20"></div>
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah J." class="w-12 h-12 rounded-full border-2 border-studio/50 object-cover">
                             <div>
                                 <h4 class="font-bold text-white">Sarah J.</h4>
                                 <p class="text-xs text-studio font-bold uppercase tracking-wider">Realtor</p>
@@ -304,11 +304,11 @@
                         </div>
                     </div>
                     <!-- Card 3 -->
-                    <div class="glass p-8 rounded-3xl relative group hover:bg-white/5 transition duration-500" data-tilt>
+                    <div class="glass p-8 rounded-3xl relative group hover:bg-white/10 hover:shadow-[0_0_30px_rgba(249,115,22,0.15)] hover:-translate-y-2 transition duration-500" data-tilt>
                         <i class="fa-solid fa-quote-left text-6xl text-accent/10 absolute top-4 left-4 group-hover:text-accent/20 transition"></i>
                         <p class="text-gray-300 mb-8 pt-6 relative z-10 text-lg leading-relaxed">"Social media used to stress me out completely. Now it runs on autopilot. My sales are up 30% and I don't even have to think about it."</p>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 border border-white/20"></div>
+                            <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="David R." class="w-12 h-12 rounded-full border-2 border-accent/50 object-cover">
                             <div>
                                 <h4 class="font-bold text-white">David R.</h4>
                                 <p class="text-xs text-accent font-bold uppercase tracking-wider">Coffee Shop Owner</p>
@@ -845,7 +845,7 @@
         // 2. Particles Config
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#3b82f6" },
                 "shape": { "type": "circle" },
                 "opacity": { "value": 0.3, "random": true },
@@ -855,8 +855,8 @@
             },
             "interactivity": {
                 "detect_on": "canvas",
-                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
-                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } } }
+                "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": { "bubble": { "distance": 200, "size": 6, "duration": 2, "opacity": 0.8, "speed": 3 } }
             },
             "retina_detect": true
         });
