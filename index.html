@@ -200,7 +200,7 @@
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" onclick="showPage('home')" class="flex items-center gap-3 group cursor-pointer">
-                <img src="logo.png" alt="Bridgeport AI" class="h-10 w-auto group-hover:scale-110 transition duration-300" loading="lazy">
+                <img src="logo.png" alt="Bridgeport AI" class="h-10 w-auto group-hover:scale-110 transition duration-300">
             </a>
             
             <!-- Desktop Menu -->
@@ -235,9 +235,11 @@
         </div>
     </nav>
 
-    <!-- ==================== HOME PAGE ==================== -->
-    <div id="home" class="page-section active">
-        <!-- Hero Section -->
+    <!-- Main Content Container -->
+    <main id="main-content" class="flex-grow relative min-h-screen">
+        <!-- ==================== HOME PAGE ==================== -->
+        <div id="home" class="page-section active">
+            <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
             <!-- Video Background -->
             <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
@@ -336,6 +338,51 @@
             </div>
         </section>
 
+        <!-- INDUSTRIES WE SERVE (New Enhancement) -->
+        <section class="py-20 px-6 border-y border-white/5 bg-dark/50 relative z-20">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-primary font-bold tracking-widest uppercase text-xs">Bridgeport's One-Stop Shop</span>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4 mt-2">Who We Serve</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">AI isn't just for big tech. It's for the backbone of our local economy.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Real Estate -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-1 transition text-center group">
+                        <div class="w-12 h-12 mx-auto bg-blue-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-500/20 transition">
+                            <i class="fa-solid fa-house text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-white mb-1">Real Estate</h3>
+                        <p class="text-xs text-gray-400">Listing Generators</p>
+                    </div>
+                    <!-- Trades -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-1 transition text-center group">
+                        <div class="w-12 h-12 mx-auto bg-orange-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-orange-500/20 transition">
+                            <i class="fa-solid fa-hammer text-orange-400 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-white mb-1">Local Trades</h3>
+                        <p class="text-xs text-gray-400">Quote Automation</p>
+                    </div>
+                    <!-- Hospitality -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-1 transition text-center group">
+                        <div class="w-12 h-12 mx-auto bg-purple-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-500/20 transition">
+                            <i class="fa-solid fa-utensils text-purple-400 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-white mb-1">Hospitality</h3>
+                        <p class="text-xs text-gray-400">Social & Menus</p>
+                    </div>
+                    <!-- Retail -->
+                    <div class="glass p-6 rounded-2xl hover:-translate-y-1 transition text-center group">
+                        <div class="w-12 h-12 mx-auto bg-green-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-green-500/20 transition">
+                            <i class="fa-solid fa-shop text-green-400 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-white mb-1">Retail</h3>
+                        <p class="text-xs text-gray-400">Inventory & Ads</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- TESTIMONIALS (New) -->
         <section class="py-24 px-6 relative z-20">
             <div class="max-w-7xl mx-auto">
@@ -349,7 +396,7 @@
                         <i class="fa-solid fa-quote-left text-6xl text-primary/10 absolute top-4 left-4 group-hover:text-primary/20 transition"></i>
                         <p class="text-gray-300 mb-8 pt-6 relative z-10 text-lg leading-relaxed">"I was quoted $5k for a website by another agency. Bridgeport AI built a better one for $499 in 3 days. The process was unreal."</p>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 border border-white/20"></div>
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Mike T." class="w-12 h-12 rounded-full border-2 border-primary/50" loading="lazy">
                             <div>
                                 <h4 class="font-bold text-white">Mike T.</h4>
                                 <p class="text-xs text-primary font-bold uppercase tracking-wider">Local HVAC Owner</p>
@@ -361,7 +408,7 @@
                         <i class="fa-solid fa-quote-left text-6xl text-studio/10 absolute top-4 left-4 group-hover:text-studio/20 transition"></i>
                         <p class="text-gray-300 mb-8 pt-6 relative z-10 text-lg leading-relaxed">"The AI class changed my life. I write all my real estate listings in seconds now instead of hours. Highly recommend for anyone busy."</p>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 border border-white/20"></div>
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah J." class="w-12 h-12 rounded-full border-2 border-studio/50" loading="lazy">
                             <div>
                                 <h4 class="font-bold text-white">Sarah J.</h4>
                                 <p class="text-xs text-studio font-bold uppercase tracking-wider">Realtor</p>
@@ -373,7 +420,7 @@
                         <i class="fa-solid fa-quote-left text-6xl text-accent/10 absolute top-4 left-4 group-hover:text-accent/20 transition"></i>
                         <p class="text-gray-300 mb-8 pt-6 relative z-10 text-lg leading-relaxed">"Social media used to stress me out completely. Now it runs on autopilot. My sales are up 30% and I don't even have to think about it."</p>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 border border-white/20"></div>
+                            <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="David R." class="w-12 h-12 rounded-full border-2 border-accent/50" loading="lazy">
                             <div>
                                 <h4 class="font-bold text-white">David R.</h4>
                                 <p class="text-xs text-accent font-bold uppercase tracking-wider">Coffee Shop Owner</p>
@@ -434,9 +481,11 @@
         </section>
     </div>
 
-    <!-- ==================== AGENCY SERVICES PAGE ==================== -->
-    <div id="services" class="page-section">
-        <section class="pt-32 pb-20 px-6 relative">
+        </div>
+
+        <!-- ==================== AGENCY SERVICES PAGE ==================== -->
+        <div id="services" class="page-section">
+            <section class="pt-32 pb-20 px-6 relative">
             <!-- AGENCY LIGHTING: Blue Glow at Top -->
             <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-96 bg-primary/15 blur-[120px] pointer-events-none"></div>
 
@@ -555,9 +604,11 @@
         </section>
     </div>
 
-    <!-- ==================== THE STUDIO PAGE ==================== -->
-    <div id="studio" class="page-section">
-        <section class="pt-32 pb-20 px-6 relative">
+        </div>
+
+        <!-- ==================== THE STUDIO PAGE ==================== -->
+        <div id="studio" class="page-section">
+            <section class="pt-32 pb-20 px-6 relative">
             <!-- Studio Green Glow -->
             <div class="absolute top-0 right-0 w-full h-96 bg-studio/10 blur-[100px] pointer-events-none"></div>
             
@@ -670,9 +721,11 @@
         </section>
     </div>
 
-    <!-- ==================== PRICING PAGE (CONSOLIDATED) ==================== -->
-    <div id="pricing" class="page-section">
-        <section class="pt-32 pb-20 px-6">
+        </div>
+
+        <!-- ==================== PRICING PAGE (CONSOLIDATED) ==================== -->
+        <div id="pricing" class="page-section">
+            <section class="pt-32 pb-20 px-6">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-12">
                     <h1 class="text-5xl md:text-6xl font-bold mb-6">Transparent Pricing</h1>
@@ -798,9 +851,11 @@
         </section>
     </div>
 
-    <!-- ==================== ABOUT PAGE ==================== -->
-    <div id="about" class="page-section">
-        <section class="pt-32 pb-20 px-6">
+        </div>
+
+        <!-- ==================== ABOUT PAGE ==================== -->
+        <div id="about" class="page-section">
+            <section class="pt-32 pb-20 px-6">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-16" data-aos="fade-up">
                     <h1 class="text-5xl font-bold mb-6">Our Mission</h1>
@@ -831,7 +886,8 @@
                 </div>
             </div>
         </section>
-    </div>
+        </div>
+    </main>
 
     <!-- ==================== CONTACT SECTION (SHARED) ==================== -->
     <section id="contact" class="py-24 px-6 border-t border-white/5 bg-black/40">
@@ -881,13 +937,25 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 border-t border-white/5 text-center text-gray-500 text-sm bg-dark">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p>&copy; 2025 Bridgeport AI Solutions. Built with Future Tech.</p>
-            <div class="flex gap-4 text-lg">
-                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-linkedin"></i></a>
+    <footer class="py-10 border-t border-white/5 text-center text-gray-500 text-sm bg-dark relative z-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
+                <div class="text-left">
+                    <p class="text-white font-bold text-lg mb-1">Bridgeport AI Solutions</p>
+                    <p class="text-xs"><i class="fa-solid fa-location-dot text-primary mr-2"></i> Proudly Based in Bridgeport, CT</p>
+                </div>
+                <div class="flex gap-6 text-xl">
+                    <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:text-white hover:bg-primary transition duration-300"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:text-white hover:bg-pink-600 transition duration-300"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:text-white hover:bg-blue-700 transition duration-300"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>&copy; 2025 Bridgeport AI Solutions. All rights reserved.</p>
+                <div class="flex gap-4 text-xs">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
