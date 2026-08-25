@@ -6,6 +6,13 @@
     <title>Bridgeport AI Solutions | Future-Proof Your Business</title>
     <meta name="description" content="Bridgeport's premier AI agency and learning studio. Websites, Automation, and AI Classes for local businesses.">
     
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -298,8 +305,7 @@
     <!-- Preloader -->
     <div id="preloader">
         <div class="text-center">
-            <span class="loader mb-4"></span>
-            <h2 class="text-xl font-bold animate-pulse tracking-widest">LOADING</h2>
+            <span class="loader"></span>
         </div>
     </div>
 
@@ -319,7 +325,10 @@
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" onclick="showPage('home')" class="flex items-center gap-3 group cursor-pointer">
-                <img src="logo.png" alt="Bridgeport AI" class="h-10 w-auto group-hover:scale-110 transition duration-300">
+                <picture>
+                    <source srcset="assets/logo.webp" type="image/webp">
+                    <img src="assets/logo.png" alt="Bridgeport AI" width="160" height="40" class="h-10 w-auto group-hover:scale-110 transition duration-300">
+                </picture>
             </a>
             
             <!-- Desktop Menu -->
@@ -362,7 +371,7 @@
             <section class="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
             <!-- Video Background -->
             <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
-                <video autoplay loop muted playsinline preload="metadata" class="absolute w-full h-full object-cover opacity-40">
+                <video autoplay loop muted playsinline preload="metadata" poster="assets/hero-poster.webp" class="absolute w-full h-full object-cover opacity-40">
                     <source src="assets/hero-background.mp4" type="video/mp4">
                 </video>
                 <!-- Overlay for readability -->
@@ -515,7 +524,10 @@
                         <i class="fa-solid fa-quote-left text-6xl text-primary/10 absolute top-4 left-4 group-hover:text-primary/20 transition"></i>
                         <p class="text-gray-300 mb-8 pt-6 relative z-10 text-lg leading-relaxed">"I was quoted $5k for a website by another agency. Bridgeport AI built a better one for $499 in 3 days. The process was unreal."</p>
                         <div class="flex items-center gap-4">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Mike T." class="w-12 h-12 rounded-full border-2 border-primary/50" loading="lazy">
+                            <picture>
+                                <source srcset="assets/testimonial-1.webp" type="image/webp">
+                                <img src="assets/testimonial-1.jpg" alt="Mike T." width="48" height="48" class="w-12 h-12 rounded-full border-2 border-primary/50" loading="lazy">
+                            </picture>
                             <div>
                                 <h4 class="font-bold text-white">Mike T.</h4>
                                 <p class="text-xs text-primary font-bold uppercase tracking-wider">Local HVAC Owner</p>
@@ -527,7 +539,10 @@
                         <i class="fa-solid fa-quote-left text-6xl text-studio/10 absolute top-4 left-4 group-hover:text-studio/20 transition"></i>
                         <p class="text-gray-300 mb-8 pt-6 relative z-10 text-lg leading-relaxed">"The AI class changed my life. I write all my real estate listings in seconds now instead of hours. Highly recommend for anyone busy."</p>
                         <div class="flex items-center gap-4">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah J." class="w-12 h-12 rounded-full border-2 border-studio/50" loading="lazy">
+                            <picture>
+                                <source srcset="assets/testimonial-2.webp" type="image/webp">
+                                <img src="assets/testimonial-2.jpg" alt="Sarah J." width="48" height="48" class="w-12 h-12 rounded-full border-2 border-studio/50" loading="lazy">
+                            </picture>
                             <div>
                                 <h4 class="font-bold text-white">Sarah J.</h4>
                                 <p class="text-xs text-studio font-bold uppercase tracking-wider">Realtor</p>
@@ -539,7 +554,10 @@
                         <i class="fa-solid fa-quote-left text-6xl text-accent/10 absolute top-4 left-4 group-hover:text-accent/20 transition"></i>
                         <p class="text-gray-300 mb-8 pt-6 relative z-10 text-lg leading-relaxed">"Social media used to stress me out completely. Now it runs on autopilot. My sales are up 30% and I don't even have to think about it."</p>
                         <div class="flex items-center gap-4">
-                            <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="David R." class="w-12 h-12 rounded-full border-2 border-accent/50" loading="lazy">
+                            <picture>
+                                <source srcset="assets/testimonial-3.webp" type="image/webp">
+                                <img src="assets/testimonial-3.jpg" alt="David R." width="48" height="48" class="w-12 h-12 rounded-full border-2 border-accent/50" loading="lazy">
+                            </picture>
                             <div>
                                 <h4 class="font-bold text-white">David R.</h4>
                                 <p class="text-xs text-accent font-bold uppercase tracking-wider">Coffee Shop Owner</p>
@@ -988,7 +1006,10 @@
                         This isn't just a web design agency. This is an infrastructure project. Every website we launch, every student we teach, and every system we automate is a brick in the foundation of Bridgeport's future.
                     </p>
                     <div class="mt-10 pt-10 border-t border-white/10 flex items-center gap-4">
-                        <img src="logo.png" alt="Logo" class="h-12 opacity-50">
+                        <picture>
+                            <source srcset="assets/logo.webp" type="image/webp">
+                            <img src="assets/logo.png" alt="Logo" width="192" height="48" class="h-12 opacity-50">
+                        </picture>
                         <div>
                             <p class="font-bold text-white">The Founder</p>
                             <p class="text-sm text-gray-500">Bridgeport AI Solutions</p>
@@ -1205,44 +1226,67 @@
             }, 800);
         });
 
-        // Custom Cursor
+        // Custom Cursor with requestAnimationFrame & Throttling
         const cursorDot = document.querySelector('.cursor-dot');
         const cursorOutline = document.querySelector('.cursor-outline');
 
-        // Only run cursor logic on desktop to save performance on mobile
-        if(window.matchMedia("(min-width: 768px)").matches) {
+        if (cursorDot && cursorOutline && window.matchMedia("(min-width: 768px)").matches) {
+            let mouseX = 0, mouseY = 0;
+            let outlineX = 0, outlineY = 0;
+            let isTicking = false;
+
             window.addEventListener('mousemove', (e) => {
-                const posX = e.clientX;
-                const posY = e.clientY;
+                mouseX = e.clientX;
+                mouseY = e.clientY;
 
-                // Dot follows immediately
-                cursorDot.style.left = `${posX}px`;
-                cursorDot.style.top = `${posY}px`;
+                if (!isTicking) {
+                    requestAnimationFrame(() => {
+                        cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+                        isTicking = false;
+                    });
+                    isTicking = true;
+                }
+            }, { passive: true });
 
-                // Outline follows with slight delay (animation)
-                cursorOutline.animate({
-                    left: `${posX}px`,
-                    top: `${posY}px`
-                }, { duration: 500, fill: "forwards" });
-            });
+            function animateCursorOutline() {
+                outlineX += (mouseX - outlineX) * 0.15;
+                outlineY += (mouseY - outlineY) * 0.15;
+                cursorOutline.style.transform = `translate3d(${outlineX}px, ${outlineY}px, 0) translate(-50%, -50%)`;
+                requestAnimationFrame(animateCursorOutline);
+            }
+            animateCursorOutline();
         }
 
-        // Scroll Progress & Back to Top
-        window.onscroll = function() {
-            // Scroll Progress
+        // Optimized Scroll Handler with rAF & Passive Listener
+        const scrollProgress = document.getElementById("scroll-progress");
+        const backToTop = document.getElementById("back-to-top");
+        let isScrollTicking = false;
+
+        function updateScrollState() {
             let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            document.getElementById("scroll-progress").style.width = scrolled + "%";
+            let scrolled = height > 0 ? (winScroll / height) * 100 : 0;
 
-            // Back to Top
-            const backToTop = document.getElementById("back-to-top");
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                backToTop.classList.add("visible");
-            } else {
-                backToTop.classList.remove("visible");
+            if (scrollProgress) {
+                scrollProgress.style.width = scrolled + "%";
             }
-        };
+
+            if (backToTop) {
+                if (winScroll > 300) {
+                    backToTop.classList.add("visible");
+                } else {
+                    backToTop.classList.remove("visible");
+                }
+            }
+            isScrollTicking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!isScrollTicking) {
+                requestAnimationFrame(updateScrollState);
+                isScrollTicking = true;
+            }
+        }, { passive: true });
 
         // Modal Logic
         function openModal(id) {
