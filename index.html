@@ -354,43 +354,62 @@
     </button>
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <nav id="navbar" class="sticky top-0 w-full z-50 glass-nav transition-all duration-300">
+        <div id="nav-container" class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center transition-all duration-300">
             <a href="#" onclick="showPage('home')" class="flex items-center gap-3 group cursor-pointer">
                 <picture>
                     <source srcset="assets/logo.webp" type="image/webp">
-                    <img src="assets/logo.png" alt="Bridgeport AI" width="160" height="40" class="h-10 w-auto group-hover:scale-110 transition duration-300">
+                    <img id="nav-logo" src="assets/logo.png" alt="Bridgeport AI" width="160" height="40" class="h-10 w-auto group-hover:scale-110 transition-all duration-300">
                 </picture>
             </a>
             
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+            <!-- Desktop Menu & High-Contrast CTAs -->
+            <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-300">
                 <button onclick="showPage('home')" class="hover:text-primary transition">Home</button>
                 <button onclick="showPage('services')" class="hover:text-primary transition font-bold text-white flex items-center">
-                    <i class="fa-solid fa-bolt text-primary mr-2"></i> Agency Services
+                    <i class="fa-solid fa-bolt text-primary mr-1.5"></i> Agency Services
                 </button>
-                <button onclick="showPage('studio')" class="hover:text-studio transition font-bold text-white"><i class="fa-solid fa-graduation-cap mr-1 text-studio"></i> The Studio</button>
+                <button onclick="showPage('studio')" class="hover:text-studio transition font-bold text-white flex items-center">
+                    <i class="fa-solid fa-graduation-cap text-studio mr-1.5"></i> The Studio
+                </button>
                 <button onclick="showPage('pricing')" class="hover:text-primary transition">Pricing</button>
                 <button onclick="showPage('about')" class="hover:text-primary transition">Our Mission</button>
-                <a href="#contact" class="cta-pulse px-6 py-2 rounded-full bg-gradient-to-r from-primary to-blue-600 text-white hover:scale-105 transition duration-300 font-bold">
-                    Start Now
-                </a>
+
+                <div class="flex items-center gap-3 ml-2">
+                    <!-- Secondary Outline Button -->
+                    <a href="#contact" onclick="showPage('studio')" class="px-4 py-2 rounded-full border border-studio text-studio hover:bg-studio/15 transition duration-300 font-bold text-xs whitespace-nowrap">
+                        Take a Class ($49)
+                    </a>
+                    <!-- Primary Solid-Color Button -->
+                    <a href="#contact" onclick="showPage('services')" class="cta-pulse px-5 py-2 rounded-full bg-gradient-to-r from-primary to-blue-600 text-white hover:scale-105 transition duration-300 font-bold text-xs whitespace-nowrap shadow-md">
+                        Get a Website ($499)
+                    </a>
+                </div>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button class="md:hidden text-2xl text-white" onclick="toggleMobileMenu()">
+            <button class="lg:hidden text-2xl text-white" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
         
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-dark border-b border-white/10 p-4 absolute w-full z-40">
+        <div id="mobile-menu" class="hidden lg:hidden bg-dark border-b border-white/10 p-5 absolute w-full z-40">
             <div class="flex flex-col gap-4">
                 <button onclick="showPage('home'); toggleMobileMenu()" class="text-left text-gray-300 hover:text-primary">Home</button>
                 <button onclick="showPage('services'); toggleMobileMenu()" class="text-left text-gray-300 hover:text-primary">Agency Services</button>
                 <button onclick="showPage('studio'); toggleMobileMenu()" class="text-left text-studio font-bold">The Studio</button>
                 <button onclick="showPage('pricing'); toggleMobileMenu()" class="text-left text-gray-300 hover:text-primary">Pricing</button>
                 <button onclick="showPage('about'); toggleMobileMenu()" class="text-left text-gray-300 hover:text-primary">About</button>
+
+                <div class="pt-2 border-t border-white/10 flex flex-col gap-3">
+                    <a href="#contact" onclick="showPage('studio'); toggleMobileMenu()" class="w-full text-center py-2.5 rounded-full border border-studio text-studio font-bold text-xs">
+                        Take a Class ($49)
+                    </a>
+                    <a href="#contact" onclick="showPage('services'); toggleMobileMenu()" class="w-full text-center py-2.5 rounded-full bg-gradient-to-r from-primary to-blue-600 text-white font-bold text-xs shadow-md">
+                        Get a Website ($499)
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -1327,6 +1346,8 @@
         // Optimized Scroll Handler with rAF & Passive Listener
         const scrollProgress = document.getElementById("scroll-progress");
         const backToTop = document.getElementById("back-to-top");
+        const navContainer = document.getElementById("nav-container");
+        const navLogo = document.getElementById("nav-logo");
         let isScrollTicking = false;
 
         function updateScrollState() {
@@ -1336,6 +1357,20 @@
 
             if (scrollProgress) {
                 scrollProgress.style.width = scrolled + "%";
+            }
+
+            if (navContainer && navLogo) {
+                if (winScroll > 50) {
+                    navContainer.classList.remove("py-4");
+                    navContainer.classList.add("py-2");
+                    navLogo.classList.remove("h-10");
+                    navLogo.classList.add("h-8");
+                } else {
+                    navContainer.classList.remove("py-2");
+                    navContainer.classList.add("py-4");
+                    navLogo.classList.remove("h-8");
+                    navLogo.classList.add("h-10");
+                }
             }
 
             if (backToTop) {
