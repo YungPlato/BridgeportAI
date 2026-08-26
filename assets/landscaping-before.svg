@@ -1,0 +1,23 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 600' width='1000' height='600'>
+  <rect width='1000' height='600' fill='#e6ffe6'/>
+  <rect width='1000' height='80' fill='#006600'/>
+  <text x='500' y='50' font-family='Impact, Arial' font-size='36' fill='#ffffff' text-anchor='middle'>GREEN THUMB LANDSCAPING LLC</text>
+  <text x='500' y='110' font-family='Times New Roman' font-size='18' fill='#000' text-anchor='middle'>Mowing, Trimming, Snow Plowing (Since 2002)</text>
+
+  <rect x='100' y='140' width='800' height='400' fill='#ffffff' stroke='#006600' stroke-width='2'/>
+  <text x='130' y='180' font-family='Arial' font-size='18' font-weight='bold' fill='#006600'>Our Services:</text>
+  <text x='130' y='210' font-family='Times New Roman' font-size='16' fill='#000'>- Lawn Mowing (5 &amp; up)</text>
+  <text x='130' y='235' font-family='Times New Roman' font-size='16' fill='#000'>- Tree Trimming</text>
+  <text x='130' y='260' font-family='Times New Roman' font-size='16' fill='#000'>- Spring Cleanup</text>
+  <text x='130' y='285' font-family='Times New Roman' font-size='16' fill='#000'>- Commercial Plowing</text>
+
+  <rect x='500' y='170' width='350' height='200' fill='#ccc' stroke='#666'/>
+  <text x='675' y='270' font-family='Arial' font-size='16' fill='#555' text-anchor='middle'>[Lawnmower_Photo_Uncompressed.bmp]</text>
+
+  <text x='130' y='350' font-family='Arial' font-size='16' font-weight='bold' fill='#cc0000'>To request an estimate:</text>
+  <text x='130' y='380' font-family='Times New Roman' font-size='16' fill='#000'>Please leave a voicemail at 203-555-0144. We check messages on Friday evenings.</text>
+
+  <rect x='130' y='420' width='740' height='80' fill='#ffffcc' stroke='#cccc00'/>
+  <text x='500' y='450' font-family='Courier New' font-size='14' fill='#000' text-anchor='middle'>WARNING: Site optimized for Netscape Navigator &amp; 800x600 resolution.</text>
+  <text x='500' y='475' font-family='Times New Roman' font-size='14' fill='#000' text-anchor='middle'>Copyright 2002 Green Thumb LLC. All rights reserved.</text>
+</svg>

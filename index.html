@@ -654,6 +654,67 @@
             </div>
         </section>
 
+        <!-- SEE THE TRANSFORMATION SECTION (Interactive Before/After Slider) -->
+        <section id="see-the-transformation" class="py-20 px-6 bg-slate-900/80 border-t border-white/10 relative z-20">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-10">
+                    <span class="text-studio font-bold tracking-widest uppercase text-xs">Interactive Showcase</span>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4 mt-2">See The Transformation</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">Drag the slider left and right to compare outdated local business sites with sleek, high-converting AI-built sites.</p>
+                </div>
+
+                <!-- Business Category Switcher Tabs -->
+                <div class="flex justify-center gap-3 mb-8 flex-wrap">
+                    <button onclick="switchTransformation('hvac')" id="tab-hvac" class="transform-tab whitespace-nowrap inline-flex items-center justify-center px-5 py-2.5 rounded-full font-bold text-xs md:text-sm border transition-all duration-300 bg-primary text-white border-primary shadow-lg shadow-primary/20">
+                        <i class="fa-solid fa-temperature-arrow-up mr-2"></i> HVAC Services
+                    </button>
+                    <button onclick="switchTransformation('bakery')" id="tab-bakery" class="transform-tab whitespace-nowrap inline-flex items-center justify-center px-5 py-2.5 rounded-full font-bold text-xs md:text-sm border transition-all duration-300 glass text-gray-300 border-white/10 hover:border-white/30">
+                        <i class="fa-solid fa-wheat-awn mr-2"></i> Local Bakery
+                    </button>
+                    <button onclick="switchTransformation('landscaping')" id="tab-landscaping" class="transform-tab whitespace-nowrap inline-flex items-center justify-center px-5 py-2.5 rounded-full font-bold text-xs md:text-sm border transition-all duration-300 glass text-gray-300 border-white/10 hover:border-white/30">
+                        <i class="fa-solid fa-leaf mr-2"></i> Landscaping
+                    </button>
+                </div>
+
+                <!-- Slider Container -->
+                <div id="before-after-container" class="relative w-full aspect-[16/10] md:aspect-[16/9] max-w-4xl mx-auto rounded-3xl overflow-hidden glass border border-white/15 shadow-2xl select-none group">
+                    <!-- AFTER Image (Background Base) -->
+                    <img id="img-after" src="assets/hvac-after.svg" alt="After Transformation" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
+
+                    <!-- BEFORE Image Container (Clipped Overlay) -->
+                    <div id="before-wrapper" class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
+                        <img id="img-before" src="assets/hvac-before.svg" alt="Before Transformation" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
+                    </div>
+
+                    <!-- Visual Badges -->
+                    <div class="absolute top-4 left-4 z-20 px-3 py-1.5 rounded-lg bg-red-600/90 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider shadow-md pointer-events-none">
+                        Before (Old Site)
+                    </div>
+                    <div class="absolute top-4 right-4 z-20 px-3 py-1.5 rounded-lg bg-emerald-600/90 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider shadow-md pointer-events-none">
+                        After (AI Built)
+                    </div>
+
+                    <!-- Slider Divider Line & Handle -->
+                    <div id="slider-handle" class="absolute top-0 bottom-0 z-20 pointer-events-none" style="left: 50%;">
+                        <div class="w-0.5 h-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]"></div>
+                        <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-gradient-to-r from-primary to-blue-600 text-white flex items-center justify-center shadow-2xl border-2 border-white group-hover:scale-110 transition-transform duration-150">
+                            <i class="fa-solid fa-arrows-left-right text-sm"></i>
+                        </div>
+                    </div>
+
+                    <!-- Range Input Control -->
+                    <input type="range" id="slider-range" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30" aria-label="Before and After Comparison Slider">
+                </div>
+
+                <!-- One-Sentence Caption -->
+                <div class="text-center mt-6">
+                    <p id="transformation-caption" class="inline-block px-6 py-3 rounded-full bg-slate-800/90 border border-primary/30 text-primary font-bold text-sm md:text-base shadow-lg transition-all duration-300">
+                        <i class="fa-solid fa-chart-line mr-2"></i> HVAC Site: Built in 3 days, increased quote requests by 40%.
+                    </p>
+                </div>
+            </div>
+        </section>
+
         <!-- FAQ SECTION (New) -->
         <section class="py-24 px-6 bg-black/30 relative z-20">
             <div class="max-w-3xl mx-auto">
@@ -1516,6 +1577,75 @@
             setTimeout(() => {
                 VanillaTilt.init(document.querySelectorAll("[data-tilt]"));
             }, 100);
+        }
+
+        // 6. Interactive Before/After Transformation Slider Logic
+        const sliderRange = document.getElementById('slider-range');
+        const beforeWrapper = document.getElementById('before-wrapper');
+        const sliderHandle = document.getElementById('slider-handle');
+
+        if (sliderRange && beforeWrapper && sliderHandle) {
+            let isSliderTicking = false;
+
+            function updateSliderPosition(val) {
+                beforeWrapper.style.clipPath = `polygon(0 0, ${val}% 0, ${val}% 100%, 0 100%)`;
+                sliderHandle.style.left = `${val}%`;
+            }
+
+            sliderRange.addEventListener('input', (e) => {
+                const val = e.target.value;
+                if (!isSliderTicking) {
+                    requestAnimationFrame(() => {
+                        updateSliderPosition(val);
+                        isSliderTicking = false;
+                    });
+                    isSliderTicking = true;
+                }
+            });
+        }
+
+        const transformationData = {
+            hvac: {
+                before: 'assets/hvac-before.svg',
+                after: 'assets/hvac-after.svg',
+                caption: '<i class="fa-solid fa-chart-line mr-2"></i> HVAC Site: Built in 3 days, increased quote requests by 40%.'
+            },
+            bakery: {
+                before: 'assets/bakery-before.svg',
+                after: 'assets/bakery-after.svg',
+                caption: '<i class="fa-solid fa-chart-line mr-2"></i> Bakery Site: Built in 4 days, online custom cake orders grew 3x.'
+            },
+            landscaping: {
+                before: 'assets/landscaping-before.svg',
+                after: 'assets/landscaping-after.svg',
+                caption: '<i class="fa-solid fa-chart-line mr-2"></i> Landscaping Site: Built in 2 days, seasonal booking velocity doubled.'
+            }
+        };
+
+        function switchTransformation(type) {
+            const data = transformationData[type];
+            if (!data) return;
+
+            const imgBefore = document.getElementById('img-before');
+            const imgAfter = document.getElementById('img-after');
+            const caption = document.getElementById('transformation-caption');
+
+            if (imgBefore && imgAfter && caption) {
+                imgBefore.src = data.before;
+                imgAfter.src = data.after;
+                caption.innerHTML = data.caption;
+            }
+
+            // Update Tab Styles
+            ['hvac', 'bakery', 'landscaping'].forEach(key => {
+                const tab = document.getElementById(`tab-${key}`);
+                if (!tab) return;
+                if (key === type) {
+                    tab.className = 'transform-tab whitespace-nowrap inline-flex items-center justify-center px-5 py-2.5 rounded-full font-bold text-xs md:text-sm border transition-all duration-300 bg-primary text-white border-primary shadow-lg shadow-primary/20';
+                } else {
+                    tab.className = 'transform-tab whitespace-nowrap inline-flex items-center justify-center px-5 py-2.5 rounded-full font-bold text-xs md:text-sm border transition-all duration-300 glass text-gray-300 border-white/10 hover:border-white/30';
+                }
+            });
         }
     </script>
 </body>
