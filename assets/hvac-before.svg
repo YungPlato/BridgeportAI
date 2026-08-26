@@ -1,0 +1,41 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 600' width='1000' height='600'>
+  <rect width='1000' height='600' fill='#ffffcc'/>
+  <!-- Header -->
+  <rect width='1000' height='100' fill='#0000ff'/>
+  <text x='500' y='50' font-family='Comic Sans MS, Times New Roman, sans-serif' font-size='32' fill='#yellow' text-anchor='middle' font-weight='bold'>*** BOB'S HVAC &amp; HEATING SERVICES ***</text>
+  <text x='500' y='80' font-family='Times New Roman' font-size='18' fill='#ffffff' text-anchor='middle'>Call Now: 203-555-0199 (Available 24/7/365!!)</text>
+  <!-- Marquee simulation -->
+  <rect y='100' width='1000' height='30' fill='#ff0000'/>
+  <text x='500' y='120' font-family='Arial' font-size='16' fill='#ffffff' text-anchor='middle'>WELCOME TO OUR 1998 WEBSITE! BEST PRICES IN BRIDGEPORT!!</text>
+  <!-- Main Grid layout outdated style -->
+  <rect x='30' y='150' width='220' height='420' fill='#e0e0e0' stroke='#000' stroke-width='2'/>
+  <text x='140' y='180' font-family='Times New Roman' font-size='20' font-weight='bold' text-anchor='middle' fill='#000080'>NAVIGATION</text>
+  <line x1='30' y1='190' x2='250' y2='190' stroke='#000'/>
+  <text x='50' y='220' font-family='Times New Roman' font-size='18' fill='#0000ff' text-decoration='underline'>- HOME PAGE</text>
+  <text x='50' y='250' font-family='Times New Roman' font-size='18' fill='#0000ff' text-decoration='underline'>- ABOUT BOB</text>
+  <text x='50' y='280' font-family='Times New Roman' font-size='18' fill='#0000ff' text-decoration='underline'>- AC REPAIR</text>
+  <text x='50' y='310' font-family='Times New Roman' font-size='18' fill='#0000ff' text-decoration='underline'>- HEATING</text>
+  <text x='50' y='340' font-family='Times New Roman' font-size='18' fill='#0000ff' text-decoration='underline'>- PRICES (1999)</text>
+  <text x='50' y='370' font-family='Times New Roman' font-size='18' fill='#0000ff' text-decoration='underline'>- GUESTBOOK</text>
+  <text x='50' y='400' font-family='Times New Roman' font-size='18' fill='#0000ff' text-decoration='underline'>- CONTACT US</text>
+
+  <!-- Main Content -->
+  <rect x='270' y='150' width='700' height='420' fill='#ffffff' stroke='#000' stroke-width='2'/>
+  <text x='300' y='190' font-family='Comic Sans MS' font-size='24' fill='#ff0000' font-weight='bold'>Quality Air Conditioning &amp; Heating</text>
+  <text x='300' y='220' font-family='Times New Roman' font-size='16' fill='#000'>We are Bridgeport's #1 heating company since 1984!</text>
+
+  <rect x='300' y='240' width='300' height='180' fill='#cccccc' stroke='#999'/>
+  <text x='450' y='330' font-family='Arial' font-size='16' fill='#666' text-anchor='middle'>[ClipArt_AirConditioner.gif]</text>
+
+  <rect x='620' y='240' width='320' height='180' fill='#ffeb3b' stroke='#000' stroke-width='2'/>
+  <text x='780' y='270' font-family='Arial' font-size='18' font-weight='bold' fill='#000' text-anchor='middle'>SPECIAL OFFER!</text>
+  <text x='780' y='300' font-family='Times New Roman' font-size='16' fill='#cc0000' text-anchor='middle'>10% Off AC Tuneup with</text>
+  <text x='780' y='325' font-family='Times New Roman' font-size='16' fill='#cc0000' text-anchor='middle'>this printed coupon!</text>
+  <text x='780' y='370' font-family='Arial' font-size='12' fill='#000' text-anchor='middle'>Expires: Dec 31, 2004</text>
+
+  <text x='300' y='460' font-family='Times New Roman' font-size='16' fill='#000'>Please fill out our manual form below or mail us a letter for quotes:</text>
+  <rect x='300' y='480' width='400' height='30' fill='#eee' stroke='#000'/>
+  <text x='310' y='500' font-family='Courier New' font-size='14' fill='#888'>Enter your address here...</text>
+  <rect x='720' y='480' width='100' height='30' fill='#cccccc' stroke='#000'/>
+  <text x='770' y='500' font-family='Arial' font-size='14' fill='#000' text-anchor='middle'>SUBMIT</text>
+</svg>

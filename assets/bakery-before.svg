@@ -1,0 +1,26 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 600' width='1000' height='600'>
+  <rect width='1000' height='600' fill='#ffe4e1'/>
+  <rect width='1000' height='90' fill='#ff69b4'/>
+  <text x='500' y='55' font-family='Brush Script MT, cursive, sans-serif' font-size='42' fill='#fff' text-anchor='middle'>Grandma's Sweet Bakery</text>
+  <rect y='90' width='1000' height='25' fill='#8b008b'/>
+  <text x='500' y='107' font-family='Arial' font-size='14' fill='#fff' text-anchor='middle'>*** FRESH CANNOLI DAILY - CLOSED SUNDAYS ***</text>
+
+  <rect x='50' y='140' width='900' height='420' fill='#ffffff' stroke='#ff69b4' stroke-width='3'/>
+  <text x='500' y='180' font-family='Times New Roman' font-size='22' fill='#8b008b' text-anchor='middle' font-weight='bold'>Welcome to our Bakery Page!</text>
+  <text x='500' y='210' font-family='Times New Roman' font-size='16' fill='#333' text-anchor='middle'>To place a custom cake order, please call our landline during store hours (9am - 3pm).</text>
+
+  <rect x='100' y='240' width='240' height='160' fill='#ddd' stroke='#aaa'/>
+  <text x='220' y='320' font-family='Arial' font-size='14' fill='#666' text-anchor='middle'>[Unoptimized_Cake.JPG (4MB)]</text>
+
+  <rect x='380' y='240' width='240' height='160' fill='#ddd' stroke='#aaa'/>
+  <text x='500' y='320' font-family='Arial' font-size='14' fill='#666' text-anchor='middle'>[Menu_Scan_PDF_Blurry.gif]</text>
+
+  <rect x='660' y='240' width='240' height='160' fill='#fff0f5' stroke='#ff69b4'/>
+  <text x='780' y='280' font-family='Arial' font-size='16' font-weight='bold' fill='#8b008b' text-anchor='middle'>STORE HOURS</text>
+  <text x='780' y='310' font-family='Times New Roman' font-size='14' fill='#333' text-anchor='middle'>Mon-Fri: 9am - 3pm</text>
+  <text x='780' y='330' font-family='Times New Roman' font-size='14' fill='#333' text-anchor='middle'>Sat: 9am - 12pm</text>
+  <text x='780' y='350' font-family='Times New Roman' font-size='14' fill='#ff0000' text-anchor='middle'>Sun: CLOSED</text>
+
+  <text x='500' y='440' font-family='Times New Roman' font-size='16' fill='#000' text-anchor='middle'>Note: We do not take online payments or credit cards. Cash only!</text>
+  <text x='500' y='500' font-family='Courier New' font-size='14' fill='#888' text-anchor='middle'>You are visitor #000412 to this website.</text>
+</svg>
