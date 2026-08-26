@@ -282,6 +282,38 @@
             background: #3b82f6;
             transform: translateY(-5px);
         }
+
+        /* Mobile Responsiveness & Touch Target Optimization */
+        @media (max-width: 768px) {
+            button,
+            a.cta-pulse,
+            .btn-glow,
+            #btn-agency,
+            #btn-studio,
+            #cookie-banner button,
+            nav button {
+                min-height: 44px;
+                min-width: 44px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            input, select, textarea {
+                font-size: 16px !important;
+            }
+
+            /* Prevent scale transform overflow on mobile */
+            .pricing-grid .transform.scale-105 {
+                transform: scale(1) !important;
+            }
+
+            .pricing-grid {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1.5rem !important;
+            }
+        }
     </style>
     
     <script>
