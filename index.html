@@ -71,10 +71,17 @@
 
     <!-- Google Fonts -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap');
         
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+        body { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
+
+        /* Subtle Tech Grid Pattern for Hero Background */
+        .bg-tech-grid {
+            background-image: radial-gradient(rgba(59, 130, 246, 0.12) 1px, transparent 1px), radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
         
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
@@ -123,10 +130,18 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Premium Button Glows */
+        /* Premium Button Micro-interactions */
         .btn-glow {
             position: relative;
             overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-glow:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 12px 35px -5px rgba(59, 130, 246, 0.45);
+        }
+        .btn-glow:active {
+            transform: translateY(0) scale(0.98);
         }
         .btn-glow::after {
             content: '';
@@ -135,7 +150,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.1) 60%, rgba(255,255,255,0) 100%);
+            background: linear-gradient(to bottom right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 40%, rgba(255,255,255,0.15) 60%, rgba(255,255,255,0) 100%);
             transform: rotate(45deg) translateY(-100%);
             transition: transform 0.6s;
         }
@@ -471,22 +486,22 @@
         <!-- ==================== HOME PAGE ==================== -->
         <div id="home" class="page-section active">
             <!-- Hero Section -->
-            <section class="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
+            <section class="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-20 overflow-hidden bg-tech-grid">
             <!-- Video Background -->
             <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
-                <video autoplay loop muted playsinline preload="metadata" poster="assets/hero-poster.webp" class="absolute w-full h-full object-cover opacity-40">
+                <video autoplay loop muted playsinline preload="metadata" poster="assets/hero-poster.webp" class="absolute w-full h-full object-cover opacity-30">
                     <source src="assets/hero-background.mp4" type="video/mp4">
                 </video>
-                <!-- Overlay for readability -->
-                <div class="absolute inset-0 bg-dark/60"></div>
+                <!-- Sleek Dark Gradient Overlay for high contrast & breathability -->
+                <div class="absolute inset-0 bg-gradient-to-b from-dark/95 via-dark/80 to-dark/95"></div>
             </div>
 
             <!-- Particles Background -->
             <div id="particles-js"></div>
             
-            <!-- Glows -->
-            <div class="absolute top-20 left-[-10%] w-96 h-96 bg-primary/20 rounded-full blur-[128px] pointer-events-none"></div>
-            <div class="absolute bottom-20 right-[-10%] w-96 h-96 bg-studio/10 rounded-full blur-[128px] pointer-events-none"></div>
+            <!-- Sleek Ambient Glows -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/15 rounded-full blur-[160px] pointer-events-none"></div>
+            <div class="absolute bottom-10 right-[-5%] w-96 h-96 bg-studio/10 rounded-full blur-[140px] pointer-events-none"></div>
 
             <div class="text-center max-w-5xl relative z-10" data-aos="zoom-in" data-aos-duration="1000">
                 <div class="flex justify-center gap-4 mb-8">
@@ -1110,51 +1125,71 @@
                 </div>
 
                 <!-- AGENCY PRICING GRID -->
-                <div id="agency-pricing" class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start pricing-grid">
-                    <!-- Growth (Moved to first slot) -->
-                    <div class="glass p-8 rounded-3xl hover:bg-white/5 transition" data-tilt>
-                        <h3 class="text-xl font-bold text-gray-300 mb-2">Social Growth</h3>
-                        <div class="text-4xl font-bold text-white mb-4">$299</div>
-                        <p class="text-sm text-gray-400 mb-8">Per month</p>
-                        <div class="h-px bg-white/10 w-full mb-8"></div>
-                        <ul class="text-left space-y-4 mb-8 text-gray-300 text-sm">
-                            <li><i class="fa-solid fa-check text-primary mr-2"></i> 12 Branded Posts / Mo</li>
-                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Content Calendar</li>
-                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Post Scheduling</li>
-                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Monthly Report</li>
-                        </ul>
-                        <a href="#contact" class="block w-full py-3 rounded-xl border border-white/20 hover:bg-white/10 transition font-semibold text-center">Subscribe</a>
+                <div id="agency-pricing" class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch pricing-grid">
+                    <!-- Growth -->
+                    <div class="glass p-8 rounded-3xl hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-300 flex flex-col justify-between border border-white/10" data-tilt>
+                        <div>
+                            <span class="text-xs font-bold text-primary tracking-widest uppercase">Social Media</span>
+                            <h3 class="text-2xl font-bold text-white mt-1 mb-2">Social Growth</h3>
+                            <div class="flex items-baseline gap-1 mb-1">
+                                <span class="text-4xl font-extrabold text-white">$299</span>
+                                <span class="text-sm text-gray-400">/ month</span>
+                            </div>
+                            <p class="text-xs text-gray-400 mb-6">Complete monthly local content engine.</p>
+                            <div class="h-px bg-gradient-to-r from-transparent via-white/15 to-transparent w-full mb-6"></div>
+                            <ul class="text-left space-y-3.5 mb-8 text-gray-300 text-sm">
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-primary mr-3 text-base"></i> 12 Branded Posts / Month</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-primary mr-3 text-base"></i> Custom Content Calendar</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-primary mr-3 text-base"></i> Automated Scheduling</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-primary mr-3 text-base"></i> Performance Analytics</li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="block w-full py-3.5 rounded-xl border border-white/20 hover:bg-white/10 transition font-bold text-center text-white text-sm">Subscribe</a>
                     </div>
 
-                    <!-- Launch Kit (Highlighted) -->
-                    <div class="glass p-8 rounded-3xl border-2 border-primary shadow-[0_0_40px_rgba(59,130,246,0.2)] transform scale-105 bg-dark relative" data-tilt>
-                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg">BEST VALUE</div>
-                        <h3 class="text-2xl font-bold text-white mb-2">Launch Kit</h3>
-                        <div class="text-5xl font-bold text-white mb-4">$499</div>
-                        <p class="text-sm text-gray-400 mb-8">One-time</p>
-                        <div class="h-px bg-white/10 w-full mb-8"></div>
-                        <ul class="text-left space-y-4 mb-8 text-gray-300">
-                            <li><i class="fa-solid fa-check text-primary mr-2"></i> <strong>5-Page</strong> Custom Website</li>
-                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Logo & Brand Identity</li>
-                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Google Map Setup</li>
-                            <li><i class="fa-solid fa-check text-primary mr-2"></i> 30 Days Support</li>
-                        </ul>
-                        <a href="#contact" class="block w-full py-4 rounded-xl bg-primary hover:bg-blue-600 transition font-bold text-white shadow-lg text-center">Get Started</a>
+                    <!-- Launch Kit (Highlighted Best Value) -->
+                    <div class="glass p-8 rounded-3xl border-2 border-primary shadow-[0_0_50px_rgba(59,130,246,0.3)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between bg-slate-900/90 relative" data-tilt>
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary via-purple to-studio text-white text-xs font-black px-5 py-1.5 rounded-full shadow-lg border border-white/20 uppercase tracking-widest flex items-center gap-1.5">
+                            <i class="fa-solid fa-star text-yellow-300 text-xs"></i> Best Value
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-studio tracking-widest uppercase">Full Turnkey Package</span>
+                            <h3 class="text-3xl font-extrabold text-white mt-1 mb-2">Launch Kit</h3>
+                            <div class="flex items-baseline gap-1 mb-1">
+                                <span class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-gray-300">$499</span>
+                                <span class="text-sm text-gray-400">/ one-time</span>
+                            </div>
+                            <p class="text-xs text-gray-400 mb-6">Everything local businesses need to win online.</p>
+                            <div class="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent w-full mb-6"></div>
+                            <ul class="text-left space-y-3.5 mb-8 text-gray-200 text-sm">
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-studio mr-3 text-base"></i> <strong>5-Page</strong> Custom AI-Built Website</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-studio mr-3 text-base"></i> Custom Logo & Brand Identity</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-studio mr-3 text-base"></i> Google Maps & Local SEO Setup</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-studio mr-3 text-base"></i> Fast 3-5 Day Delivery</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-studio mr-3 text-base"></i> 30 Days Dedicated Support</li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="btn-glow block w-full py-4 rounded-xl bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary transition duration-300 font-extrabold text-white shadow-xl text-center text-sm">Get Started Now</a>
                     </div>
 
-                    <!-- Enterprise / Custom (Replaced Logo Kit) -->
-                    <div class="glass p-8 rounded-3xl hover:bg-white/5 transition" data-tilt>
-                        <h3 class="text-xl font-bold text-gray-300 mb-2">Enterprise</h3>
-                        <div class="text-4xl font-bold text-white mb-4">Custom</div>
-                        <p class="text-sm text-gray-400 mb-8">Tailored Solutions</p>
-                        <div class="h-px bg-white/10 w-full mb-8"></div>
-                        <ul class="text-left space-y-4 mb-8 text-gray-300 text-sm">
-                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Custom AI Chatbots</li>
-                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Full CRM Integrations</li>
-                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Workflow Automation</li>
-                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Priority 24/7 Support</li>
-                        </ul>
-                        <a href="#contact" class="block w-full py-3 rounded-xl border border-white/20 hover:bg-white/10 transition font-semibold text-center">Contact Us</a>
+                    <!-- Enterprise / Custom -->
+                    <div class="glass p-8 rounded-3xl hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-300 flex flex-col justify-between border border-white/10" data-tilt>
+                        <div>
+                            <span class="text-xs font-bold text-purple tracking-widest uppercase">Custom Automation</span>
+                            <h3 class="text-2xl font-bold text-white mt-1 mb-2">Enterprise</h3>
+                            <div class="flex items-baseline gap-1 mb-1">
+                                <span class="text-4xl font-extrabold text-white">Custom</span>
+                            </div>
+                            <p class="text-xs text-gray-400 mb-6">Tailored AI systems & custom workflows.</p>
+                            <div class="h-px bg-gradient-to-r from-transparent via-white/15 to-transparent w-full mb-6"></div>
+                            <ul class="text-left space-y-3.5 mb-8 text-gray-300 text-sm">
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-purple mr-3 text-base"></i> Custom AI Support Chatbots</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-purple mr-3 text-base"></i> Full CRM & Lead Integrations</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-purple mr-3 text-base"></i> Multi-Step Workflow Automation</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-purple mr-3 text-base"></i> Priority 24/7 Direct Support</li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="block w-full py-3.5 rounded-xl border border-white/20 hover:bg-white/10 transition font-bold text-center text-white text-sm">Contact Us</a>
                     </div>
                 </div>
 
