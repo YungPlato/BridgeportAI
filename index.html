@@ -1178,40 +1178,77 @@
 
         <!-- ==================== ABOUT PAGE ==================== -->
         <div id="about" class="page-section">
-            <section class="pt-32 pb-20 px-6">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <h1 class="text-5xl font-bold mb-6">Our Mission</h1>
-                    <p class="text-xl text-gray-400">It's about more than just code.</p>
-                </div>
+            <section class="pt-32 pb-24 px-6 relative overflow-hidden">
+                <div class="max-w-5xl mx-auto">
+                    <!-- Page Header -->
+                    <div class="text-center mb-16" data-aos="fade-up">
+                        <span class="text-studio font-bold tracking-widest uppercase text-xs mb-2 inline-block">
+                            <i class="fa-solid fa-compass mr-1.5"></i> Our Purpose & Vision
+                        </span>
+                        <h1 class="text-5xl md:text-6xl font-bold mb-4">Our Mission</h1>
+                        <p class="text-xl text-gray-400 max-w-2xl mx-auto">It's about more than just code. We are powering the next era of Bridgeport's economic story.</p>
+                    </div>
 
-                <div class="glass p-12 rounded-3xl mb-12 relative overflow-hidden" data-aos="fade-up">
-                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 rounded-full blur-[80px]"></div>
-                    
-                    <h2 class="text-3xl font-bold mb-6">Bridgeport was once the industrial capital of the world.</h2>
-                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                        We built the machines that powered a nation. But as the world shifted to digital, too many of our local businesses were left fighting to catch up.
-                    </p>
-                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                        I started Bridgeport AI Solutions because I refused to watch my community fall behind. Artificial Intelligence is the greatest equalizer in history. It gives a small pizza shop the marketing power of a corporation. It gives a local accountant the efficiency of a Wall Street firm.
-                    </p>
-                    <h3 class="text-2xl font-bold text-white mt-8 mb-4">We are building the Digital Capital.</h3>
-                    <p class="text-gray-300 text-lg leading-relaxed">
-                        This isn't just a web design agency. This is an infrastructure project. Every website we launch, every student we teach, and every system we automate is a brick in the foundation of Bridgeport's future.
-                    </p>
-                    <div class="mt-10 pt-10 border-t border-white/10 flex items-center gap-4">
-                        <picture>
-                            <source srcset="assets/logo.webp" type="image/webp">
-                            <img src="assets/logo.png" alt="Logo" width="192" height="48" class="h-12 opacity-50">
-                        </picture>
-                        <div>
-                            <p class="font-bold text-white">The Founder</p>
-                            <p class="text-sm text-gray-500">Bridgeport AI Solutions</p>
+                    <!-- Redesigned Mission Card with Bridgeport Landmark SVG Overlay & Dark Ambient Lighting -->
+                    <div class="relative rounded-3xl overflow-hidden glass border border-white/15 shadow-2xl p-8 md:p-14" data-aos="fade-up" data-aos-duration="1000">
+                        <!-- Darkened Bridgeport Landmark Aesthetic Background -->
+                        <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-opacity opacity-20 filter contrast-125" style="background-image: url('assets/bridgeport-landmark.svg');"></div>
+
+                        <!-- Gradient Overlay for Readability & High Contrast -->
+                        <div class="absolute inset-0 z-0 bg-gradient-to-b from-dark/95 via-dark/85 to-dark/95 backdrop-blur-[2px]"></div>
+
+                        <!-- Ambient Radial Glow Effects -->
+                        <div class="absolute -top-32 -left-32 w-80 h-80 bg-primary/20 rounded-full blur-[100px] pointer-events-none z-0"></div>
+                        <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-studio/20 rounded-full blur-[100px] pointer-events-none z-0"></div>
+
+                        <!-- Card Content -->
+                        <div class="relative z-10 max-w-3xl mx-auto">
+                            <!-- Location & Heritage Badge -->
+                            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-primary mb-6">
+                                <i class="fa-solid fa-industry text-primary"></i>
+                                <span class="tracking-wider uppercase">Bridgeport, Connecticut</span>
+                            </div>
+
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-white leading-snug">
+                                Bridgeport was once the industrial capital of the world.
+                            </h2>
+                            <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+                                We built the machines, engines, and materials that powered a nation. But as the world shifted to digital, too many of our local businesses were left fighting to catch up without access to enterprise-grade technology.
+                            </p>
+                            <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-8">
+                                I started Bridgeport AI Solutions because I refused to watch my community fall behind. Artificial Intelligence is the greatest equalizer in history. It gives a small pizza shop the marketing power of a corporation, and a local contractor the operational speed of a national firm.
+                            </p>
+
+                            <!-- Modern Bold Typography Hierarchy for 'Digital Capital' Headline -->
+                            <div class="my-10 p-6 md:p-8 rounded-2xl glass border border-primary/30 bg-slate-900/60 shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                                <h3 class="text-3xl md:text-5xl font-black tracking-tight leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 mb-4">
+                                    We are building the Digital Capital.
+                                </h3>
+                                <p class="text-gray-200 text-base md:text-lg leading-relaxed">
+                                    This isn't just a web design agency. This is an infrastructure project. Every website we launch, every student we teach, and every system we automate is a brick in the foundation of Bridgeport's future.
+                                </p>
+                            </div>
+
+                            <!-- Founder Signature Bar -->
+                            <div class="mt-10 pt-8 border-t border-white/10 flex items-center justify-between flex-wrap gap-4">
+                                <div class="flex items-center gap-4">
+                                    <picture>
+                                        <source srcset="assets/logo.webp" type="image/webp">
+                                        <img src="assets/logo.png" alt="Bridgeport AI Solutions Logo" width="160" height="40" class="h-10 opacity-70">
+                                    </picture>
+                                    <div>
+                                        <p class="font-bold text-white text-base">The Founder</p>
+                                        <p class="text-xs text-gray-400">Bridgeport AI Solutions</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3 text-studio font-bold text-xs uppercase tracking-wider">
+                                    <i class="fa-solid fa-shield-halved text-sm"></i> 100% Local & Community Owned
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
         </div>
     </main>
 

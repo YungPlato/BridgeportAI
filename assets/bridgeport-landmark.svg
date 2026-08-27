@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <defs>
+    <linearGradient id="sky-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="60%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="glow-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#a855f7" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="bridge-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="text-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="50%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Sky Background -->
+  <rect width="1200" height="600" fill="url(#sky-grad)"/>
+
+  <!-- Subtle Digital Grid Lines -->
+  <g stroke="#3b82f6" stroke-opacity="0.1" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+    <line x1="800" y1="0" x2="800" y2="600"/>
+    <line x1="1000" y1="0" x2="1000" y2="600"/>
+  </g>
+
+  <!-- Ambient Glow Orbs -->
+  <circle cx="250" cy="350" r="220" fill="url(#glow-grad)"/>
+  <circle cx="950" cy="250" r="250" fill="url(#glow-grad)"/>
+
+  <!-- Industrial Bridgeport Heritage Silhouettes (Left: Smokestacks, Brick Mills, Gears) -->
+  <g fill="#0f172a" stroke="#1e293b" stroke-width="2">
+    <!-- Factory Silhouette 1 -->
+    <polygon points="50,600 50,420 90,420 90,380 120,380 120,420 160,420 160,600"/>
+    <!-- Chimney 1 -->
+    <rect x="70" y="300" width="14" height="120" fill="#0b1120"/>
+    <!-- Smoke particles (digital nodes) -->
+    <circle cx="77" cy="280" r="6" fill="#3b82f6" fill-opacity="0.4"/>
+    <circle cx="85" cy="250" r="10" fill="#a855f7" fill-opacity="0.3"/>
+    <circle cx="95" cy="210" r="14" fill="#10b981" fill-opacity="0.2"/>
+
+    <!-- Mill Building saw-tooth roof -->
+    <polygon points="160,600 160,450 190,420 190,450 220,420 220,450 250,420 250,450 280,450 280,600"/>
+
+    <!-- Industrial Gear Motif -->
+    <g transform="translate(200, 360) scale(0.7)" fill="none" stroke="#3b82f6" stroke-opacity="0.3" stroke-width="3">
+      <circle cx="0" cy="0" r="40"/>
+      <circle cx="0" cy="0" r="15"/>
+      <line x1="-50" y1="0" x2="50" y2="0"/>
+      <line x1="0" y1="-50" x2="0" y2="50"/>
+      <line x1="-35" y1="-35" x2="35" y2="35"/>
+      <line x1="-35" y1="35" x2="35" y2="-35"/>
+    </g>
+  </g>
+
+  <!-- Iconic Bridgeport Steel Lift Bridge / Harbor Truss Bridge Silhouette (Center) -->
+  <g fill="none" stroke="url(#bridge-grad)" stroke-width="3" filter="url(#neon-glow)">
+    <!-- Bridge Towers -->
+    <line x1="380" y1="600" x2="380" y2="280"/>
+    <line x1="430" y1="600" x2="430" y2="280"/>
+    <line x1="380" y1="280" x2="430" y2="280"/>
+    <!-- Cross Trusses -->
+    <line x1="380" y1="280" x2="430" y2="340"/>
+    <line x1="380" y1="340" x2="430" y2="280"/>
+    <line x1="380" y1="340" x2="430" y2="400"/>
+    <line x1="380" y1="400" x2="430" y2="340"/>
+    <line x1="380" y1="400" x2="430" y2="460"/>
+    <line x1="380" y1="460" x2="430" y2="400"/>
+
+    <!-- Right Tower -->
+    <line x1="770" y1="600" x2="770" y2="280"/>
+    <line x1="820" y1="600" x2="820" y2="280"/>
+    <line x1="770" y1="280" x2="820" y2="280"/>
+    <line x1="770" y1="280" x2="820" y2="340"/>
+    <line x1="770" y1="340" x2="820" y2="280"/>
+    <line x1="770" y1="340" x2="820" y2="400"/>
+    <line x1="770" y1="400" x2="820" y2="340"/>
+    <line x1="770" y1="400" x2="820" y2="460"/>
+    <line x1="770" y1="460" x2="820" y2="400"/>
+
+    <!-- Overhead Lift Span / Top Beam -->
+    <line x1="380" y1="280" x2="820" y2="280" stroke-width="4"/>
+
+    <!-- Bridge Deck Line (Roadway across water) -->
+    <line x1="300" y1="480" x2="900" y2="480" stroke="#3b82f6" stroke-width="5"/>
+  </g>
+
+  <!-- Modern Digital Capital Towers (Right: High-Tech Glass & AI Circuit Lines) -->
+  <g fill="#0b1120" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="2">
+    <!-- Modern Tower 1 -->
+    <polygon points="850,600 850,220 930,170 930,600"/>
+    <!-- Glass grid windows -->
+    <line x1="870" y1="240" x2="870" y2="580" stroke="#10b981" stroke-opacity="0.3"/>
+    <line x1="890" y1="230" x2="890" y2="580" stroke="#3b82f6" stroke-opacity="0.3"/>
+    <line x1="910" y1="210" x2="910" y2="580" stroke="#a855f7" stroke-opacity="0.3"/>
+
+    <!-- Modern Tower 2 (High Tech Spire) -->
+    <polygon points="950,600 950,150 1000,100 1050,150 1050,600"/>
+    <!-- Spire tip -->
+    <line x1="1000" y1="100" x2="1000" y2="30" stroke="#10b981" stroke-width="3" filter="url(#neon-glow)"/>
+    <circle cx="1000" cy="30" r="5" fill="#10b981" filter="url(#neon-glow)"/>
+
+    <!-- Modern Tower 3 -->
+    <polygon points="1070,600 1070,300 1140,300 1140,600"/>
+  </g>
+
+  <!-- Interconnecting Circuit Nodes (Industrial Bridge -> AI Future Connection) -->
+  <g fill="#3b82f6" stroke="#60a5fa" stroke-width="1.5">
+    <!-- Connecting circuit paths -->
+    <path d="M 120,380 L 200,360 L 300,480 L 405,340 L 600,480 L 795,340 L 900,240 L 1000,100" fill="none" stroke="url(#text-grad)" stroke-width="2.5" stroke-dasharray="6,6" filter="url(#neon-glow)"/>
+
+    <!-- Glowing Circuit Nodes -->
+    <circle cx="300" cy="480" r="6" fill="#3b82f6" filter="url(#neon-glow)"/>
+    <circle cx="405" cy="340" r="6" fill="#a855f7" filter="url(#neon-glow)"/>
+    <circle cx="600" cy="480" r="8" fill="#10b981" filter="url(#neon-glow)"/>
+    <circle cx="795" cy="340" r="6" fill="#3b82f6" filter="url(#neon-glow)"/>
+    <circle cx="900" cy="240" r="7" fill="#a855f7" filter="url(#neon-glow)"/>
+  </g>
+
+  <!-- Water Reflection / Harbor Line at Bottom -->
+  <rect x="0" y="520" width="1200" height="80" fill="#0f172a" fill-opacity="0.7"/>
+  <path d="M 0,540 Q 300,535 600,540 T 1200,540" fill="none" stroke="#3b82f6" stroke-opacity="0.3" stroke-width="2"/>
+  <path d="M 0,560 Q 300,555 600,560 T 1200,560" fill="none" stroke="#10b981" stroke-opacity="0.2" stroke-width="1.5"/>
+</svg>
