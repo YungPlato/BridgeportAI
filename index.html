@@ -223,12 +223,17 @@
             box-shadow: inset 0 0 15px rgba(255,255,255,0.05);
         }
         
-        /* FAQ Details */
-        details > summary {
-            list-style: none;
+        /* FAQ Accordion Smooth Height Transition */
+        .accordion-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        details > summary::-webkit-details-marker {
-            display: none;
+        .accordion-content.is-open {
+            grid-template-rows: 1fr;
+        }
+        .accordion-inner {
+            overflow: hidden;
         }
 
         /* --- NEW UPGRADES --- */
@@ -762,51 +767,83 @@
             </div>
         </section>
 
-        <!-- FAQ SECTION (New) -->
+        <!-- FAQ SECTION (Animated Accordion) -->
         <section class="py-24 px-6 bg-black/30 relative z-20">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">Common Questions</h2>
                 <div class="space-y-4">
                     <!-- Q1 -->
-                    <details class="glass p-6 rounded-2xl group cursor-pointer hover:bg-white/5 transition">
-                        <summary class="font-bold text-lg flex justify-between items-center text-gray-200 select-none">
+                    <div class="faq-item glass rounded-2xl overflow-hidden transition-all duration-300 border border-white/10 hover:border-white/20">
+                        <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full p-6 text-left font-bold text-lg flex justify-between items-center text-gray-200 select-none hover:bg-white/5 transition duration-300 focus:outline-none">
                             <span>Do I need to know how to code?</span>
-                            <span class="transition-transform duration-300 group-open:rotate-180 text-primary"><i class="fa-solid fa-chevron-down"></i></span>
-                        </summary>
-                        <p class="text-gray-400 mt-4 leading-relaxed pl-2 border-l-2 border-primary/30 ml-1">
-                            Absolutely not. For our Agency services, we handle 100% of the technical heavy lifting. For our Studio classes, we teach you how to use user-friendly AI tools that require zero coding knowledge.
-                        </p>
-                    </details>
+                            <span class="faq-icon text-primary transition-transform duration-300 text-xl flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">
+                                <i class="fa-solid fa-plus text-sm"></i>
+                            </span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <div class="px-6 pb-6 pt-1 text-gray-400 leading-relaxed border-t border-white/5 mt-1">
+                                    <p class="pl-3 border-l-2 border-primary/40">
+                                        Absolutely not. For our Agency services, we handle 100% of the technical heavy lifting. For our Studio classes, we teach you how to use user-friendly AI tools that require zero coding knowledge.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Q2 -->
-                    <details class="glass p-6 rounded-2xl group cursor-pointer hover:bg-white/5 transition">
-                        <summary class="font-bold text-lg flex justify-between items-center text-gray-200 select-none">
+                    <div class="faq-item glass rounded-2xl overflow-hidden transition-all duration-300 border border-white/10 hover:border-white/20">
+                        <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full p-6 text-left font-bold text-lg flex justify-between items-center text-gray-200 select-none hover:bg-white/5 transition duration-300 focus:outline-none">
                             <span>Why are you cheaper than other agencies?</span>
-                            <span class="transition-transform duration-300 group-open:rotate-180 text-primary"><i class="fa-solid fa-chevron-down"></i></span>
-                        </summary>
-                        <p class="text-gray-400 mt-4 leading-relaxed pl-2 border-l-2 border-primary/30 ml-1">
-                            Efficiency. Most agencies charge for hours of manual coding and copywriting. We use advanced AI to do 80% of that work in minutes, then spend our time polishing the design. We pass those savings directly to you.
-                        </p>
-                    </details>
+                            <span class="faq-icon text-primary transition-transform duration-300 text-xl flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">
+                                <i class="fa-solid fa-plus text-sm"></i>
+                            </span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <div class="px-6 pb-6 pt-1 text-gray-400 leading-relaxed border-t border-white/5 mt-1">
+                                    <p class="pl-3 border-l-2 border-primary/40">
+                                        Efficiency. Most agencies charge for hours of manual coding and copywriting. We use advanced AI to do 80% of that work in minutes, then spend our time polishing the design. We pass those savings directly to you.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Q3 -->
-                    <details class="glass p-6 rounded-2xl group cursor-pointer hover:bg-white/5 transition">
-                        <summary class="font-bold text-lg flex justify-between items-center text-gray-200 select-none">
+                    <div class="faq-item glass rounded-2xl overflow-hidden transition-all duration-300 border border-white/10 hover:border-white/20">
+                        <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full p-6 text-left font-bold text-lg flex justify-between items-center text-gray-200 select-none hover:bg-white/5 transition duration-300 focus:outline-none">
                             <span>How long does a website take?</span>
-                            <span class="transition-transform duration-300 group-open:rotate-180 text-primary"><i class="fa-solid fa-chevron-down"></i></span>
-                        </summary>
-                        <p class="text-gray-400 mt-4 leading-relaxed pl-2 border-l-2 border-primary/30 ml-1">
-                            Our typical turnaround for a Launch Kit website is 3-5 business days. Once we have your info, we move fast.
-                        </p>
-                    </details>
+                            <span class="faq-icon text-primary transition-transform duration-300 text-xl flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">
+                                <i class="fa-solid fa-plus text-sm"></i>
+                            </span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <div class="px-6 pb-6 pt-1 text-gray-400 leading-relaxed border-t border-white/5 mt-1">
+                                    <p class="pl-3 border-l-2 border-primary/40">
+                                        Our typical turnaround for a Launch Kit website is 3-5 business days. Once we have your info, we move fast.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Q4 -->
-                    <details class="glass p-6 rounded-2xl group cursor-pointer hover:bg-white/5 transition">
-                        <summary class="font-bold text-lg flex justify-between items-center text-gray-200 select-none">
+                    <div class="faq-item glass rounded-2xl overflow-hidden transition-all duration-300 border border-white/10 hover:border-white/20">
+                        <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full p-6 text-left font-bold text-lg flex justify-between items-center text-gray-200 select-none hover:bg-white/5 transition duration-300 focus:outline-none">
                             <span>Is there a monthly fee for the website?</span>
-                            <span class="transition-transform duration-300 group-open:rotate-180 text-primary"><i class="fa-solid fa-chevron-down"></i></span>
-                        </summary>
-                        <p class="text-gray-400 mt-4 leading-relaxed pl-2 border-l-2 border-primary/30 ml-1">
-                            For the Launch Kit ($499), it is a one-time design fee. You will only pay for your own domain hosting (usually ~$10-20/month) which we help you set up in your own name so you own it forever.
-                        </p>
-                    </details>
+                            <span class="faq-icon text-primary transition-transform duration-300 text-xl flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">
+                                <i class="fa-solid fa-plus text-sm"></i>
+                            </span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">
+                                <div class="px-6 pb-6 pt-1 text-gray-400 leading-relaxed border-t border-white/5 mt-1">
+                                    <p class="pl-3 border-l-2 border-primary/40">
+                                        For the Launch Kit ($499), it is a one-time design fee. You will only pay for your own domain hosting (usually ~$10-20/month) which we help you set up in your own name so you own it forever.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1730,6 +1767,50 @@
                     tab.className = 'transform-tab whitespace-nowrap inline-flex items-center justify-center px-5 py-2.5 rounded-full font-bold text-xs md:text-sm border transition-all duration-300 glass text-gray-300 border-white/10 hover:border-white/30';
                 }
             });
+        }
+
+        // 7. Interactive Accordion (FAQ) Toggle Logic
+        function toggleFaq(button) {
+            const faqItem = button.closest('.faq-item');
+            const content = faqItem.querySelector('.accordion-content');
+            const icon = button.querySelector('.faq-icon');
+            const isOpen = content.classList.contains('is-open');
+
+            // Close all other FAQ items for clean accordion UX
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    const otherBtn = item.querySelector('button');
+                    const otherContent = item.querySelector('.accordion-content');
+                    const otherIcon = item.querySelector('.faq-icon');
+
+                    if (otherContent) otherContent.classList.remove('is-open');
+                    if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                    if (otherIcon) {
+                        otherIcon.style.transform = 'rotate(0deg)';
+                        otherIcon.classList.remove('bg-primary', 'text-white');
+                        otherIcon.classList.add('bg-primary/10', 'text-primary');
+                    }
+                }
+            });
+
+            // Toggle selected item
+            if (isOpen) {
+                content.classList.remove('is-open');
+                button.setAttribute('aria-expanded', 'false');
+                if (icon) {
+                    icon.style.transform = 'rotate(0deg)';
+                    icon.classList.remove('bg-primary', 'text-white');
+                    icon.classList.add('bg-primary/10', 'text-primary');
+                }
+            } else {
+                content.classList.add('is-open');
+                button.setAttribute('aria-expanded', 'true');
+                if (icon) {
+                    icon.style.transform = 'rotate(45deg)'; // Rotates '+' into an 'x'
+                    icon.classList.remove('bg-primary/10', 'text-primary');
+                    icon.classList.add('bg-primary', 'text-white');
+                }
+            }
         }
     </script>
 </body>
