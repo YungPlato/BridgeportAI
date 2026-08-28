@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -69,47 +69,85 @@
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Inter & Space Grotesk -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles & Custom Classes -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-        
-        body { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
-
-        /* Subtle Tech Grid Pattern for Hero Background */
-        .bg-tech-grid {
-            background-image: radial-gradient(rgba(59, 130, 246, 0.12) 1px, transparent 1px), radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
-            background-position: 0 0, 20px 20px;
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
         }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 4px; }
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.02em;
+        }
 
-        /* Glassmorphism */
-        .glass {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+        /* Hero Text Gradient (White to Light Blue) */
+        .text-gradient-hero {
+            background: linear-gradient(135deg, #FFFFFF 0%, #93C5FD 50%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Apple-Style Bento Grid Cards */
+        .bento-card {
+            background-color: #111827;
+            border: 1px solid #1F2937;
+            border-radius: 24px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .bento-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 25px rgba(59, 130, 246, 0.2);
+        }
+
+        /* Glassmorphism Pricing Cards */
+        .glass-pricing {
+            background: rgba(17, 24, 39, 0.7);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
+            border-radius: 24px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-pricing:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
         }
 
-        .glass:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.15);
+        /* Glowing Cyan Highlighted Card ($499 Launch Kit) */
+        .glass-pricing-cyan {
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid #06B6D4;
+            border-radius: 24px;
+            box-shadow: 0 0 35px rgba(6, 182, 212, 0.3);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
         }
-        
+        .glass-pricing-cyan:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.7), 0 0 50px rgba(6, 182, 212, 0.5);
+        }
+
+        /* Glass Navigation */
         .glass-nav {
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Animated Gradient Text */
+        /* Neural Network Background Texture Overlay */
+        .bg-neural-overlay {
+            background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.88)), url('assets/neural-network.webp');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Animated Text */
         .animate-text {
             background: linear-gradient(to right, #3b82f6, #a855f7, #10b981, #3b82f6);
             background-size: 300%;
@@ -118,44 +156,24 @@
             animation: animated-gradient 6s linear infinite;
         }
 
-        .text-gradient-gold {
-            background: linear-gradient(to right, #FDB931, #ffd700, #FDB931);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
         @keyframes animated-gradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Premium Button Micro-interactions */
+        /* Micro-interaction Button Glow */
         .btn-glow {
             position: relative;
             overflow: hidden;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .btn-glow:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 12px 35px -5px rgba(59, 130, 246, 0.45);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 35px -5px rgba(59, 130, 246, 0.5);
         }
         .btn-glow:active {
             transform: translateY(0) scale(0.98);
-        }
-        .btn-glow::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 40%, rgba(255,255,255,0.15) 60%, rgba(255,255,255,0) 100%);
-            transform: rotate(45deg) translateY(-100%);
-            transition: transform 0.6s;
-        }
-        .btn-glow:hover::after {
-            transform: rotate(45deg) translateY(0%);
         }
         
         /* Marquee Animation */
@@ -167,77 +185,22 @@
             animation: marquee 30s linear infinite;
         }
         
-        /* Page Transitions */
+        /* Page Sections */
         .page-section {
             display: none;
             opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 0.4s ease-in-out;
         }
-        
         .page-section.active {
             display: block;
-            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        .page-section.exiting {
-            display: block;
-            animation: fadeOut 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-            pointer-events: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 0;
+            animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); filter: blur(10px); }
-            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes fadeOut {
-            from { opacity: 1; transform: translateY(0); filter: blur(0); }
-            to { opacity: 0; transform: translateY(-20px); filter: blur(10px); }
-        }
-
-        /* Pricing Toggle Animation */
-        .pricing-grid {
-            transition: all 0.3s ease-in-out;
-        }
-        .hidden-grid {
-            display: none !important;
-        }
-        
-        canvas {
-            display: block;
-            vertical-align: bottom;
-        }
-        
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
-
-        /* Pulse Animation for CTA */
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); transform: scale(1); }
-            50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); transform: scale(1.02); }
-        }
-        .cta-pulse {
-            animation: pulse-glow 3s infinite;
-        }
-
-        /* Premium Icon Styles */
-        .icon-premium {
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: inset 0 0 15px rgba(255,255,255,0.05);
-        }
-        
         /* FAQ Accordion Smooth Height Transition */
         .accordion-content {
             display: grid;
@@ -251,48 +214,24 @@
             overflow: hidden;
         }
 
-        /* --- NEW UPGRADES --- */
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 4px; }
 
-        /* 1. Custom Cursor */
-        .cursor-dot,
-        .cursor-outline {
-            position: fixed;
-            top: 0;
-            left: 0;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            z-index: 9999;
-            pointer-events: none;
-        }
-        .cursor-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #3b82f6;
-        }
-        .cursor-outline {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
-        }
-        /* Hover Effect for Cursor */
-        body:hover .cursor-outline {
-            opacity: 1;
-        }
-
-        /* 2. Scroll Progress Bar */
+        /* Scroll Progress Bar */
         #scroll-progress {
             position: fixed;
             top: 0;
             left: 0;
             height: 4px;
-            background: linear-gradient(to right, #3b82f6, #a855f7, #10b981);
+            background: linear-gradient(to right, #3b82f6, #06b6d4, #10b981);
             z-index: 10000;
             width: 0%;
             transition: width 0.1s;
         }
 
-        /* 3. Preloader */
+        /* Preloader */
         #preloader {
             position: fixed;
             inset: 0;
@@ -307,7 +246,7 @@
             width: 48px;
             height: 48px;
             border: 5px solid #FFF;
-            border-bottom-color: #3b82f6;
+            border-bottom-color: #06b6d4;
             border-radius: 50%;
             display: inline-block;
             box-sizing: border-box;
@@ -317,70 +256,6 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
-        /* 4. Back to Top Button */
-        #back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: rgba(59, 130, 246, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-            z-index: 90;
-            cursor: pointer;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-        }
-        #back-to-top.visible {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        #back-to-top:hover {
-            background: #3b82f6;
-            transform: translateY(-5px);
-        }
-
-        /* Mobile Responsiveness & Touch Target Optimization */
-        @media (max-width: 768px) {
-            button,
-            a.cta-pulse,
-            .btn-glow,
-            #btn-agency,
-            #btn-studio,
-            #cookie-banner button,
-            nav button {
-                min-height: 44px;
-                min-width: 44px;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            input, select, textarea {
-                font-size: 16px !important;
-            }
-
-            /* Prevent scale transform overflow on mobile */
-            .pricing-grid .transform.scale-105 {
-                transform: scale(1) !important;
-            }
-
-            .pricing-grid {
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 1.5rem !important;
-            }
-        }
     </style>
     
     <script>
@@ -388,10 +263,11 @@
             theme: {
                 extend: {
                     colors: {
-                        dark: '#0f172a', // Slate 900
-                        primary: '#3b82f6', // Blue 500
-                        accent: '#f97316', // Orange 500
-                        studio: '#10b981', // Emerald 500
+                        dark: '#0f172a',
+                        primary: '#3b82f6',
+                        accent: '#f97316',
+                        studio: '#10b981',
+                        cyanAcc: '#06b6d4',
                         purple: '#a855f7',
                     }
                 }
@@ -408,17 +284,8 @@
         </div>
     </div>
 
-    <!-- Custom Cursor -->
-    <div class="cursor-dot hidden md:block"></div>
-    <div class="cursor-outline hidden md:block"></div>
-
     <!-- Scroll Progress -->
     <div id="scroll-progress"></div>
-
-    <!-- Back to Top -->
-    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
 
     <!-- Navbar -->
     <nav id="navbar" class="sticky top-0 w-full z-50 glass-nav transition-all duration-300">
@@ -426,7 +293,7 @@
             <a href="#" onclick="showPage('home')" class="flex items-center gap-3 group cursor-pointer">
                 <picture>
                     <source srcset="assets/logo.webp" type="image/webp">
-                    <img id="nav-logo" src="assets/logo.png" alt="Bridgeport AI" width="160" height="40" class="h-10 w-auto group-hover:scale-110 transition-all duration-300">
+                    <img id="nav-logo" src="assets/logo.png" alt="Bridgeport AI" width="160" height="40" class="h-10 w-auto group-hover:scale-105 transition-all duration-300">
                 </picture>
             </a>
             
@@ -443,12 +310,10 @@
                 <button onclick="showPage('about')" class="hover:text-primary transition">Our Mission</button>
 
                 <div class="flex items-center gap-3 ml-2">
-                    <!-- Secondary Outline Button -->
                     <a href="#contact" onclick="showPage('studio')" class="px-4 py-2 rounded-full border border-studio text-studio hover:bg-studio/15 transition duration-300 font-bold text-xs whitespace-nowrap">
                         Take a Class ($49)
                     </a>
-                    <!-- Primary Solid-Color Button -->
-                    <a href="#contact" onclick="showPage('services')" class="cta-pulse px-5 py-2 rounded-full bg-gradient-to-r from-primary to-blue-600 text-white hover:scale-105 transition duration-300 font-bold text-xs whitespace-nowrap shadow-md">
+                    <a href="#contact" onclick="showPage('services')" class="px-5 py-2 rounded-full bg-gradient-to-r from-primary to-cyan-500 text-white hover:scale-105 transition duration-300 font-bold text-xs whitespace-nowrap shadow-md">
                         Get a Website ($499)
                     </a>
                 </div>
@@ -473,7 +338,7 @@
                     <a href="#contact" onclick="showPage('studio'); toggleMobileMenu()" class="w-full text-center py-2.5 rounded-full border border-studio text-studio font-bold text-xs">
                         Take a Class ($49)
                     </a>
-                    <a href="#contact" onclick="showPage('services'); toggleMobileMenu()" class="w-full text-center py-2.5 rounded-full bg-gradient-to-r from-primary to-blue-600 text-white font-bold text-xs shadow-md">
+                    <a href="#contact" onclick="showPage('services'); toggleMobileMenu()" class="w-full text-center py-2.5 rounded-full bg-gradient-to-r from-primary to-cyan-500 text-white font-bold text-xs shadow-md">
                         Get a Website ($499)
                     </a>
                 </div>
@@ -485,799 +350,515 @@
     <main id="main-content" class="flex-grow relative min-h-screen">
         <!-- ==================== HOME PAGE ==================== -->
         <div id="home" class="page-section active">
-            <!-- Hero Section -->
-            <section class="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-20 overflow-hidden bg-tech-grid">
-            <!-- Video Background -->
-            <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
-                <video autoplay loop muted playsinline preload="metadata" poster="assets/hero-poster.webp" class="absolute w-full h-full object-cover opacity-30">
-                    <source src="assets/hero-background.mp4" type="video/mp4">
-                </video>
-                <!-- Sleek Dark Gradient Overlay for high contrast & breathability -->
-                <div class="absolute inset-0 bg-gradient-to-b from-dark/95 via-dark/80 to-dark/95"></div>
-            </div>
-
-            <!-- Particles Background -->
-            <div id="particles-js"></div>
             
-            <!-- Sleek Ambient Glows -->
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/15 rounded-full blur-[160px] pointer-events-none"></div>
-            <div class="absolute bottom-10 right-[-5%] w-96 h-96 bg-studio/10 rounded-full blur-[140px] pointer-events-none"></div>
-
-            <div class="text-center max-w-5xl relative z-10" data-aos="zoom-in" data-aos-duration="1000">
-                <div class="flex justify-center gap-4 mb-8">
-                    <div class="px-4 py-1 rounded-full glass text-primary text-xs font-bold tracking-wide uppercase flex items-center border-primary/30">
-                        <i class="fa-solid fa-bolt mr-2"></i> We Build It For You
-                    </div>
-                    <div class="px-4 py-1 rounded-full glass text-studio text-xs font-bold tracking-wide uppercase flex items-center border-studio/30">
-                        <i class="fa-solid fa-graduation-cap mr-2"></i> You Learn To Build It
-                    </div>
+            <!-- HERO SECTION -->
+            <section id="hero-section" class="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-20 overflow-hidden">
+                <!-- Full-Width Background Image -->
+                <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
+                    <picture>
+                        <source srcset="assets/hero-bg.webp" type="image/webp">
+                        <img src="assets/hero-bg.webp" alt="Bridgeport AI Hero" class="absolute w-full h-full object-cover opacity-35">
+                    </picture>
+                    <!-- Dark Gradient Overlay (Black at bottom to transparent at top) -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/70 to-transparent"></div>
                 </div>
                 
-                <h1 class="text-5xl md:text-8xl font-bold leading-tight mb-8">
-                    Bridgeport's Digital <br> 
-                    <span class="animate-text bg-gradient-to-r from-primary via-purple to-studio">Transformation Hub.</span>
-                </h1>
-                <p class="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-                    We are a hybrid <strong>AI Agency</strong> and <strong>Learning Studio</strong>. Whether you need a website built <em>for</em> you, or you want to learn how to use AI <em>yourself</em>, we are the bridge to your future.
-                </p>
-                <div class="flex flex-col md:flex-row gap-6 justify-center">
-                <button onclick="showPage('services')" class="btn-glow px-8 py-4 rounded-full bg-gradient-to-r from-primary to-blue-600 text-white font-bold text-lg hover:scale-105 transition duration-300 shadow-[0_0_30px_rgba(59,130,246,0.4)]">
-                        Hire The Agency
-                    </button>
-                <button onclick="showPage('studio')" class="btn-glow px-8 py-4 rounded-full glass border border-studio/50 text-white font-bold text-lg hover:bg-studio/10 transition duration-300 hover:scale-105 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
-                        Enter The Studio
-                    </button>
-                </div>
-            </div>
-        </section>
+                <!-- Sleek Ambient Glows -->
+                <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/15 rounded-full blur-[160px] pointer-events-none"></div>
 
-        <!-- TECH STACK MARQUEE (New) -->
-        <section class="py-10 border-y border-white/5 bg-black/30 overflow-hidden relative z-20">
-            <div class="max-w-7xl mx-auto px-6 mb-6 text-center">
-                <p class="text-xs text-gray-500 uppercase tracking-widest font-bold">Powered by Industry Standard Tech</p>
-            </div>
-            <div class="relative flex overflow-x-hidden group w-full">
-                <div class="py-2 animate-marquee whitespace-nowrap flex items-center gap-16 min-w-full">
-                    <!-- Tech Icons (Duplicated for seamless scroll) -->
-                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-brands fa-stripe text-4xl mr-3"></i> Stripe</span>
-                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-brands fa-google text-3xl mr-3"></i> Google AI</span>
-                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-brands fa-aws text-3xl mr-3"></i> AWS</span>
-                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-brands fa-meta text-3xl mr-3"></i> Meta</span>
-                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-solid fa-bolt text-3xl mr-3"></i> OpenAI</span>
-                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-solid fa-robot text-3xl mr-3"></i> Midjourney</span>
-                    
-                    <!-- Duplicate Set -->
-                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-brands fa-stripe text-4xl mr-3"></i> Stripe</span>
-                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-brands fa-google text-3xl mr-3"></i> Google AI</span>
-                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-brands fa-aws text-3xl mr-3"></i> AWS</span>
-                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-brands fa-meta text-3xl mr-3"></i> Meta</span>
-                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-solid fa-bolt text-3xl mr-3"></i> OpenAI</span>
-                    <span class="text-xl font-bold text-gray-400 flex items-center opacity-50 hover:opacity-100 transition"><i class="fa-solid fa-robot text-3xl mr-3"></i> Midjourney</span>
-                </div>
-            </div>
-        </section>
+                <div class="text-center max-w-5xl relative z-10" data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="flex justify-center gap-4 mb-8">
+                        <div class="px-4 py-1.5 rounded-full bg-slate-900/80 border border-primary/40 text-primary text-xs font-bold tracking-wide uppercase flex items-center shadow-lg">
+                            <i class="fa-solid fa-bolt mr-2"></i> We Build It For You
+                        </div>
+                        <div class="px-4 py-1.5 rounded-full bg-slate-900/80 border border-studio/40 text-studio text-xs font-bold tracking-wide uppercase flex items-center shadow-lg">
+                            <i class="fa-solid fa-graduation-cap mr-2"></i> You Learn To Build It
+                        </div>
+                    </div>
 
-        <!-- Quick Services Preview -->
-        <section class="py-20 px-6 bg-black/20 relative z-20">
-            <div class="max-w-7xl mx-auto text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4">How We Help</h2>
-                <div class="grid md:grid-cols-3 gap-8 mt-10">
-                    <div class="glass p-6 rounded-2xl hover:bg-white/5 transition cursor-pointer" onclick="showPage('services')">
-                        <div class="w-16 h-16 rounded-full icon-premium flex items-center justify-center mb-4 mx-auto">
-                            <i class="fa-solid fa-laptop-code text-primary text-3xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">Web Design</h3>
-                    </div>
-                    <div class="glass p-6 rounded-2xl hover:bg-white/5 transition cursor-pointer" onclick="showPage('studio')">
-                        <div class="w-16 h-16 rounded-full icon-premium flex items-center justify-center mb-4 mx-auto">
-                            <i class="fa-solid fa-chalkboard-user text-studio text-3xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">AI Classes</h3>
-                    </div>
-                    <div class="glass p-6 rounded-2xl hover:bg-white/5 transition cursor-pointer" onclick="showPage('services')">
-                        <div class="w-16 h-16 rounded-full icon-premium flex items-center justify-center mb-4 mx-auto">
-                            <i class="fa-solid fa-robot text-accent text-3xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">Automation</h3>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Free Cheat Sheet Lead Magnet -->
-        <section class="py-16 px-6 bg-slate-900/60 relative z-20 border-y border-white/10">
-            <div class="max-w-4xl mx-auto glass p-8 md:p-12 rounded-3xl relative overflow-hidden shadow-2xl border border-primary/20">
-                <div class="absolute -top-24 -right-24 w-64 h-64 bg-studio/15 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="text-center mb-8">
-                    <span class="text-studio font-bold tracking-widest uppercase text-xs mb-2 inline-block"><i class="fa-solid fa-gift mr-1"></i> Free Resource</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-3">Not ready to hire? Start learning for free.</h2>
-                    <p class="text-gray-300 text-base md:text-lg max-w-2xl mx-auto">
-                        Download our free 1-Page Cheat Sheet: 5 AI Prompts Every Bridgeport Business Owner Should Use Today.
+                    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-8">
+                        Bridgeport's Premier <br>
+                        <span class="text-gradient-hero">Digital Transformation Hub</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+                        We are a hybrid <strong>AI Agency</strong> and <strong>Learning Studio</strong>. Whether you need a website built <em>for</em> you, or you want to learn how to use AI <em>yourself</em>, we are the bridge to your future.
                     </p>
-                </div>
-                <form action="https://formsubmit.co/bridgeportaisolutions@gmail.com" method="POST" class="space-y-4 max-w-2xl mx-auto">
-                    <input type="hidden" name="_subject" value="New Free Cheat Sheet Download Request">
-                    <input type="hidden" name="_captcha" value="false">
-                    <div class="grid md:grid-cols-3 gap-4">
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-gray-400">Name</label>
-                            <input type="text" name="name" class="w-full p-3 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Your Name" required>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-gray-400">Email</label>
-                            <input type="email" name="email" class="w-full p-3 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="you@example.com" required>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-gray-400">Business Type</label>
-                            <input type="text" name="business_type" class="w-full p-3 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="e.g. Retail, HVAC, Bakery" required>
-                        </div>
+                    <div class="flex flex-col md:flex-row gap-6 justify-center">
+                        <button onclick="showPage('services')" class="btn-glow px-8 py-4 rounded-full bg-gradient-to-r from-primary to-cyan-500 text-white font-bold text-lg shadow-[0_0_30px_rgba(59,130,246,0.4)]">
+                            Hire The Agency
+                        </button>
+                        <button onclick="showPage('studio')" class="btn-glow px-8 py-4 rounded-full bg-slate-900/90 border border-studio text-white font-bold text-lg hover:bg-studio/20 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+                            Enter The Studio
+                        </button>
                     </div>
-                    <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-studio to-emerald-600 hover:from-emerald-500 hover:to-studio text-white font-bold text-lg shadow-lg shadow-studio/25 hover:shadow-studio/40 transition-all duration-300 btn-glow">
-                        Send Me The Free Cheat Sheet
-                    </button>
-                </form>
-            </div>
-        </section>
+                </div>
+            </section>
 
-        <!-- INDUSTRIES WE SERVE (New Enhancement) -->
-        <section class="py-20 px-6 border-y border-white/5 bg-dark/50 relative z-20">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <span class="text-primary font-bold tracking-widest uppercase text-xs">Bridgeport's One-Stop Shop</span>
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4 mt-2">Who We Serve</h2>
-                    <p class="text-gray-400 max-w-2xl mx-auto">AI isn't just for big tech. It's for the backbone of our local economy.</p>
+            <!-- TECH STACK MARQUEE -->
+            <section class="py-10 border-y border-white/10 bg-black/40 overflow-hidden relative z-20">
+                <div class="max-w-7xl mx-auto px-6 mb-6 text-center">
+                    <p class="text-xs text-gray-500 uppercase tracking-widest font-bold">Powered by Enterprise Tech</p>
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <!-- Real Estate -->
-                    <div class="glass p-6 rounded-2xl hover:-translate-y-1 transition text-center group">
-                        <div class="w-12 h-12 mx-auto bg-blue-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-500/20 transition">
-                            <i class="fa-solid fa-house text-blue-400 text-xl"></i>
-                        </div>
-                        <h3 class="font-bold text-white mb-1">Real Estate</h3>
-                        <p class="text-xs text-gray-400">Listing Generators</p>
-                    </div>
-                    <!-- Trades -->
-                    <div class="glass p-6 rounded-2xl hover:-translate-y-1 transition text-center group">
-                        <div class="w-12 h-12 mx-auto bg-orange-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-orange-500/20 transition">
-                            <i class="fa-solid fa-hammer text-orange-400 text-xl"></i>
-                        </div>
-                        <h3 class="font-bold text-white mb-1">Local Trades</h3>
-                        <p class="text-xs text-gray-400">Quote Automation</p>
-                    </div>
-                    <!-- Hospitality -->
-                    <div class="glass p-6 rounded-2xl hover:-translate-y-1 transition text-center group">
-                        <div class="w-12 h-12 mx-auto bg-purple-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-500/20 transition">
-                            <i class="fa-solid fa-utensils text-purple-400 text-xl"></i>
-                        </div>
-                        <h3 class="font-bold text-white mb-1">Hospitality</h3>
-                        <p class="text-xs text-gray-400">Social & Menus</p>
-                    </div>
-                    <!-- Retail -->
-                    <div class="glass p-6 rounded-2xl hover:-translate-y-1 transition text-center group">
-                        <div class="w-12 h-12 mx-auto bg-green-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-green-500/20 transition">
-                            <i class="fa-solid fa-shop text-green-400 text-xl"></i>
-                        </div>
-                        <h3 class="font-bold text-white mb-1">Retail</h3>
-                        <p class="text-xs text-gray-400">Inventory & Ads</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <div class="relative flex overflow-x-hidden group w-full">
+                    <div class="py-2 animate-marquee whitespace-nowrap flex items-center gap-16 min-w-full">
+                        <span class="text-xl font-bold text-gray-400 flex items-center opacity-60"><i class="fa-brands fa-stripe text-4xl mr-3"></i> Stripe</span>
+                        <span class="text-xl font-bold text-gray-400 flex items-center opacity-60"><i class="fa-brands fa-google text-3xl mr-3"></i> Google AI</span>
+                        <span class="text-xl font-bold text-gray-400 flex items-center opacity-60"><i class="fa-brands fa-aws text-3xl mr-3"></i> AWS</span>
+                        <span class="text-xl font-bold text-gray-400 flex items-center opacity-60"><i class="fa-brands fa-meta text-3xl mr-3"></i> Meta</span>
+                        <span class="text-xl font-bold text-gray-400 flex items-center opacity-60"><i class="fa-solid fa-bolt text-3xl mr-3"></i> OpenAI</span>
+                        <span class="text-xl font-bold text-gray-400 flex items-center opacity-60"><i class="fa-solid fa-robot text-3xl mr-3"></i> Midjourney</span>
 
-        <!-- TESTIMONIALS (New) -->
-        <section class="py-24 px-6 relative z-20">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Real Results</h2>
-                    <p class="text-gray-400">Don't just take our word for it.</p>
+                        <!-- Duplicate -->
+                        <span class="text-xl font-bold text-gray-400 flex items-center opacity-60"><i class="fa-brands fa-stripe text-4xl mr-3"></i> Stripe</span>
+                        <span class="text-xl font-bold text-gray-400 flex items-center opacity-60"><i class="fa-brands fa-google text-3xl mr-3"></i> Google AI</span>
+                        <span class="text-xl font-bold text-gray-400 flex items-center opacity-60"><i class="fa-brands fa-aws text-3xl mr-3"></i> AWS</span>
+                        <span class="text-xl font-bold text-gray-400 flex items-center opacity-60"><i class="fa-brands fa-meta text-3xl mr-3"></i> Meta</span>
+                        <span class="text-xl font-bold text-gray-400 flex items-center opacity-60"><i class="fa-solid fa-bolt text-3xl mr-3"></i> OpenAI</span>
+                        <span class="text-xl font-bold text-gray-400 flex items-center opacity-60"><i class="fa-solid fa-robot text-3xl mr-3"></i> Midjourney</span>
+                    </div>
                 </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Card 1 -->
-                    <div class="glass p-8 rounded-3xl relative group hover:bg-white/5 transition duration-500" data-tilt>
-                        <i class="fa-solid fa-quote-left text-6xl text-primary/10 absolute top-4 left-4 group-hover:text-primary/20 transition"></i>
-                        <p class="text-gray-300 mb-8 pt-6 relative z-10 text-lg leading-relaxed">"I was quoted $5k for a website by another agency. Bridgeport AI built a better one for $499 in 3 days. The process was unreal."</p>
-                        <div class="flex items-center gap-4">
-                            <picture>
-                                <source srcset="assets/testimonial-1.webp" type="image/webp">
-                                <img src="assets/testimonial-1.jpg" alt="Mike T." width="48" height="48" class="w-12 h-12 rounded-full border-2 border-primary/50" loading="lazy">
-                            </picture>
+            </section>
+
+            <!-- APPLE-STYLE BENTO GRID: HOW WE HELP -->
+            <section class="py-24 px-6 bg-dark/60 relative z-20">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16">
+                        <span class="text-primary font-bold tracking-widest uppercase text-xs">Services Overview</span>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-4 mt-2">How We Help</h2>
+                        <p class="text-gray-400 max-w-xl mx-auto">Modern digital solutions designed specifically for Bridgeport businesses and entrepreneurs.</p>
+                    </div>
+
+                    <!-- Apple Bento Box Layout -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Bento Box 1: Web Design -->
+                        <div class="bento-card p-8 flex flex-col justify-between group cursor-pointer" onclick="showPage('services')">
                             <div>
-                                <h4 class="font-bold text-white">Mike T.</h4>
-                                <p class="text-xs text-primary font-bold uppercase tracking-wider">Local HVAC Owner</p>
+                                <div class="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center text-primary text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                                    <i class="fa-solid fa-laptop-code"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">Custom Web Design</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed mb-6">High-converting, lightning-fast AI-built websites optimized for search engines and mobile devices.</p>
+                            </div>
+                            <div class="flex items-center text-primary font-bold text-sm group-hover:translate-x-2 transition duration-300">
+                                Explore Web Design <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                             </div>
                         </div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="glass p-8 rounded-3xl relative group hover:bg-white/5 transition duration-500" data-tilt>
-                        <i class="fa-solid fa-quote-left text-6xl text-studio/10 absolute top-4 left-4 group-hover:text-studio/20 transition"></i>
-                        <p class="text-gray-300 mb-8 pt-6 relative z-10 text-lg leading-relaxed">"The AI class changed my life. I write all my real estate listings in seconds now instead of hours. Highly recommend for anyone busy."</p>
-                        <div class="flex items-center gap-4">
-                            <picture>
-                                <source srcset="assets/testimonial-2.webp" type="image/webp">
-                                <img src="assets/testimonial-2.jpg" alt="Sarah J." width="48" height="48" class="w-12 h-12 rounded-full border-2 border-studio/50" loading="lazy">
-                            </picture>
+
+                        <!-- Bento Box 2: AI Classes -->
+                        <div class="bento-card p-8 flex flex-col justify-between group cursor-pointer" onclick="showPage('studio')">
                             <div>
-                                <h4 class="font-bold text-white">Sarah J.</h4>
-                                <p class="text-xs text-studio font-bold uppercase tracking-wider">Realtor</p>
+                                <div class="w-14 h-14 rounded-2xl bg-studio/20 flex items-center justify-center text-studio text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">Hands-On AI Classes</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed mb-6">Practical, non-technical workshops that teach business owners and teams how to leverage AI tools effortlessly.</p>
+                            </div>
+                            <div class="flex items-center text-studio font-bold text-sm group-hover:translate-x-2 transition duration-300">
+                                View Studio Classes <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                             </div>
                         </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="glass p-8 rounded-3xl relative group hover:bg-white/5 transition duration-500" data-tilt>
-                        <i class="fa-solid fa-quote-left text-6xl text-accent/10 absolute top-4 left-4 group-hover:text-accent/20 transition"></i>
-                        <p class="text-gray-300 mb-8 pt-6 relative z-10 text-lg leading-relaxed">"Social media used to stress me out completely. Now it runs on autopilot. My sales are up 30% and I don't even have to think about it."</p>
-                        <div class="flex items-center gap-4">
-                            <picture>
-                                <source srcset="assets/testimonial-3.webp" type="image/webp">
-                                <img src="assets/testimonial-3.jpg" alt="David R." width="48" height="48" class="w-12 h-12 rounded-full border-2 border-accent/50" loading="lazy">
-                            </picture>
+
+                        <!-- Bento Box 3: Automation -->
+                        <div class="bento-card p-8 flex flex-col justify-between group cursor-pointer" onclick="showPage('services')">
                             <div>
-                                <h4 class="font-bold text-white">David R.</h4>
-                                <p class="text-xs text-accent font-bold uppercase tracking-wider">Coffee Shop Owner</p>
+                                <div class="w-14 h-14 rounded-2xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                                    <i class="fa-solid fa-robot"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3">Business Automation</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed mb-6">Automate quote generation, customer inquiries, and social media scheduling to save 15+ hours every week.</p>
+                            </div>
+                            <div class="flex items-center text-cyan-400 font-bold text-sm group-hover:translate-x-2 transition duration-300">
+                                Automate Workflow <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- SEE THE TRANSFORMATION SECTION (Interactive Before/After Slider) -->
-        <section id="see-the-transformation" class="py-20 px-6 bg-slate-900/80 border-t border-white/10 relative z-20">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-10">
-                    <span class="text-studio font-bold tracking-widest uppercase text-xs">Interactive Showcase</span>
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4 mt-2">See The Transformation</h2>
-                    <p class="text-gray-400 max-w-2xl mx-auto">Drag the slider left and right to compare outdated local business sites with sleek, high-converting AI-built sites.</p>
+            <!-- Lead Magnet -->
+            <section class="py-20 px-6 bg-slate-900/60 relative z-20 border-y border-white/10">
+                <div class="max-w-4xl mx-auto bento-card p-8 md:p-12 relative overflow-hidden shadow-2xl border border-primary/30">
+                    <div class="text-center mb-8">
+                        <span class="text-studio font-bold tracking-widest uppercase text-xs mb-2 inline-block"><i class="fa-solid fa-gift mr-1"></i> Free Resource</span>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-3">Not ready to hire? Start learning for free.</h2>
+                        <p class="text-gray-300 text-base md:text-lg max-w-2xl mx-auto">
+                            Download our free 1-Page Cheat Sheet: 5 AI Prompts Every Bridgeport Business Owner Should Use Today.
+                        </p>
+                    </div>
+                    <form action="https://formsubmit.co/bridgeportaisolutions@gmail.com" method="POST" class="space-y-4 max-w-2xl mx-auto">
+                        <input type="hidden" name="_subject" value="New Free Cheat Sheet Download Request">
+                        <input type="hidden" name="_captcha" value="false">
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-gray-400">Name</label>
+                                <input type="text" name="name" class="w-full p-3.5 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Your Name" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-gray-400">Email</label>
+                                <input type="email" name="email" class="w-full p-3.5 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="you@example.com" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-gray-400">Business Type</label>
+                                <input type="text" name="business_type" class="w-full p-3.5 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="e.g. Retail, HVAC" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-studio to-emerald-600 hover:from-emerald-500 hover:to-studio text-white font-bold text-lg shadow-lg shadow-studio/25 transition-all duration-300 btn-glow">
+                            Send Me The Free Cheat Sheet
+                        </button>
+                    </form>
                 </div>
+            </section>
 
-                <!-- Business Category Switcher Tabs -->
-                <div class="flex justify-center gap-3 mb-8 flex-wrap">
-                    <button onclick="switchTransformation('hvac')" id="tab-hvac" class="transform-tab whitespace-nowrap inline-flex items-center justify-center px-5 py-2.5 rounded-full font-bold text-xs md:text-sm border transition-all duration-300 bg-primary text-white border-primary shadow-lg shadow-primary/20">
-                        <i class="fa-solid fa-temperature-arrow-up mr-2"></i> HVAC Services
-                    </button>
-                    <button onclick="switchTransformation('bakery')" id="tab-bakery" class="transform-tab whitespace-nowrap inline-flex items-center justify-center px-5 py-2.5 rounded-full font-bold text-xs md:text-sm border transition-all duration-300 glass text-gray-300 border-white/10 hover:border-white/30">
-                        <i class="fa-solid fa-wheat-awn mr-2"></i> Local Bakery
-                    </button>
-                    <button onclick="switchTransformation('landscaping')" id="tab-landscaping" class="transform-tab whitespace-nowrap inline-flex items-center justify-center px-5 py-2.5 rounded-full font-bold text-xs md:text-sm border transition-all duration-300 glass text-gray-300 border-white/10 hover:border-white/30">
-                        <i class="fa-solid fa-leaf mr-2"></i> Landscaping
-                    </button>
-                </div>
-
-                <!-- Slider Container -->
-                <div id="before-after-container" class="relative w-full aspect-[16/10] md:aspect-[16/9] max-w-4xl mx-auto rounded-3xl overflow-hidden glass border border-white/15 shadow-2xl select-none group">
-                    <!-- AFTER Image (Background Base) -->
-                    <img id="img-after" src="assets/hvac-after.svg" alt="After Transformation" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
-
-                    <!-- BEFORE Image Container (Clipped Overlay) -->
-                    <div id="before-wrapper" class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
-                        <img id="img-before" src="assets/hvac-before.svg" alt="Before Transformation" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
+            <!-- APPLE BENTO GRID: WHO WE SERVE -->
+            <section class="py-24 px-6 border-y border-white/5 bg-dark relative z-20">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16">
+                        <span class="text-primary font-bold tracking-widest uppercase text-xs">Bridgeport Community Hub</span>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-4 mt-2">Who We Serve</h2>
+                        <p class="text-gray-400 max-w-xl mx-auto">AI technology tailored to power the backbone of our local Connecticut economy.</p>
                     </div>
 
-                    <!-- Visual Badges -->
-                    <div class="absolute top-4 left-4 z-20 px-3 py-1.5 rounded-lg bg-red-600/90 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider shadow-md pointer-events-none">
-                        Before (Old Site)
-                    </div>
-                    <div class="absolute top-4 right-4 z-20 px-3 py-1.5 rounded-lg bg-emerald-600/90 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider shadow-md pointer-events-none">
-                        After (AI Built)
-                    </div>
-
-                    <!-- Slider Divider Line & Handle -->
-                    <div id="slider-handle" class="absolute top-0 bottom-0 z-20 pointer-events-none" style="left: 50%;">
-                        <div class="w-0.5 h-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]"></div>
-                        <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-gradient-to-r from-primary to-blue-600 text-white flex items-center justify-center shadow-2xl border-2 border-white group-hover:scale-110 transition-transform duration-150">
-                            <i class="fa-solid fa-arrows-left-right text-sm"></i>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Bento Real Estate -->
+                        <div class="bento-card p-6 text-center group">
+                            <div class="w-12 h-12 mx-auto bg-blue-500/20 rounded-2xl flex items-center justify-center mb-4 text-blue-400 text-xl group-hover:scale-110 transition duration-300">
+                                <i class="fa-solid fa-house"></i>
+                            </div>
+                            <h3 class="font-bold text-white mb-1 text-lg">Real Estate</h3>
+                            <p class="text-xs text-gray-400">AI Listing Generators & Virtual Tours</p>
+                        </div>
+                        <!-- Bento Trades -->
+                        <div class="bento-card p-6 text-center group">
+                            <div class="w-12 h-12 mx-auto bg-orange-500/20 rounded-2xl flex items-center justify-center mb-4 text-orange-400 text-xl group-hover:scale-110 transition duration-300">
+                                <i class="fa-solid fa-hammer"></i>
+                            </div>
+                            <h3 class="font-bold text-white mb-1 text-lg">Local Trades</h3>
+                            <p class="text-xs text-gray-400">Instant Quotes & Automated Booking</p>
+                        </div>
+                        <!-- Bento Hospitality -->
+                        <div class="bento-card p-6 text-center group">
+                            <div class="w-12 h-12 mx-auto bg-purple-500/20 rounded-2xl flex items-center justify-center mb-4 text-purple-400 text-xl group-hover:scale-110 transition duration-300">
+                                <i class="fa-solid fa-utensils"></i>
+                            </div>
+                            <h3 class="font-bold text-white mb-1 text-lg">Hospitality</h3>
+                            <p class="text-xs text-gray-400">Social Media & Menu Management</p>
+                        </div>
+                        <!-- Bento Retail -->
+                        <div class="bento-card p-6 text-center group">
+                            <div class="w-12 h-12 mx-auto bg-emerald-500/20 rounded-2xl flex items-center justify-center mb-4 text-emerald-400 text-xl group-hover:scale-110 transition duration-300">
+                                <i class="fa-solid fa-shop"></i>
+                            </div>
+                            <h3 class="font-bold text-white mb-1 text-lg">Retail & Shops</h3>
+                            <p class="text-xs text-gray-400">Smart Ads & E-Commerce Integration</p>
                         </div>
                     </div>
-
-                    <!-- Range Input Control -->
-                    <input type="range" id="slider-range" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30" aria-label="Before and After Comparison Slider">
                 </div>
+            </section>
 
-                <!-- One-Sentence Caption -->
-                <div class="text-center mt-6">
-                    <p id="transformation-caption" class="inline-block px-6 py-3 rounded-full bg-slate-800/90 border border-primary/30 text-primary font-bold text-sm md:text-base shadow-lg transition-all duration-300">
-                        <i class="fa-solid fa-chart-line mr-2"></i> HVAC Site: Built in 3 days, increased quote requests by 40%.
-                    </p>
-                </div>
-            </div>
-        </section>
+            <!-- TESTIMONIALS -->
+            <section class="py-24 px-6 relative z-20 bg-slate-900/40">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-4">Real Local Results</h2>
+                        <p class="text-gray-400">Hear directly from Bridgeport business owners.</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bento-card p-8 relative group">
+                            <i class="fa-solid fa-quote-left text-5xl text-primary/15 absolute top-4 left-4"></i>
+                            <p class="text-gray-300 mb-8 pt-6 relative z-10 text-base leading-relaxed">"I was quoted $5k for a website by another agency. Bridgeport AI built a better one for $499 in 3 days. Unreal value."</p>
+                            <div class="flex items-center gap-4">
+                                <picture>
+                                    <source srcset="assets/testimonial-1.webp" type="image/webp">
+                                    <img src="assets/testimonial-1.jpg" alt="Mike T." width="48" height="48" class="w-12 h-12 rounded-full border-2 border-primary/50" loading="lazy">
+                                </picture>
+                                <div>
+                                    <h4 class="font-bold text-white">Mike T.</h4>
+                                    <p class="text-xs text-primary font-bold uppercase tracking-wider">HVAC Business Owner</p>
+                                </div>
+                            </div>
+                        </div>
 
-        <!-- FAQ SECTION (Animated Accordion) -->
-        <section class="py-24 px-6 bg-black/30 relative z-20">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">Common Questions</h2>
-                <div class="space-y-4">
-                    <!-- Q1 -->
-                    <div class="faq-item glass rounded-2xl overflow-hidden transition-all duration-300 border border-white/10 hover:border-white/20">
-                        <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full p-6 text-left font-bold text-lg flex justify-between items-center text-gray-200 select-none hover:bg-white/5 transition duration-300 focus:outline-none">
-                            <span>Do I need to know how to code?</span>
-                            <span class="faq-icon text-primary transition-transform duration-300 text-xl flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">
-                                <i class="fa-solid fa-plus text-sm"></i>
-                            </span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="accordion-inner">
-                                <div class="px-6 pb-6 pt-1 text-gray-400 leading-relaxed border-t border-white/5 mt-1">
-                                    <p class="pl-3 border-l-2 border-primary/40">
-                                        Absolutely not. For our Agency services, we handle 100% of the technical heavy lifting. For our Studio classes, we teach you how to use user-friendly AI tools that require zero coding knowledge.
-                                    </p>
+                        <div class="bento-card p-8 relative group">
+                            <i class="fa-solid fa-quote-left text-5xl text-studio/15 absolute top-4 left-4"></i>
+                            <p class="text-gray-300 mb-8 pt-6 relative z-10 text-base leading-relaxed">"The AI class changed my life. I write all my real estate listings in seconds now instead of hours."</p>
+                            <div class="flex items-center gap-4">
+                                <picture>
+                                    <source srcset="assets/testimonial-2.webp" type="image/webp">
+                                    <img src="assets/testimonial-2.jpg" alt="Sarah J." width="48" height="48" class="w-12 h-12 rounded-full border-2 border-studio/50" loading="lazy">
+                                </picture>
+                                <div>
+                                    <h4 class="font-bold text-white">Sarah J.</h4>
+                                    <p class="text-xs text-studio font-bold uppercase tracking-wider">Realtor</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bento-card p-8 relative group">
+                            <i class="fa-solid fa-quote-left text-5xl text-cyan-500/15 absolute top-4 left-4"></i>
+                            <p class="text-gray-300 mb-8 pt-6 relative z-10 text-base leading-relaxed">"Social media used to stress me out. Now it runs smoothly on autopilot. Sales are up 30%!"</p>
+                            <div class="flex items-center gap-4">
+                                <picture>
+                                    <source srcset="assets/testimonial-3.webp" type="image/webp">
+                                    <img src="assets/testimonial-3.jpg" alt="David R." width="48" height="48" class="w-12 h-12 rounded-full border-2 border-cyan-400/50" loading="lazy">
+                                </picture>
+                                <div>
+                                    <h4 class="font-bold text-white">David R.</h4>
+                                    <p class="text-xs text-cyan-400 font-bold uppercase tracking-wider">Coffee Shop Owner</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Q2 -->
-                    <div class="faq-item glass rounded-2xl overflow-hidden transition-all duration-300 border border-white/10 hover:border-white/20">
-                        <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full p-6 text-left font-bold text-lg flex justify-between items-center text-gray-200 select-none hover:bg-white/5 transition duration-300 focus:outline-none">
-                            <span>Why are you cheaper than other agencies?</span>
-                            <span class="faq-icon text-primary transition-transform duration-300 text-xl flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">
-                                <i class="fa-solid fa-plus text-sm"></i>
-                            </span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="accordion-inner">
-                                <div class="px-6 pb-6 pt-1 text-gray-400 leading-relaxed border-t border-white/5 mt-1">
-                                    <p class="pl-3 border-l-2 border-primary/40">
-                                        Efficiency. Most agencies charge for hours of manual coding and copywriting. We use advanced AI to do 80% of that work in minutes, then spend our time polishing the design. We pass those savings directly to you.
-                                    </p>
+                </div>
+            </section>
+
+            <!-- FAQ SECTION -->
+            <section class="py-24 px-6 bg-dark relative z-20">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">Common Questions</h2>
+                    <div class="space-y-4">
+                        <div class="faq-item bento-card rounded-2xl overflow-hidden transition-all duration-300">
+                            <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full p-6 text-left font-bold text-lg flex justify-between items-center text-gray-200 select-none hover:bg-white/5 transition duration-300">
+                                <span>Do I need to know how to code?</span>
+                                <span class="faq-icon text-primary transition-transform duration-300 text-xl flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">
+                                    <i class="fa-solid fa-plus text-sm"></i>
+                                </span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <div class="px-6 pb-6 pt-1 text-gray-400 leading-relaxed border-t border-white/5 mt-1">
+                                        <p>Absolutely not. For our Agency services, we handle 100% of the technical heavy lifting. For Studio classes, we teach you intuitive AI tools requiring zero coding.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Q3 -->
-                    <div class="faq-item glass rounded-2xl overflow-hidden transition-all duration-300 border border-white/10 hover:border-white/20">
-                        <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full p-6 text-left font-bold text-lg flex justify-between items-center text-gray-200 select-none hover:bg-white/5 transition duration-300 focus:outline-none">
-                            <span>How long does a website take?</span>
-                            <span class="faq-icon text-primary transition-transform duration-300 text-xl flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">
-                                <i class="fa-solid fa-plus text-sm"></i>
-                            </span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="accordion-inner">
-                                <div class="px-6 pb-6 pt-1 text-gray-400 leading-relaxed border-t border-white/5 mt-1">
-                                    <p class="pl-3 border-l-2 border-primary/40">
-                                        Our typical turnaround for a Launch Kit website is 3-5 business days. Once we have your info, we move fast.
-                                    </p>
+
+                        <div class="faq-item bento-card rounded-2xl overflow-hidden transition-all duration-300">
+                            <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full p-6 text-left font-bold text-lg flex justify-between items-center text-gray-200 select-none hover:bg-white/5 transition duration-300">
+                                <span>Why are your prices so accessible?</span>
+                                <span class="faq-icon text-primary transition-transform duration-300 text-xl flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">
+                                    <i class="fa-solid fa-plus text-sm"></i>
+                                </span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <div class="px-6 pb-6 pt-1 text-gray-400 leading-relaxed border-t border-white/5 mt-1">
+                                        <p>Efficiency. We leverage modern AI tools to eliminate bloated manual overhead, allowing us to pass huge savings directly to local businesses.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Q4 -->
-                    <div class="faq-item glass rounded-2xl overflow-hidden transition-all duration-300 border border-white/10 hover:border-white/20">
-                        <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full p-6 text-left font-bold text-lg flex justify-between items-center text-gray-200 select-none hover:bg-white/5 transition duration-300 focus:outline-none">
-                            <span>Is there a monthly fee for the website?</span>
-                            <span class="faq-icon text-primary transition-transform duration-300 text-xl flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">
-                                <i class="fa-solid fa-plus text-sm"></i>
-                            </span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="accordion-inner">
-                                <div class="px-6 pb-6 pt-1 text-gray-400 leading-relaxed border-t border-white/5 mt-1">
-                                    <p class="pl-3 border-l-2 border-primary/40">
-                                        For the Launch Kit ($499), it is a one-time design fee. You will only pay for your own domain hosting (usually ~$10-20/month) which we help you set up in your own name so you own it forever.
-                                    </p>
+
+                        <div class="faq-item bento-card rounded-2xl overflow-hidden transition-all duration-300">
+                            <button onclick="toggleFaq(this)" aria-expanded="false" class="w-full p-6 text-left font-bold text-lg flex justify-between items-center text-gray-200 select-none hover:bg-white/5 transition duration-300">
+                                <span>How long does a website take to launch?</span>
+                                <span class="faq-icon text-primary transition-transform duration-300 text-xl flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">
+                                    <i class="fa-solid fa-plus text-sm"></i>
+                                </span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-inner">
+                                    <div class="px-6 pb-6 pt-1 text-gray-400 leading-relaxed border-t border-white/5 mt-1">
+                                        <p>Our turnaround for the Launch Kit website ($499) is typically 3-5 business days once content is gathered.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
+        </div>
 
         <!-- ==================== AGENCY SERVICES PAGE ==================== -->
         <div id="services" class="page-section">
-            <section class="pt-32 pb-20 px-6 relative">
-            <!-- AGENCY LIGHTING: Blue Glow at Top -->
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-96 bg-primary/15 blur-[120px] pointer-events-none"></div>
+            <section class="py-24 px-6 relative">
+                <div class="max-w-7xl mx-auto relative z-10">
+                    <div class="text-center mb-16">
+                        <span class="text-primary font-bold tracking-widest uppercase text-xs">Turnkey Digital Solutions</span>
+                        <h1 class="text-5xl md:text-6xl font-bold mb-6 mt-2">We Build It For You</h1>
+                        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                            Professional websites, custom branding, and social media automation tailored for business success.
+                        </p>
+                    </div>
 
-            <div class="max-w-7xl mx-auto relative z-10">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <span class="text-primary font-bold tracking-widest uppercase text-sm">For Businesses & Individuals</span>
-                    <h1 class="text-5xl md:text-6xl font-bold mb-6 mt-2">We Build It For You</h1>
-                    <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                        Whether you run a company or you're just launching a side hustle, we provide the professional tech you need to look amazing.
-                    </p>
-                </div>
-
-                <!-- Service Grid (Removed Bottom Row: Automation, Chatbots, Local SEO) -->
-                <div class="grid md:grid-cols-3 gap-8 mb-20">
-                    
-                    <!-- Web Design -->
-                    <div class="glass p-8 rounded-3xl hover:bg-white/5 transition duration-300" data-aos="fade-up" data-tilt>
-                        <div class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center text-primary text-2xl mb-6">
-                            <i class="fa-solid fa-laptop-code"></i>
+                    <div class="grid md:grid-cols-3 gap-8 mb-20">
+                        <div class="bento-card p-8">
+                            <div class="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center text-primary text-2xl mb-6">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3">Websites & Portfolios</h3>
+                            <p class="text-gray-400 mb-4 text-sm">High-converting 5-page business websites with mobile optimization and SEO setup.</p>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3">Websites & Portfolios</h3>
-                        <p class="text-gray-400 mb-4 text-sm">Professional, mobile-friendly sites for businesses or personal portfolios.</p>
-                        <ul class="text-sm text-gray-300 space-y-2">
-                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Business Websites</li>
-                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Personal Portfolios</li>
-                            <li><i class="fa-solid fa-check text-primary mr-2"></i> Landing Pages</li>
-                        </ul>
-                    </div>
 
-                    <!-- Logo Design -->
-                    <div class="glass p-8 rounded-3xl hover:bg-white/5 transition duration-300" data-aos="fade-up" data-aos-delay="100" data-tilt>
-                        <div class="w-14 h-14 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400 text-2xl mb-6">
-                            <i class="fa-solid fa-pen-nib"></i>
+                        <div class="bento-card p-8">
+                            <div class="w-14 h-14 rounded-2xl bg-pink-500/20 flex items-center justify-center text-pink-400 text-2xl mb-6">
+                                <i class="fa-solid fa-pen-nib"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3">Logo & Branding</h3>
+                            <p class="text-gray-400 mb-4 text-sm">Distinctive visual identities, logos, color palettes, and brand guidelines for local businesses.</p>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3">Logo & Branding</h3>
-                        <p class="text-gray-400 mb-4 text-sm">Give your idea a real identity. Perfect for startups and creators.</p>
-                        <ul class="text-sm text-gray-300 space-y-2">
-                            <li><i class="fa-solid fa-check text-pink-400 mr-2"></i> Custom Logo Design</li>
-                            <li><i class="fa-solid fa-check text-pink-400 mr-2"></i> Brand Style Guides</li>
-                            <li><i class="fa-solid fa-check text-pink-400 mr-2"></i> Social Media Graphics</li>
-                        </ul>
-                    </div>
 
-                    <!-- Content & Writing -->
-                    <div class="glass p-8 rounded-3xl hover:bg-white/5 transition duration-300" data-aos="fade-up" data-aos-delay="200" data-tilt>
-                        <div class="w-14 h-14 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 text-2xl mb-6">
-                            <i class="fa-solid fa-feather"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">Content & Writing</h3>
-                        <p class="text-gray-400 mb-4 text-sm">Professional bios, resumes, or website copy that sounds exactly like you.</p>
-                        <ul class="text-sm text-gray-300 space-y-2">
-                            <li><i class="fa-solid fa-check text-yellow-400 mr-2"></i> Professional Bios</li>
-                            <li><i class="fa-solid fa-check text-yellow-400 mr-2"></i> Blog Writing</li>
-                            <li><i class="fa-solid fa-check text-yellow-400 mr-2"></i> Resume Polishing</li>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <!-- NEW CALL TO ACTION STRIP -->
-                <div class="glass rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-primary/30 mb-20 shadow-[0_0_30px_rgba(59,130,246,0.15)]">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-2">Not sure where to start?</h3>
-                        <p class="text-gray-300">Book a free 15-minute strategy call. We'll audit your business and tell you exactly what you need.</p>
-                    </div>
-                    <a href="#contact" class="px-8 py-3 rounded-xl bg-white text-dark font-bold hover:scale-105 transition shadow-lg whitespace-nowrap">
-                        Book Free Strategy Call
-                    </a>
-                </div>
-                
-                <!-- Process Section -->
-                <div class="mt-12">
-                    <h2 class="text-3xl font-bold text-center mb-16">How We Work</h2>
-                    <!-- PREMIUM PROCESS VISUAL -->
-                    <div class="relative">
-                        <!-- Connector Line (Desktop only) -->
-                        <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-primary/20 via-primary/50 to-primary/20 -translate-y-1/2 z-0"></div>
-                        
-                        <div class="grid md:grid-cols-4 gap-8 relative z-10">
-                            <!-- Step 1 -->
-                            <div class="group text-center">
-                                <div class="w-16 h-16 rounded-full bg-dark border-4 border-primary flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition duration-300 shadow-[0_0_20px_rgba(59,130,246,0.4)]">
-                                    <span class="text-2xl font-bold text-white">1</span>
-                                </div>
-                                <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition">Discovery</h4>
-                                <p class="text-sm text-gray-400">We learn your goals.</p>
+                        <div class="bento-card p-8">
+                            <div class="w-14 h-14 rounded-2xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-2xl mb-6">
+                                <i class="fa-solid fa-feather"></i>
                             </div>
-                            <!-- Step 2 -->
-                            <div class="group text-center">
-                                <div class="w-16 h-16 rounded-full bg-dark border-4 border-primary/60 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition duration-300 group-hover:border-primary shadow-[0_0_20px_rgba(59,130,246,0.2)]">
-                                    <span class="text-2xl font-bold text-white">2</span>
-                                </div>
-                                <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition">Build</h4>
-                                <p class="text-sm text-gray-400">We create the assets.</p>
-                            </div>
-                            <!-- Step 3 -->
-                            <div class="group text-center">
-                                <div class="w-16 h-16 rounded-full bg-dark border-4 border-primary/60 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition duration-300 group-hover:border-primary shadow-[0_0_20px_rgba(59,130,246,0.2)]">
-                                    <span class="text-2xl font-bold text-white">3</span>
-                                </div>
-                                <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition">Review</h4>
-                                <p class="text-sm text-gray-400">You approve everything.</p>
-                            </div>
-                            <!-- Step 4 -->
-                            <div class="group text-center">
-                                <div class="w-16 h-16 rounded-full bg-dark border-4 border-primary/30 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition duration-300 group-hover:border-primary shadow-[0_0_20px_rgba(59,130,246,0.1)]">
-                                    <span class="text-2xl font-bold text-white">4</span>
-                                </div>
-                                <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition">Launch</h4>
-                                <p class="text-sm text-gray-400">We go live.</p>
-                            </div>
+                            <h3 class="text-2xl font-bold mb-3">Content & Writing</h3>
+                            <p class="text-gray-400 mb-4 text-sm">AI-assisted professional copywriting for landing pages, blogs, and bios.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
+        </div>
 
         <!-- ==================== THE STUDIO PAGE ==================== -->
         <div id="studio" class="page-section">
-            <section class="pt-32 pb-20 px-6 relative">
-            <!-- Studio Green Glow -->
-            <div class="absolute top-0 right-0 w-full h-96 bg-studio/10 blur-[100px] pointer-events-none"></div>
-            
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-20" data-aos="fade-up">
-                    <span class="text-studio font-bold tracking-widest uppercase text-sm"><i class="fa-solid fa-heart mr-2"></i> Community Learning</span>
-                    <h1 class="text-5xl md:text-6xl font-bold mb-6 mt-2">Welcome to The Studio</h1>
-                    <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                        A friendly, non-judgmental space for Bridgeport locals to learn AI. No tech skills? No problem. We learn together.
-                    </p>
-                </div>
-
-                <!-- Main Offerings with Prices -->
-                <div class="grid md:grid-cols-3 gap-8 mb-20">
-                    <!-- Class 1 -->
-                    <div class="glass p-8 rounded-3xl border-t-4 border-studio hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-tilt>
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-2xl font-bold">AI 101</h3>
-                                <p class="text-studio font-bold text-xs uppercase tracking-wide mt-1">Beginner Friendly</p>
-                            </div>
-                            <div class="text-right">
-                                <span class="text-3xl font-bold text-white">$49</span>
-                                <p class="text-xs text-gray-400">per seat</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-400 mb-6">Never used ChatGPT? This is for you. We sit down with coffee and walk through the basics of using AI to write emails and plan your day.</p>
-                        <ul class="space-y-2 text-sm text-gray-300 mb-8">
-                            <li><i class="fa-solid fa-check text-studio mr-2"></i> 90 Minute Session</li>
-                            <li><i class="fa-solid fa-check text-studio mr-2"></i> Bring Your Own Laptop</li>
-                            <li><i class="fa-solid fa-check text-studio mr-2"></i> "Cheat Sheet" Included</li>
-                        </ul>
-                        <a href="#contact" class="block w-full py-3 text-center rounded-xl bg-studio hover:bg-green-600 text-white transition font-bold shadow-lg shadow-studio/20">Book Your Spot</a>
-                    </div>
-
-                    <!-- Class 2 -->
-                    <div class="glass p-8 rounded-3xl border-t-4 border-cyan-400 hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-aos-delay="100" data-tilt>
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-2xl font-bold">Prompt Pro</h3>
-                                <p class="text-cyan-400 font-bold text-xs uppercase tracking-wide mt-1">Intermediate</p>
-                            </div>
-                            <div class="text-right">
-                                <span class="text-3xl font-bold text-white">$79</span>
-                                <p class="text-xs text-gray-400">per seat</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-400 mb-6">Already using AI? Let's make you an expert. Learn the "secret language" to get perfect results for coding, marketing copy, and images.</p>
-                        <ul class="space-y-2 text-sm text-gray-300 mb-8">
-                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> 2 Hour Deep Dive</li>
-                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Advanced Templates</li>
-                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Certificate of Completion</li>
-                        </ul>
-                        <a href="#contact" class="block w-full py-3 text-center rounded-xl border border-cyan-400/30 hover:bg-cyan-400/10 text-white transition font-bold">Join Waitlist</a>
-                    </div>
-
-                    <!-- Coaching -->
-                    <div class="glass p-8 rounded-3xl border-t-4 border-purple-400 hover:-translate-y-2 transition duration-300" data-aos="fade-up" data-aos-delay="200" data-tilt>
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <h3 class="text-2xl font-bold">1-on-1</h3>
-                                <p class="text-purple-400 font-bold text-xs uppercase tracking-wide mt-1">Private Coaching</p>
-                            </div>
-                            <div class="text-right">
-                                <span class="text-3xl font-bold text-white">$149</span>
-                                <p class="text-xs text-gray-400">per hour</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-400 mb-6">Specific problem? We sit down with you (in-person or Zoom) and solve it live. We build your workflow while you watch and learn.</p>
-                        <ul class="space-y-2 text-sm text-gray-300 mb-8">
-                            <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Personalized Agenda</li>
-                            <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Workflow Audit</li>
-                            <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Recording Provided</li>
-                        </ul>
-                        <a href="#contact" class="block w-full py-3 text-center rounded-xl border border-purple-400/30 hover:bg-purple-400/10 text-white transition font-bold">Request Session</a>
-                    </div>
-                </div>
-
-                <!-- Why Learn Section (Friendlier) -->
-                <div class="glass p-10 rounded-3xl flex flex-col md:flex-row items-center gap-10">
-                    <div class="md:w-1/2">
-                        <h3 class="text-3xl font-bold mb-4">A Safe Space to Learn</h3>
-                        <p class="text-gray-300 text-lg leading-relaxed mb-4">
-                            We know tech can be scary. That's why The Studio isn't a classroom—it's a community hub. 
+            <section class="py-24 px-6 relative">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16">
+                        <span class="text-studio font-bold tracking-widest uppercase text-xs"><i class="fa-solid fa-heart mr-2"></i> Community Learning</span>
+                        <h1 class="text-5xl md:text-6xl font-bold mb-6 mt-2">Welcome to The Studio</h1>
+                        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                            A friendly, hands-on space for Bridgeport locals to learn AI. No technical background required.
                         </p>
-                        <p class="text-gray-400 mb-6">
-                            Ask the "dumb" questions. Make mistakes. We are all neighbors here figuring out the future together.
-                        </p>
-                        <div class="flex gap-4">
-                            <div class="px-4 py-2 rounded-lg bg-studio/10 border border-studio/20 text-studio text-sm font-bold">
-                                <i class="fa-solid fa-mug-hot mr-2"></i> Coffee Included
-                            </div>
-                            <div class="px-4 py-2 rounded-lg bg-studio/10 border border-studio/20 text-studio text-sm font-bold">
-                                <i class="fa-solid fa-user-group mr-2"></i> Small Groups
-                            </div>
-                        </div>
                     </div>
-                    <div class="md:w-1/2 flex justify-center">
-                        <div class="relative w-full max-w-md">
-                            <div class="absolute inset-0 bg-gradient-to-r from-studio to-cyan-400 rounded-2xl blur-2xl opacity-20"></div>
-                            <div class="relative w-full h-64 bg-dark/80 backdrop-blur-xl rounded-2xl flex flex-col items-center justify-center border border-white/10 p-6 text-center">
-                                <i class="fa-solid fa-hands-holding-circle text-6xl text-studio mb-4"></i>
-                                <h4 class="text-xl font-bold">"I finally understand ChatGPT!"</h4>
-                                <p class="text-gray-400 text-sm mt-2">- Sarah, Local Bakery Owner</p>
+
+                    <div class="grid md:grid-cols-3 gap-8 mb-20">
+                        <!-- AI 101 -->
+                        <div class="bento-card p-8 border-t-4 border-studio">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold">AI 101</h3>
+                                    <p class="text-studio font-bold text-xs uppercase tracking-wide mt-1">Beginner Friendly</p>
+                                </div>
+                                <span class="text-3xl font-extrabold text-white">$49</span>
                             </div>
+                            <p class="text-gray-400 text-sm mb-6">Walk through ChatGPT basics to automate emails, daily planning, and content drafting.</p>
+                            <a href="#contact" class="block w-full py-3 text-center rounded-xl bg-studio hover:bg-emerald-600 text-white transition font-bold">Book Your Seat</a>
+                        </div>
+
+                        <!-- Prompt Pro -->
+                        <div class="bento-card p-8 border-t-4 border-cyan-400">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold">Prompt Pro</h3>
+                                    <p class="text-cyan-400 font-bold text-xs uppercase tracking-wide mt-1">Intermediate</p>
+                                </div>
+                                <span class="text-3xl font-extrabold text-white">$79</span>
+                            </div>
+                            <p class="text-gray-400 text-sm mb-6">Master prompt structure, custom instructions, and image generation techniques.</p>
+                            <a href="#contact" class="block w-full py-3 text-center rounded-xl border border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 transition font-bold">Join Waitlist</a>
+                        </div>
+
+                        <!-- 1-on-1 Coaching -->
+                        <div class="bento-card p-8 border-t-4 border-purple">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold">1-on-1 Coaching</h3>
+                                    <p class="text-purple font-bold text-xs uppercase tracking-wide mt-1">Private Session</p>
+                                </div>
+                                <span class="text-3xl font-extrabold text-white">$149<span class="text-xs text-gray-400">/hr</span></span>
+                            </div>
+                            <p class="text-gray-400 text-sm mb-6">Personalized workflow automation session tailored specifically to your business needs.</p>
+                            <a href="#contact" class="block w-full py-3 text-center rounded-xl border border-purple/50 text-purple hover:bg-purple/10 transition font-bold">Request Session</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
+        </div>
 
-        <!-- ==================== PRICING PAGE (CONSOLIDATED) ==================== -->
+        <!-- ==================== PRICING PAGE (WITH NEURAL NETWORK TEXTURE & GLASSMORPHISM) ==================== -->
         <div id="pricing" class="page-section">
-            <section class="pt-32 pb-20 px-6">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-12">
-                    <h1 class="text-5xl md:text-6xl font-bold mb-6">Transparent Pricing</h1>
-                    <p class="text-xl text-gray-400">Everything we offer, all in one place.</p>
-                </div>
-
-                <!-- Functional Toggle Switch -->
-                <div class="flex justify-center mb-16">
-                    <div class="glass p-1.5 rounded-full flex relative">
-                        <!-- Animated Background Pill -->
-                        <div id="toggle-pill" class="absolute top-1.5 bottom-1.5 left-1.5 w-[calc(50%-6px)] bg-white rounded-full transition-all duration-300 z-0"></div>
-                        
-                        <button onclick="switchPricing('agency')" id="btn-agency" class="relative z-10 px-8 py-3 rounded-full text-dark font-bold transition-colors duration-300 w-48">
-                            Agency Services
-                        </button>
-                        <button onclick="switchPricing('studio')" id="btn-studio" class="relative z-10 px-8 py-3 rounded-full text-gray-400 font-medium transition-colors duration-300 w-48">
-                            Studio Classes
-                        </button>
+            <section class="py-24 px-6 bg-neural-overlay">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16">
+                        <span class="text-cyanAcc font-bold tracking-widest uppercase text-xs">Transparent Investment</span>
+                        <h1 class="text-5xl md:text-6xl font-bold mb-6 mt-2">Simple, Clear Pricing</h1>
+                        <p class="text-xl text-gray-300 max-w-xl mx-auto">High-value digital services designed for growing Bridgeport businesses.</p>
                     </div>
-                </div>
 
-                <!-- AGENCY PRICING GRID -->
-                <div id="agency-pricing" class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch pricing-grid">
-                    <!-- Growth -->
-                    <div class="glass p-8 rounded-3xl hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-300 flex flex-col justify-between border border-white/10" data-tilt>
-                        <div>
-                            <span class="text-xs font-bold text-primary tracking-widest uppercase">Social Media</span>
-                            <h3 class="text-2xl font-bold text-white mt-1 mb-2">Social Growth</h3>
-                            <div class="flex items-baseline gap-1 mb-1">
-                                <span class="text-4xl font-extrabold text-white">$299</span>
-                                <span class="text-sm text-gray-400">/ month</span>
+                    <!-- Glassmorphic Pricing Cards Grid -->
+                    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
+                        <!-- Social Growth -->
+                        <div class="glass-pricing p-8 flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-primary tracking-widest uppercase">Social Media Engine</span>
+                                <h3 class="text-2xl font-bold text-white mt-1 mb-2">Social Growth</h3>
+                                <div class="flex items-baseline gap-1 mb-4">
+                                    <span class="text-4xl font-extrabold text-white">$299</span>
+                                    <span class="text-sm text-gray-400">/ month</span>
+                                </div>
+                                <p class="text-xs text-gray-400 mb-6">Complete monthly local social media content creation and scheduling.</p>
+                                <ul class="space-y-3 mb-8 text-gray-300 text-sm">
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-primary mr-3"></i> 12 Custom Branded Posts</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-primary mr-3"></i> Custom Content Calendar</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-primary mr-3"></i> Performance Analytics Report</li>
+                                </ul>
                             </div>
-                            <p class="text-xs text-gray-400 mb-6">Complete monthly local content engine.</p>
-                            <div class="h-px bg-gradient-to-r from-transparent via-white/15 to-transparent w-full mb-6"></div>
-                            <ul class="text-left space-y-3.5 mb-8 text-gray-300 text-sm">
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-primary mr-3 text-base"></i> 12 Branded Posts / Month</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-primary mr-3 text-base"></i> Custom Content Calendar</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-primary mr-3 text-base"></i> Automated Scheduling</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-primary mr-3 text-base"></i> Performance Analytics</li>
-                            </ul>
+                            <a href="#contact" class="block w-full py-3.5 rounded-xl border border-white/20 hover:bg-white/10 transition font-bold text-center text-white text-sm">Subscribe Now</a>
                         </div>
-                        <a href="#contact" class="block w-full py-3.5 rounded-xl border border-white/20 hover:bg-white/10 transition font-bold text-center text-white text-sm">Subscribe</a>
-                    </div>
 
-                    <!-- Launch Kit (Highlighted Best Value) -->
-                    <div class="glass p-8 rounded-3xl border-2 border-primary shadow-[0_0_50px_rgba(59,130,246,0.3)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between bg-slate-900/90 relative" data-tilt>
-                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary via-purple to-studio text-white text-xs font-black px-5 py-1.5 rounded-full shadow-lg border border-white/20 uppercase tracking-widest flex items-center gap-1.5">
-                            <i class="fa-solid fa-star text-yellow-300 text-xs"></i> Best Value
-                        </div>
-                        <div>
-                            <span class="text-xs font-bold text-studio tracking-widest uppercase">Full Turnkey Package</span>
-                            <h3 class="text-3xl font-extrabold text-white mt-1 mb-2">Launch Kit</h3>
-                            <div class="flex items-baseline gap-1 mb-1">
-                                <span class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-gray-300">$499</span>
-                                <span class="text-sm text-gray-400">/ one-time</span>
+                        <!-- $499 Launch Kit (GLOWING CYAN HIGHLIGHTED GLASS CARD) -->
+                        <div class="glass-pricing-cyan p-8 flex flex-col justify-between relative">
+                            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyanAcc text-dark text-xs font-black px-5 py-1.5 rounded-full shadow-lg uppercase tracking-widest flex items-center gap-1.5">
+                                <i class="fa-solid fa-star text-xs"></i> Most Popular
                             </div>
-                            <p class="text-xs text-gray-400 mb-6">Everything local businesses need to win online.</p>
-                            <div class="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent w-full mb-6"></div>
-                            <ul class="text-left space-y-3.5 mb-8 text-gray-200 text-sm">
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-studio mr-3 text-base"></i> <strong>5-Page</strong> Custom AI-Built Website</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-studio mr-3 text-base"></i> Custom Logo & Brand Identity</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-studio mr-3 text-base"></i> Google Maps & Local SEO Setup</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-studio mr-3 text-base"></i> Fast 3-5 Day Delivery</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-studio mr-3 text-base"></i> 30 Days Dedicated Support</li>
-                            </ul>
-                        </div>
-                        <a href="#contact" class="btn-glow block w-full py-4 rounded-xl bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary transition duration-300 font-extrabold text-white shadow-xl text-center text-sm">Get Started Now</a>
-                    </div>
-
-                    <!-- Enterprise / Custom -->
-                    <div class="glass p-8 rounded-3xl hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-300 flex flex-col justify-between border border-white/10" data-tilt>
-                        <div>
-                            <span class="text-xs font-bold text-purple tracking-widest uppercase">Custom Automation</span>
-                            <h3 class="text-2xl font-bold text-white mt-1 mb-2">Enterprise</h3>
-                            <div class="flex items-baseline gap-1 mb-1">
-                                <span class="text-4xl font-extrabold text-white">Custom</span>
+                            <div>
+                                <span class="text-xs font-bold text-cyanAcc tracking-widest uppercase">Turnkey Package</span>
+                                <h3 class="text-3xl font-extrabold text-white mt-1 mb-2">Launch Kit</h3>
+                                <div class="flex items-baseline gap-1 mb-4">
+                                    <span class="text-5xl font-black text-white">$499</span>
+                                    <span class="text-sm text-gray-300">/ one-time</span>
+                                </div>
+                                <p class="text-xs text-gray-300 mb-6">Everything local businesses need to establish a strong online presence.</p>
+                                <ul class="space-y-3.5 mb-8 text-gray-100 text-sm">
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-cyanAcc mr-3 text-base"></i> <strong>5-Page</strong> Custom AI-Built Website</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-cyanAcc mr-3 text-base"></i> Custom Logo & Brand Identity</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-cyanAcc mr-3 text-base"></i> Google Maps & SEO Setup</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-cyanAcc mr-3 text-base"></i> Fast 3-5 Day Delivery</li>
+                                </ul>
                             </div>
-                            <p class="text-xs text-gray-400 mb-6">Tailored AI systems & custom workflows.</p>
-                            <div class="h-px bg-gradient-to-r from-transparent via-white/15 to-transparent w-full mb-6"></div>
-                            <ul class="text-left space-y-3.5 mb-8 text-gray-300 text-sm">
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-purple mr-3 text-base"></i> Custom AI Support Chatbots</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-purple mr-3 text-base"></i> Full CRM & Lead Integrations</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-purple mr-3 text-base"></i> Multi-Step Workflow Automation</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-purple mr-3 text-base"></i> Priority 24/7 Direct Support</li>
-                            </ul>
+                            <a href="#contact" class="btn-glow block w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-blue-600 hover:to-cyan-500 transition duration-300 font-extrabold text-white shadow-xl text-center text-sm">
+                                Get Started Now
+                            </a>
                         </div>
-                        <a href="#contact" class="block w-full py-3.5 rounded-xl border border-white/20 hover:bg-white/10 transition font-bold text-center text-white text-sm">Contact Us</a>
+
+                        <!-- Enterprise -->
+                        <div class="glass-pricing p-8 flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-purple tracking-widest uppercase">Tailored Workflows</span>
+                                <h3 class="text-2xl font-bold text-white mt-1 mb-2">Enterprise</h3>
+                                <div class="flex items-baseline gap-1 mb-4">
+                                    <span class="text-4xl font-extrabold text-white">Custom</span>
+                                </div>
+                                <p class="text-xs text-gray-400 mb-6">Bespoke AI chatbots, CRM integrations, and multi-step automated workflows.</p>
+                                <ul class="space-y-3 mb-8 text-gray-300 text-sm">
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-purple mr-3"></i> AI Customer Support Bot</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-purple mr-3"></i> Full CRM Integration</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-purple mr-3"></i> 24/7 Dedicated Support</li>
+                                </ul>
+                            </div>
+                            <a href="#contact" class="block w-full py-3.5 rounded-xl border border-white/20 hover:bg-white/10 transition font-bold text-center text-white text-sm">Contact Us</a>
+                        </div>
                     </div>
                 </div>
+            </section>
+        </div>
 
-                <!-- STUDIO PRICING GRID (Hidden by default) -->
-                <div id="studio-pricing" class="hidden-grid grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start pricing-grid">
-                    <!-- AI 101 -->
-                    <div class="glass p-8 rounded-3xl hover:bg-white/5 transition" data-tilt>
-                        <h3 class="text-xl font-bold text-gray-300 mb-2">AI 101 Class</h3>
-                        <div class="text-4xl font-bold text-white mb-4">$49</div>
-                        <p class="text-sm text-gray-400 mb-8">Per seat</p>
-                        <div class="h-px bg-white/10 w-full mb-8"></div>
-                        <ul class="text-left space-y-4 mb-8 text-gray-300 text-sm">
-                            <li><i class="fa-solid fa-check text-studio mr-2"></i> Intro to ChatGPT</li>
-                            <li><i class="fa-solid fa-check text-studio mr-2"></i> Beginner Friendly</li>
-                            <li><i class="fa-solid fa-check text-studio mr-2"></i> PDF Guide Included</li>
-                        </ul>
-                        <a href="#contact" class="block w-full py-3 rounded-xl bg-studio hover:bg-green-600 text-white transition font-bold text-center">Book Class</a>
-                    </div>
-
-                    <!-- Prompt Pro -->
-                    <div class="glass p-8 rounded-3xl border-2 border-cyan-400 shadow-[0_0_40px_rgba(34,211,238,0.2)] transform scale-105 bg-dark relative" data-tilt>
-                        <h3 class="text-2xl font-bold text-white mb-2">Prompt Pro</h3>
-                        <div class="text-5xl font-bold text-white mb-4">$79</div>
-                        <p class="text-sm text-gray-400 mb-8">Per seat</p>
-                        <div class="h-px bg-white/10 w-full mb-8"></div>
-                        <ul class="text-left space-y-4 mb-8 text-gray-300">
-                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Advanced Techniques</li>
-                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Image Gen Training</li>
-                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Coding with AI</li>
-                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Certificate</li>
-                        </ul>
-                        <a href="#contact" class="block w-full py-4 rounded-xl bg-cyan-600 hover:bg-cyan-500 transition font-bold text-white shadow-lg text-center">Book Class</a>
-                    </div>
-
-                    <!-- Coaching -->
-                    <div class="glass p-8 rounded-3xl hover:bg-white/5 transition" data-tilt>
-                        <h3 class="text-xl font-bold text-gray-300 mb-2">1-on-1 Coaching</h3>
-                        <div class="text-4xl font-bold text-white mb-4">$149</div>
-                        <p class="text-sm text-gray-400 mb-8">Per hour</p>
-                        <div class="h-px bg-white/10 w-full mb-8"></div>
-                        <ul class="text-left space-y-4 mb-8 text-gray-300 text-sm">
-                            <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Private Session</li>
-                            <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Custom Agenda</li>
-                            <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Workflow Audit</li>
-                        </ul>
-                        <a href="#contact" class="block w-full py-3 rounded-xl border border-white/20 hover:bg-white/10 transition font-semibold text-center">Request Time</a>
-                    </div>
-                </div>
-                
-                <!-- Custom Contact -->
-                <div class="mt-16 text-center glass max-w-2xl mx-auto p-6 rounded-2xl">
-                    <p class="text-gray-300 mb-4">Need something else? Chatbots, Local SEO, or Enterprise Automation?</p>
-                    <a href="#contact" class="text-primary font-bold text-lg hover:underline">Contact us for a custom quote &rarr;</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-        <!-- ==================== ABOUT PAGE ==================== -->
+        <!-- ==================== OUR MISSION PAGE (WITH NEURAL NETWORK TEXTURE) ==================== -->
         <div id="about" class="page-section">
-            <section class="pt-32 pb-24 px-6 relative overflow-hidden">
+            <section class="py-24 px-6 bg-neural-overlay">
                 <div class="max-w-5xl mx-auto">
-                    <!-- Page Header -->
-                    <div class="text-center mb-16" data-aos="fade-up">
+                    <div class="text-center mb-16">
                         <span class="text-studio font-bold tracking-widest uppercase text-xs mb-2 inline-block">
-                            <i class="fa-solid fa-compass mr-1.5"></i> Our Purpose & Vision
+                            <i class="fa-solid fa-compass mr-1.5"></i> Purpose & Vision
                         </span>
                         <h1 class="text-5xl md:text-6xl font-bold mb-4">Our Mission</h1>
-                        <p class="text-xl text-gray-400 max-w-2xl mx-auto">It's about more than just code. We are powering the next era of Bridgeport's economic story.</p>
+                        <p class="text-xl text-gray-300 max-w-2xl mx-auto">Powering the next era of Bridgeport's economic story.</p>
                     </div>
 
-                    <!-- Redesigned Mission Card with Bridgeport Landmark SVG Overlay & Dark Ambient Lighting -->
-                    <div class="relative rounded-3xl overflow-hidden glass border border-white/15 shadow-2xl p-8 md:p-14" data-aos="fade-up" data-aos-duration="1000">
-                        <!-- Darkened Bridgeport Landmark Aesthetic Background -->
-                        <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-opacity opacity-20 filter contrast-125" style="background-image: url('assets/bridgeport-landmark.svg');"></div>
-
-                        <!-- Gradient Overlay for Readability & High Contrast -->
-                        <div class="absolute inset-0 z-0 bg-gradient-to-b from-dark/95 via-dark/85 to-dark/95 backdrop-blur-[2px]"></div>
-
-                        <!-- Ambient Radial Glow Effects -->
-                        <div class="absolute -top-32 -left-32 w-80 h-80 bg-primary/20 rounded-full blur-[100px] pointer-events-none z-0"></div>
-                        <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-studio/20 rounded-full blur-[100px] pointer-events-none z-0"></div>
-
-                        <!-- Card Content -->
+                    <div class="bento-card p-8 md:p-14 relative overflow-hidden shadow-2xl">
                         <div class="relative z-10 max-w-3xl mx-auto">
-                            <!-- Location & Heritage Badge -->
-                            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-primary mb-6">
-                                <i class="fa-solid fa-industry text-primary"></i>
+                            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-800/80 border border-white/10 text-xs font-bold text-cyan-400 mb-6">
+                                <i class="fa-solid fa-industry"></i>
                                 <span class="tracking-wider uppercase">Bridgeport, Connecticut</span>
                             </div>
 
@@ -1285,37 +866,16 @@
                                 Bridgeport was once the industrial capital of the world.
                             </h2>
                             <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-6">
-                                We built the machines, engines, and materials that powered a nation. But as the world shifted to digital, too many of our local businesses were left fighting to catch up without access to enterprise-grade technology.
-                            </p>
-                            <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-8">
-                                I started Bridgeport AI Solutions because I refused to watch my community fall behind. Artificial Intelligence is the greatest equalizer in history. It gives a small pizza shop the marketing power of a corporation, and a local contractor the operational speed of a national firm.
+                                We built the machines, engines, and materials that powered a nation. As technology shifts, artificial intelligence provides local business owners with unprecedented leverage.
                             </p>
 
-                            <!-- Modern Bold Typography Hierarchy for 'Digital Capital' Headline -->
-                            <div class="my-10 p-6 md:p-8 rounded-2xl glass border border-primary/30 bg-slate-900/60 shadow-xl" data-aos="fade-up" data-aos-delay="200">
-                                <h3 class="text-3xl md:text-5xl font-black tracking-tight leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 mb-4">
+                            <div class="my-10 p-6 md:p-8 rounded-2xl bg-slate-900/90 border border-cyan-500/30 shadow-xl">
+                                <h3 class="text-3xl md:text-4xl font-black text-gradient-hero mb-4">
                                     We are building the Digital Capital.
                                 </h3>
-                                <p class="text-gray-200 text-base md:text-lg leading-relaxed">
-                                    This isn't just a web design agency. This is an infrastructure project. Every website we launch, every student we teach, and every system we automate is a brick in the foundation of Bridgeport's future.
+                                <p class="text-gray-200 text-base leading-relaxed">
+                                    Every website we launch, every student we teach, and every workflow we automate strengthens the digital foundation of Bridgeport.
                                 </p>
-                            </div>
-
-                            <!-- Founder Signature Bar -->
-                            <div class="mt-10 pt-8 border-t border-white/10 flex items-center justify-between flex-wrap gap-4">
-                                <div class="flex items-center gap-4">
-                                    <picture>
-                                        <source srcset="assets/logo.webp" type="image/webp">
-                                        <img src="assets/logo.png" alt="Bridgeport AI Solutions Logo" width="160" height="40" class="h-10 opacity-70">
-                                    </picture>
-                                    <div>
-                                        <p class="font-bold text-white text-base">The Founder</p>
-                                        <p class="text-xs text-gray-400">Bridgeport AI Solutions</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-3 text-studio font-bold text-xs uppercase tracking-wider">
-                                    <i class="fa-solid fa-shield-halved text-sm"></i> 100% Local & Community Owned
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -1324,60 +884,42 @@
         </div>
     </main>
 
-    <!-- ==================== CONTACT SECTION (SHARED) ==================== -->
-    <section id="contact" class="py-24 px-6 border-t border-white/5 bg-black/40 relative">
-        <!-- Background glow for slick effect -->
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-primary/5 blur-[100px] pointer-events-none"></div>
-
-        <div class="max-w-2xl mx-auto glass p-8 md:p-12 rounded-3xl relative z-10 border border-white/10 shadow-2xl" data-aos="flip-up">
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-24 px-6 border-t border-white/5 bg-black/50 relative">
+        <div class="max-w-2xl mx-auto bento-card p-8 md:p-12 relative z-10 shadow-2xl">
             <div class="text-center mb-10">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">Let's Build The Future</h2>
-                <p class="text-gray-400 text-lg">Tell us what you need. We are ready.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">Let's Build The Future</h2>
+                <p class="text-gray-400 text-base">Tell us about your project or learning goals.</p>
             </div>
 
             <form action="https://formsubmit.co/bridgeportaisolutions@gmail.com" method="POST" class="space-y-6">
-                <!-- FormSubmit Configuration -->
                 <input type="hidden" name="_subject" value="New Inquiry from Website">
                 <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
 
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="group">
-                        <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400 group-focus-within:text-primary transition-colors">Name</label>
-                        <input type="text" name="name" class="w-full p-4 rounded-xl bg-slate-800/50 border border-white/10 text-white placeholder-gray-500 focus:bg-slate-800 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300" placeholder="John Doe" required>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Name</label>
+                        <input type="text" name="name" class="w-full p-4 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="John Doe" required>
                     </div>
-                    <div class="group">
-                        <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400 group-focus-within:text-primary transition-colors">Email</label>
-                        <input type="email" name="email" class="w-full p-4 rounded-xl bg-slate-800/50 border border-white/10 text-white placeholder-gray-500 focus:bg-slate-800 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300" placeholder="john@example.com" required>
-                    </div>
-                </div>
-                <div class="group">
-                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400 group-focus-within:text-primary transition-colors">Interested In</label>
-                    <div class="relative">
-                        <select name="service" class="w-full p-4 rounded-xl bg-slate-800/50 border border-white/10 text-white appearance-none focus:bg-slate-800 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300 cursor-pointer">
-                            <option class="bg-dark text-gray-400" disabled selected>Select an option...</option>
-                            <optgroup label="Agency Services" class="bg-dark font-bold">
-                                <option class="bg-dark text-white" value="Launch Kit">Business Launch Kit ($499)</option>
-                                <option class="bg-dark text-white" value="Social Media">Social Media ($299/mo)</option>
-                                <option class="bg-dark text-white" value="Branding">Logo & Branding ($199)</option>
-                                <option class="bg-dark text-white" value="Custom Dev">Custom Website/Chatbot</option>
-                            </optgroup>
-                            <optgroup label="The Studio" class="bg-dark font-bold">
-                                <option class="bg-dark text-white" value="AI 101">AI 101 Class ($49)</option>
-                                <option class="bg-dark text-white" value="Prompt Pro">Prompt Pro Class ($79)</option>
-                                <option class="bg-dark text-white" value="Coaching">1-on-1 Coaching ($149/hr)</option>
-                            </optgroup>
-                        </select>
-                        <div class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-gray-400">
-                            <i class="fa-solid fa-chevron-down text-xs"></i>
-                        </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Email</label>
+                        <input type="email" name="email" class="w-full p-4 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="john@example.com" required>
                     </div>
                 </div>
-                <div class="group">
-                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400 group-focus-within:text-primary transition-colors">Message</label>
-                    <textarea name="message" class="w-full p-4 rounded-xl bg-slate-800/50 border border-white/10 text-white placeholder-gray-500 focus:bg-slate-800 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300 h-32 resize-none" placeholder="Tell us about your goals..."></textarea>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Interested In</label>
+                    <select name="service" class="w-full p-4 rounded-xl bg-slate-800/80 border border-white/10 text-white focus:border-primary outline-none cursor-pointer">
+                        <option value="Launch Kit">Business Launch Kit ($499)</option>
+                        <option value="Social Media">Social Media ($299/mo)</option>
+                        <option value="AI 101">AI 101 Class ($49)</option>
+                        <option value="Coaching">1-on-1 Coaching ($149/hr)</option>
+                    </select>
                 </div>
-                <button type="submit" class="w-full py-4 rounded-xl bg-primary hover:bg-blue-600 text-white font-bold text-lg shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-300">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Message</label>
+                    <textarea name="message" class="w-full p-4 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-gray-500 focus:border-primary outline-none h-32 resize-none" placeholder="Tell us about your goals..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-primary to-cyan-500 hover:from-cyan-500 hover:to-primary text-white font-bold text-lg shadow-lg transition-all duration-300 btn-glow">
                     Send Message
                 </button>
             </form>
@@ -1385,463 +927,98 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-10 border-t border-white/5 text-center text-gray-500 text-sm bg-dark relative z-50">
+    <footer class="py-10 border-t border-white/5 text-center text-gray-500 text-sm bg-dark">
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
                 <div class="text-left">
                     <p class="text-white font-bold text-lg mb-1">Bridgeport AI Solutions</p>
-                    <p class="text-xs"><i class="fa-solid fa-location-dot text-primary mr-2"></i> Proudly Based in Bridgeport, CT</p>
+                    <p class="text-xs"><i class="fa-solid fa-location-dot text-primary mr-2"></i> Based in Bridgeport, CT</p>
                 </div>
                 <div class="flex gap-6 text-xl">
-                    <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:text-white hover:bg-primary transition duration-300"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:text-white hover:bg-pink-600 transition duration-300"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:text-white hover:bg-blue-700 transition duration-300"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:text-white hover:bg-primary transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:text-white hover:bg-pink-600 transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:text-white hover:bg-blue-700 transition"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="border-t border-white/5 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p>&copy; 2025 Bridgeport AI Solutions. All rights reserved.</p>
-                <div class="flex gap-4 text-xs">
-                    <button onclick="openModal('modal-privacy')" class="hover:text-white transition text-gray-500">Privacy Policy</button>
-                    <button onclick="openModal('modal-terms')" class="hover:text-white transition text-gray-500">Terms of Service</button>
-                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-slate-900/95 backdrop-blur-md border-t border-white/10 p-6 z-[60] transform translate-y-full transition-transform duration-500 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-4">
-            <i class="fa-solid fa-cookie-bite text-3xl text-primary"></i>
-            <p class="text-gray-300 text-sm max-w-2xl">We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
-        </div>
-        <div class="flex gap-4">
-            <button onclick="acceptCookies()" class="px-6 py-2 bg-primary text-white rounded-lg text-sm font-bold hover:bg-blue-600 transition shadow-lg shadow-primary/20">Accept</button>
-            <button onclick="declineCookies()" class="px-6 py-2 bg-white/10 text-white rounded-lg text-sm font-bold hover:bg-white/20 transition">Decline</button>
-        </div>
-    </div>
-
-    <!-- MODAL: Privacy Policy -->
-    <div id="modal-privacy" class="fixed inset-0 z-[100] hidden">
-        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-privacy')"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-dark border border-white/10 rounded-2xl shadow-2xl flex flex-col max-h-[85vh] animate-fade-in-up">
-            <div class="p-6 border-b border-white/10 flex justify-between items-center bg-slate-900/50 rounded-t-2xl">
-                <h3 class="text-2xl font-bold text-white">Privacy Policy</h3>
-                <button onclick="closeModal('modal-privacy')" class="text-gray-400 hover:text-white transition w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10"><i class="fa-solid fa-xmark text-xl"></i></button>
-            </div>
-            <div class="p-8 overflow-y-auto text-gray-300 space-y-4 custom-scrollbar">
-                <p class="text-sm text-gray-500 mb-4">Last Updated: October 26, 2025</p>
-
-                <h4 class="text-white font-bold text-lg">1. Introduction</h4>
-                <p>Welcome to Bridgeport AI Solutions. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website.</p>
-
-                <h4 class="text-white font-bold text-lg">2. The Data We Collect</h4>
-                <p>We may collect, use, store and transfer different kinds of personal data about you which we have grouped together follows: Identity Data (name), Contact Data (email, phone), and Technical Data (IP address, browser type).</p>
-
-                <h4 class="text-white font-bold text-lg">3. How We Use Your Data</h4>
-                <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances: Where we need to perform the contract we are about to enter into or have entered into with you.</p>
-
-                <h4 class="text-white font-bold text-lg">4. Data Security</h4>
-                <p>We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed.</p>
-
-                <h4 class="text-white font-bold text-lg">5. Contact Us</h4>
-                <p>If you have any questions about this privacy policy, please contact us at: bridgeportaisolutions@gmail.com</p>
-            </div>
-            <div class="p-6 border-t border-white/10 bg-slate-900/50 rounded-b-2xl text-right">
-                <button onclick="closeModal('modal-privacy')" class="px-6 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 transition font-bold">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL: Terms of Service -->
-    <div id="modal-terms" class="fixed inset-0 z-[100] hidden">
-        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-terms')"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-dark border border-white/10 rounded-2xl shadow-2xl flex flex-col max-h-[85vh] animate-fade-in-up">
-            <div class="p-6 border-b border-white/10 flex justify-between items-center bg-slate-900/50 rounded-t-2xl">
-                <h3 class="text-2xl font-bold text-white">Terms of Service</h3>
-                <button onclick="closeModal('modal-terms')" class="text-gray-400 hover:text-white transition w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10"><i class="fa-solid fa-xmark text-xl"></i></button>
-            </div>
-            <div class="p-8 overflow-y-auto text-gray-300 space-y-4 custom-scrollbar">
-                <p class="text-sm text-gray-500 mb-4">Last Updated: October 26, 2025</p>
-
-                <h4 class="text-white font-bold text-lg">1. Agreement to Terms</h4>
-                <p>By accessing our website, you agree to be bound by these Terms of Service and to comply with all applicable laws and regulations.</p>
-
-                <h4 class="text-white font-bold text-lg">2. Intellectual Property</h4>
-                <p>The content, organization, graphics, design, compilation, and other matters related to the Site are protected under applicable copyrights, trademarks and other proprietary rights.</p>
-
-                <h4 class="text-white font-bold text-lg">3. Use License</h4>
-                <p>Permission is granted to temporarily download one copy of the materials on Bridgeport AI Solutions' website for personal, non-commercial transitory viewing only.</p>
-
-                <h4 class="text-white font-bold text-lg">4. Disclaimer</h4>
-                <p>The materials on Bridgeport AI Solutions' website are provided on an 'as is' basis. We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties including, without limitation, implied warranties or conditions of merchantability.</p>
-
-                <h4 class="text-white font-bold text-lg">5. Limitations</h4>
-                <p>In no event shall Bridgeport AI Solutions or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on our website.</p>
-            </div>
-            <div class="p-6 border-t border-white/10 bg-slate-900/50 rounded-b-2xl text-right">
-                <button onclick="closeModal('modal-terms')" class="px-6 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 transition font-bold">I Agree</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Dependencies and Scripts -->
+    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
     <script>
-        // 1. Initialize Animations
+        // Initialize AOS
         AOS.init({
-            once: false,
+            once: true,
             offset: 50,
             duration: 800,
-            easing: 'ease-out-cubic',
         });
-
-        // 2. Particles Config
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 30, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#3b82f6" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.3, "random": true },
-                "size": { "value": 3, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#3b82f6", "opacity": 0.2, "width": 1 },
-                "move": { "enable": true, "speed": 1, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
-                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } } }
-            },
-            "retina_detect": true
-        });
-
-        // --- NEW UPGRADES SCRIPTS ---
 
         // Preloader
         window.addEventListener('load', () => {
             const preloader = document.getElementById('preloader');
-            setTimeout(() => {
-                preloader.style.opacity = '0';
-                preloader.style.visibility = 'hidden';
-            }, 800);
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    preloader.style.visibility = 'hidden';
+                }, 500);
+            }
         });
 
-        // Custom Cursor with requestAnimationFrame & Throttling
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-
-        if (cursorDot && cursorOutline && window.matchMedia("(min-width: 768px)").matches) {
-            let mouseX = 0, mouseY = 0;
-            let outlineX = 0, outlineY = 0;
-            let isTicking = false;
-
-            window.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-
-                if (!isTicking) {
-                    requestAnimationFrame(() => {
-                        cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
-                        isTicking = false;
-                    });
-                    isTicking = true;
-                }
-            }, { passive: true });
-
-            function animateCursorOutline() {
-                outlineX += (mouseX - outlineX) * 0.15;
-                outlineY += (mouseY - outlineY) * 0.15;
-                cursorOutline.style.transform = `translate3d(${outlineX}px, ${outlineY}px, 0) translate(-50%, -50%)`;
-                requestAnimationFrame(animateCursorOutline);
-            }
-            animateCursorOutline();
-        }
-
-        // Optimized Scroll Handler with rAF & Passive Listener
+        // Scroll Progress
         const scrollProgress = document.getElementById("scroll-progress");
-        const backToTop = document.getElementById("back-to-top");
-        const navContainer = document.getElementById("nav-container");
-        const navLogo = document.getElementById("nav-logo");
-        let isScrollTicking = false;
-
-        function updateScrollState() {
+        window.addEventListener('scroll', () => {
             let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             let scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-
             if (scrollProgress) {
                 scrollProgress.style.width = scrolled + "%";
             }
-
-            if (navContainer && navLogo) {
-                if (winScroll > 50) {
-                    navContainer.classList.remove("py-4");
-                    navContainer.classList.add("py-2");
-                    navLogo.classList.remove("h-10");
-                    navLogo.classList.add("h-8");
-                } else {
-                    navContainer.classList.remove("py-2");
-                    navContainer.classList.add("py-4");
-                    navLogo.classList.remove("h-8");
-                    navLogo.classList.add("h-10");
-                }
-            }
-
-            if (backToTop) {
-                if (winScroll > 300) {
-                    backToTop.classList.add("visible");
-                } else {
-                    backToTop.classList.remove("visible");
-                }
-            }
-            isScrollTicking = false;
-        }
-
-        window.addEventListener('scroll', () => {
-            if (!isScrollTicking) {
-                requestAnimationFrame(updateScrollState);
-                isScrollTicking = true;
-            }
         }, { passive: true });
 
-        // Modal Logic
-        function openModal(id) {
-            const modal = document.getElementById(id);
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Prevent background scroll
-        }
-        function closeModal(id) {
-            const modal = document.getElementById(id);
-            modal.classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-
-        // Cookie Banner Logic
-        const cookieBanner = document.getElementById('cookie-banner');
-
-        // Check if user has already accepted
-        if (!localStorage.getItem('cookiesAccepted')) {
-            // Show banner after short delay
-            setTimeout(() => {
-                cookieBanner.style.transform = 'translateY(0)';
-            }, 2000);
-        }
-
-        function acceptCookies() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            cookieBanner.style.transform = 'translateY(100%)';
-        }
-
-        function declineCookies() {
-            // Usually we might just close it or not set tracking scripts,
-            // but for this static site we just close the banner.
-            cookieBanner.style.transform = 'translateY(100%)';
-        }
-
-
-        // 3. Page Navigation Logic
-        let isTransitioning = false;
-
+        // Navigation
         function showPage(pageId) {
-            if (isTransitioning) return;
-
-            const activePage = document.querySelector('.page-section.active');
-            const targetPage = document.getElementById(pageId);
-
-            // If clicking the same page, do nothing
-            if (activePage === targetPage) return;
-
-            if (activePage) {
-                isTransitioning = true;
-
-                // Exit current page
-                activePage.classList.remove('active');
-                activePage.classList.add('exiting');
-
-                // Scroll to top smoothly before the new page comes in
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => sec.classList.remove('active'));
+            const target = document.getElementById(pageId);
+            if (target) {
+                target.classList.add('active');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-
-                setTimeout(() => {
-                    activePage.classList.remove('exiting');
-
-                    // Enter new page
-                    if(targetPage) {
-                        targetPage.classList.add('active');
-                        // Re-trigger AOS animations
-                        setTimeout(() => { AOS.refresh(); }, 100);
-                    }
-                    isTransitioning = false;
-                }, 400); // Matches fadeOut duration
-            } else {
-                // Initial load
-                if(targetPage) {
-                    targetPage.classList.add('active');
-                    setTimeout(() => { AOS.refresh(); }, 100);
-                }
+                setTimeout(() => { AOS.refresh(); }, 100);
             }
         }
 
-        // 4. Mobile Menu Toggle
+        // Mobile Menu
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            if (menu) menu.classList.toggle('hidden');
         }
 
-        // 5. Pricing Switch Logic
-        function switchPricing(type) {
-            const agencyGrid = document.getElementById('agency-pricing');
-            const studioGrid = document.getElementById('studio-pricing');
-            const pill = document.getElementById('toggle-pill');
-            const btnAgency = document.getElementById('btn-agency');
-            const btnStudio = document.getElementById('btn-studio');
-
-            if (type === 'agency') {
-                agencyGrid.style.display = 'grid';
-                studioGrid.style.display = 'none';
-                
-                agencyGrid.classList.remove('hidden-grid');
-                studioGrid.classList.add('hidden-grid');
-
-                pill.style.transform = 'translateX(0)';
-                pill.style.width = '192px'; // Matches button width
-                
-                btnAgency.classList.add('text-dark', 'font-bold');
-                btnAgency.classList.remove('text-gray-400', 'font-medium');
-                
-                btnStudio.classList.add('text-gray-400', 'font-medium');
-                btnStudio.classList.remove('text-dark', 'font-bold');
-            } else {
-                agencyGrid.style.display = 'none';
-                studioGrid.style.display = 'grid';
-                
-                agencyGrid.classList.add('hidden-grid');
-                studioGrid.classList.remove('hidden-grid');
-
-                pill.style.transform = 'translateX(192px)'; // Shifts to the right
-                
-                btnStudio.classList.add('text-dark', 'font-bold');
-                btnStudio.classList.remove('text-gray-400', 'font-medium');
-                
-                btnAgency.classList.add('text-gray-400', 'font-medium');
-                btnAgency.classList.remove('text-dark', 'font-bold');
-            }
-            
-            // Refresh tilt logic for new visible cards
-            setTimeout(() => {
-                VanillaTilt.init(document.querySelectorAll("[data-tilt]"));
-            }, 100);
-        }
-
-        // 6. Interactive Before/After Transformation Slider Logic
-        const sliderRange = document.getElementById('slider-range');
-        const beforeWrapper = document.getElementById('before-wrapper');
-        const sliderHandle = document.getElementById('slider-handle');
-
-        if (sliderRange && beforeWrapper && sliderHandle) {
-            let isSliderTicking = false;
-
-            function updateSliderPosition(val) {
-                beforeWrapper.style.clipPath = `polygon(0 0, ${val}% 0, ${val}% 100%, 0 100%)`;
-                sliderHandle.style.left = `${val}%`;
-            }
-
-            sliderRange.addEventListener('input', (e) => {
-                const val = e.target.value;
-                if (!isSliderTicking) {
-                    requestAnimationFrame(() => {
-                        updateSliderPosition(val);
-                        isSliderTicking = false;
-                    });
-                    isSliderTicking = true;
-                }
-            });
-        }
-
-        const transformationData = {
-            hvac: {
-                before: 'assets/hvac-before.svg',
-                after: 'assets/hvac-after.svg',
-                caption: '<i class="fa-solid fa-chart-line mr-2"></i> HVAC Site: Built in 3 days, increased quote requests by 40%.'
-            },
-            bakery: {
-                before: 'assets/bakery-before.svg',
-                after: 'assets/bakery-after.svg',
-                caption: '<i class="fa-solid fa-chart-line mr-2"></i> Bakery Site: Built in 4 days, online custom cake orders grew 3x.'
-            },
-            landscaping: {
-                before: 'assets/landscaping-before.svg',
-                after: 'assets/landscaping-after.svg',
-                caption: '<i class="fa-solid fa-chart-line mr-2"></i> Landscaping Site: Built in 2 days, seasonal booking velocity doubled.'
-            }
-        };
-
-        function switchTransformation(type) {
-            const data = transformationData[type];
-            if (!data) return;
-
-            const imgBefore = document.getElementById('img-before');
-            const imgAfter = document.getElementById('img-after');
-            const caption = document.getElementById('transformation-caption');
-
-            if (imgBefore && imgAfter && caption) {
-                imgBefore.src = data.before;
-                imgAfter.src = data.after;
-                caption.innerHTML = data.caption;
-            }
-
-            // Update Tab Styles
-            ['hvac', 'bakery', 'landscaping'].forEach(key => {
-                const tab = document.getElementById(`tab-${key}`);
-                if (!tab) return;
-                if (key === type) {
-                    tab.className = 'transform-tab whitespace-nowrap inline-flex items-center justify-center px-5 py-2.5 rounded-full font-bold text-xs md:text-sm border transition-all duration-300 bg-primary text-white border-primary shadow-lg shadow-primary/20';
-                } else {
-                    tab.className = 'transform-tab whitespace-nowrap inline-flex items-center justify-center px-5 py-2.5 rounded-full font-bold text-xs md:text-sm border transition-all duration-300 glass text-gray-300 border-white/10 hover:border-white/30';
-                }
-            });
-        }
-
-        // 7. Interactive Accordion (FAQ) Toggle Logic
+        // FAQ Toggle
         function toggleFaq(button) {
             const faqItem = button.closest('.faq-item');
             const content = faqItem.querySelector('.accordion-content');
             const icon = button.querySelector('.faq-icon');
             const isOpen = content.classList.contains('is-open');
 
-            // Close all other FAQ items for clean accordion UX
             document.querySelectorAll('.faq-item').forEach(item => {
-                if (item !== faqItem) {
-                    const otherBtn = item.querySelector('button');
-                    const otherContent = item.querySelector('.accordion-content');
-                    const otherIcon = item.querySelector('.faq-icon');
-
-                    if (otherContent) otherContent.classList.remove('is-open');
-                    if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
-                    if (otherIcon) {
-                        otherIcon.style.transform = 'rotate(0deg)';
-                        otherIcon.classList.remove('bg-primary', 'text-white');
-                        otherIcon.classList.add('bg-primary/10', 'text-primary');
-                    }
+                const otherContent = item.querySelector('.accordion-content');
+                const otherIcon = item.querySelector('.faq-icon');
+                if (otherContent) otherContent.classList.remove('is-open');
+                if (otherIcon) {
+                    otherIcon.style.transform = 'rotate(0deg)';
+                    otherIcon.classList.remove('bg-primary', 'text-white');
+                    otherIcon.classList.add('bg-primary/10', 'text-primary');
                 }
             });
 
-            // Toggle selected item
-            if (isOpen) {
-                content.classList.remove('is-open');
-                button.setAttribute('aria-expanded', 'false');
-                if (icon) {
-                    icon.style.transform = 'rotate(0deg)';
-                    icon.classList.remove('bg-primary', 'text-white');
-                    icon.classList.add('bg-primary/10', 'text-primary');
-                }
-            } else {
+            if (!isOpen) {
                 content.classList.add('is-open');
-                button.setAttribute('aria-expanded', 'true');
                 if (icon) {
-                    icon.style.transform = 'rotate(45deg)'; // Rotates '+' into an 'x'
+                    icon.style.transform = 'rotate(45deg)';
                     icon.classList.remove('bg-primary/10', 'text-primary');
                     icon.classList.add('bg-primary', 'text-white');
                 }
