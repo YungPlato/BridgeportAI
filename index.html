@@ -183,6 +183,40 @@
         .btn-glow:active {
             transform: translateY(0) scale(0.98);
         }
+
+        /* Bridgeport signature controls */
+        .bridge-cta {--cta-a:#2563eb;--cta-b:#06b6d4;position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:.75rem;min-height:48px;padding:.8rem .85rem .8rem 1.25rem;color:#fff;font-weight:800;letter-spacing:-.01em;border:1px solid rgba(255,255,255,.2);border-radius:14px 4px 14px 4px;background:linear-gradient(115deg,var(--cta-a),var(--cta-b));box-shadow:0 14px 32px color-mix(in srgb,var(--cta-a) 30%,transparent),inset 0 1px rgba(255,255,255,.28);overflow:hidden;transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}
+        .bridge-cta::before {content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 20%,rgba(255,255,255,.3) 45%,transparent 70%);transform:translateX(-120%);transition:transform .65s ease}
+        .bridge-cta:hover {transform:translateY(-3px);filter:saturate(1.14);box-shadow:0 19px 42px color-mix(in srgb,var(--cta-a) 38%,transparent),inset 0 1px rgba(255,255,255,.34)}
+        .bridge-cta:hover::before {transform:translateX(120%)}
+        .bridge-cta:active {transform:translateY(0) scale(.98)}
+        .bridge-cta:focus-visible {outline:3px solid rgba(125,211,252,.45);outline-offset:3px}
+        .bridge-cta--studio {--cta-a:#059669;--cta-b:#06b6d4}
+        .bridge-cta--purple {--cta-a:#7c3aed;--cta-b:#a855f7}
+        .bridge-cta--dark {--cta-a:#172033;--cta-b:#0f172a;border-color:rgba(125,211,252,.4)}
+        .bridge-cta .cta-icon {display:grid;place-items:center;width:30px;height:30px;border-radius:9px 3px 9px 3px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.18);transition:transform .25s ease}
+        .bridge-cta:hover .cta-icon {transform:translateX(3px) rotate(-4deg)}
+
+        /* Studio learning lab */
+        .studio-shell {position:relative;overflow:hidden;background:radial-gradient(circle at 84% 10%,rgba(16,185,129,.17),transparent 28%),radial-gradient(circle at 8% 80%,rgba(6,182,212,.12),transparent 25%)}
+        .studio-shell::before {content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,#000,transparent 82%)}
+        .studio-intro {display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:end;margin-bottom:2.5rem}
+        .studio-proof {display:grid;grid-template-columns:repeat(3,1fr);gap:1px;padding:1px;border:1px solid rgba(255,255,255,.1);border-radius:18px 5px 18px 5px;background:rgba(255,255,255,.08);overflow:hidden}
+        .studio-proof div {padding:1.1rem;background:rgba(2,6,23,.74);backdrop-filter:blur(14px)}
+        .studio-proof strong {display:block;font:700 1.1rem 'Space Grotesk';color:#fff}
+        .studio-proof span {font-size:.72rem;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em}
+        .learning-card {position:relative;display:flex;flex-direction:column;min-height:345px;padding:1.75rem;border:1px solid rgba(255,255,255,.11);border-radius:24px 6px 24px 6px;background:linear-gradient(145deg,rgba(30,41,59,.82),rgba(3,7,18,.92));box-shadow:0 24px 70px rgba(0,0,0,.25);overflow:hidden;transition:transform .3s ease,border-color .3s ease}
+        .learning-card:hover {transform:translateY(-7px);border-color:rgba(52,211,153,.42)}
+        .learning-number {font:800 4.5rem/1 'Space Grotesk';position:absolute;right:1rem;top:.55rem;color:rgba(255,255,255,.045)}
+        .learning-meta {display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:2rem}
+        .learning-tag {font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#6ee7b7}
+        .learning-price {padding:.45rem .65rem;border:1px solid rgba(255,255,255,.12);border-radius:10px 3px 10px 3px;background:rgba(255,255,255,.05);font-weight:800}
+        .learning-list {margin:1.35rem 0 1.7rem;display:grid;gap:.7rem;color:#cbd5e1;font-size:.86rem}
+        .learning-list i {width:1.35rem;color:#34d399}
+        .workshop-strip {display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;margin-top:1.5rem;padding:1.6rem 1.75rem;border:1px solid rgba(168,85,247,.3);border-radius:22px 6px 22px 6px;background:linear-gradient(110deg,rgba(88,28,135,.24),rgba(15,23,42,.88) 45%,rgba(6,182,212,.12));box-shadow:0 22px 60px rgba(0,0,0,.22)}
+        .workshop-icon {display:grid;place-items:center;width:58px;height:58px;border-radius:18px 5px 18px 5px;background:linear-gradient(135deg,#7c3aed,#06b6d4);box-shadow:0 12px 30px rgba(124,58,237,.28);font-size:1.25rem}
+        @media(max-width:900px){.studio-intro{grid-template-columns:1fr;gap:1.5rem}.workshop-strip{grid-template-columns:auto 1fr}.workshop-strip .bridge-cta{grid-column:1/-1;width:100%}}
+        @media(max-width:560px){.studio-proof{grid-template-columns:1fr}.learning-card{min-height:auto}.workshop-strip{grid-template-columns:1fr;text-align:center}.workshop-icon{margin:auto}}
         
         /* Marquee Animation */
         @keyframes marquee {
@@ -319,11 +353,11 @@
                 <button onclick="showPage('about')" class="hover:text-primary transition">Our Mission</button>
 
                 <div class="flex items-center gap-3 ml-2">
-                    <a href="#contact" onclick="showPage('studio')" class="px-4 py-2 rounded-full border border-studio text-studio hover:bg-studio/15 transition duration-300 font-bold text-xs whitespace-nowrap">
-                        Take a Class ($49)
+                    <a href="#contact" onclick="showPage('studio')" class="bridge-cta bridge-cta--dark min-h-0 !py-2 !px-3 text-xs whitespace-nowrap">
+                        Studio <span class="cta-icon !w-6 !h-6"><i class="fa-solid fa-graduation-cap"></i></span>
                     </a>
-                    <a href="#contact" onclick="showPage('services')" class="px-5 py-2 rounded-full bg-gradient-to-r from-primary to-cyan-500 text-white hover:scale-105 transition duration-300 font-bold text-xs whitespace-nowrap shadow-md">
-                        Website Projects ($1,500+)
+                    <a href="#contact" onclick="showPage('services')" class="bridge-cta min-h-0 !py-2 !px-3 text-xs whitespace-nowrap">
+                        Start a project <span class="cta-icon !w-6 !h-6"><i class="fa-solid fa-arrow-right"></i></span>
                     </a>
                 </div>
             </div>
@@ -344,11 +378,11 @@
                 <button onclick="showPage('about'); toggleMobileMenu()" class="text-left text-gray-300 hover:text-primary">About</button>
 
                 <div class="pt-2 border-t border-white/10 flex flex-col gap-3">
-                    <a href="#contact" onclick="showPage('studio'); toggleMobileMenu()" class="w-full text-center py-2.5 rounded-full border border-studio text-studio font-bold text-xs">
-                        Take a Class ($49)
+                    <a href="#contact" onclick="showPage('studio'); toggleMobileMenu()" class="bridge-cta bridge-cta--dark w-full text-xs">
+                        Explore the Studio <span class="cta-icon"><i class="fa-solid fa-graduation-cap"></i></span>
                     </a>
-                    <a href="#contact" onclick="showPage('services'); toggleMobileMenu()" class="w-full text-center py-2.5 rounded-full bg-gradient-to-r from-primary to-cyan-500 text-white font-bold text-xs shadow-md">
-                        Website Projects ($1,500+)
+                    <a href="#contact" onclick="showPage('services'); toggleMobileMenu()" class="bridge-cta w-full text-xs">
+                        Start a project <span class="cta-icon"><i class="fa-solid fa-arrow-right"></i></span>
                     </a>
                 </div>
             </div>
@@ -394,11 +428,11 @@
                         We build the websites, automations, and practical AI skills that help local businesses move faster—without losing the human judgment their customers trust.
                     </p>
                     <div class="hero-actions flex flex-col md:flex-row gap-5">
-                        <button onclick="showPage('services')" class="premium-button btn-glow px-8 py-4 rounded-xl text-white font-bold text-lg">
-                            Explore Business Solutions <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        <button onclick="showPage('services')" class="bridge-cta text-lg">
+                            Explore Business Solutions <span class="cta-icon"><i class="fa-solid fa-arrow-right"></i></span>
                         </button>
-                        <button onclick="showPage('studio')" class="secondary-premium btn-glow px-8 py-4 rounded-xl text-white font-bold text-lg">
-                            View AI Classes
+                        <button onclick="showPage('studio')" class="bridge-cta bridge-cta--dark text-lg">
+                            View AI Classes <span class="cta-icon"><i class="fa-solid fa-graduation-cap"></i></span>
                         </button>
                     </div>
                     <div class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-xs text-gray-400"><span><i class="fa-solid fa-check text-studio mr-2"></i>Built around your workflow</span><span><i class="fa-solid fa-check text-studio mr-2"></i>Human-reviewed</span><span><i class="fa-solid fa-check text-studio mr-2"></i>Clear scope and pricing</span></div>
@@ -528,8 +562,8 @@
                             <input type="checkbox" name="privacy-consent" required class="mt-1 accent-emerald-500">
                             <span>I agree to receive the requested resource by email and understand how my information is handled under the <a href="privacy.html" class="text-studio hover:underline">Privacy Policy</a>.</span>
                         </label>
-                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-studio to-emerald-600 hover:from-emerald-500 hover:to-studio text-white font-bold text-lg shadow-lg shadow-studio/25 transition-all duration-300 btn-glow">
-                            Request My Free Cheat Sheet
+                        <button type="submit" class="bridge-cta bridge-cta--studio w-full text-lg">
+                            Request My Free Cheat Sheet <span class="cta-icon"><i class="fa-solid fa-download"></i></span>
                         </button>
                     </form>
                 </div>
@@ -710,55 +744,66 @@
 
         <!-- ==================== THE STUDIO PAGE ==================== -->
         <div id="studio" class="page-section">
-            <section class="py-24 px-6 relative">
-                <div class="max-w-7xl mx-auto">
-                    <div class="text-center mb-16">
-                        <span class="text-studio font-bold tracking-widest uppercase text-xs"><i class="fa-solid fa-heart mr-2"></i> Community Learning</span>
-                        <h1 class="text-5xl md:text-6xl font-bold mb-6 mt-2">Welcome to The Studio</h1>
-                        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                            A friendly, hands-on space for Bridgeport locals to learn AI. No technical background required.
-                        </p>
+            <section class="studio-shell py-16 md:py-20 px-6">
+                <div class="max-w-7xl mx-auto relative z-10">
+                    <div class="studio-intro">
+                        <div>
+                            <span class="text-studio font-bold tracking-widest uppercase text-xs"><i class="fa-solid fa-sparkles mr-2"></i> The Bridgeport AI Studio</span>
+                            <h1 class="text-5xl md:text-6xl font-bold mt-3 mb-5">Learn AI by <span class="animate-text">actually using it.</span></h1>
+                            <p class="text-lg text-gray-300 max-w-2xl leading-relaxed">Practical, small-group learning for business owners, professionals, and curious beginners. Bring real work. Leave with repeatable AI skills.</p>
+                        </div>
+                        <div class="studio-proof" aria-label="Studio learning benefits">
+                            <div><strong>Hands-on</strong><span>Live practice</span></div>
+                            <div><strong>Local</strong><span>Bridgeport-led</span></div>
+                            <div><strong>No jargon</strong><span>Clear guidance</span></div>
+                        </div>
                     </div>
 
-                    <div class="grid md:grid-cols-3 gap-8 mb-20">
-                        <!-- AI 101 -->
-                        <div class="bento-card p-8 border-t-4 border-studio">
-                            <div class="flex justify-between items-start mb-4">
-                                <div>
-                                    <h3 class="text-2xl font-bold">AI 101</h3>
-                                    <p class="text-studio font-bold text-xs uppercase tracking-wide mt-1">Beginner Friendly</p>
-                                </div>
-                                <span class="text-3xl font-extrabold text-white">$49</span>
-                            </div>
-                            <p class="text-gray-400 text-sm mb-6">Walk through ChatGPT basics to automate emails, daily planning, and content drafting.</p>
-                            <a href="#contact" class="block w-full py-3 text-center rounded-xl bg-studio hover:bg-emerald-600 text-white transition font-bold">Book Your Seat</a>
-                        </div>
+                    <div class="grid lg:grid-cols-3 gap-5">
+                        <article class="learning-card">
+                            <span class="learning-number">01</span>
+                            <div class="learning-meta"><span class="learning-tag">Start here · Beginner</span><span class="learning-price">$49</span></div>
+                            <h2 class="text-3xl font-bold mb-3">AI 101</h2>
+                            <p class="text-gray-400">Build confidence with ChatGPT and turn everyday tasks into faster, clearer workflows.</p>
+                            <ul class="learning-list">
+                                <li><i class="fa-solid fa-check"></i> Write stronger emails and content</li>
+                                <li><i class="fa-solid fa-check"></i> Plan work and summarize information</li>
+                                <li><i class="fa-solid fa-check"></i> Use AI safely and responsibly</li>
+                            </ul>
+                            <a href="#contact" class="bridge-cta bridge-cta--studio mt-auto w-full">Reserve a seat <span class="cta-icon"><i class="fa-solid fa-arrow-right"></i></span></a>
+                        </article>
 
-                        <!-- Prompt Pro -->
-                        <div class="bento-card p-8 border-t-4 border-cyan-400">
-                            <div class="flex justify-between items-start mb-4">
-                                <div>
-                                    <h3 class="text-2xl font-bold">Prompt Pro</h3>
-                                    <p class="text-cyan-400 font-bold text-xs uppercase tracking-wide mt-1">Intermediate</p>
-                                </div>
-                                <span class="text-3xl font-extrabold text-white">$99</span>
-                            </div>
-                            <p class="text-gray-400 text-sm mb-6">Master prompt structure, custom instructions, and image generation techniques.</p>
-                            <a href="#contact" class="block w-full py-3 text-center rounded-xl border border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 transition font-bold">Join Waitlist</a>
-                        </div>
+                        <article class="learning-card">
+                            <span class="learning-number">02</span>
+                            <div class="learning-meta"><span class="learning-tag text-cyan-300">Build skill · Intermediate</span><span class="learning-price">$99</span></div>
+                            <h2 class="text-3xl font-bold mb-3">Prompt Pro</h2>
+                            <p class="text-gray-400">Move beyond trial and error with a prompt system you can use across your work.</p>
+                            <ul class="learning-list">
+                                <li><i class="fa-solid fa-check"></i> Structure reliable prompts</li>
+                                <li><i class="fa-solid fa-check"></i> Create reusable instructions</li>
+                                <li><i class="fa-solid fa-check"></i> Generate useful visual concepts</li>
+                            </ul>
+                            <a href="#contact" class="bridge-cta bridge-cta--dark mt-auto w-full">Join the next class <span class="cta-icon"><i class="fa-solid fa-arrow-right"></i></span></a>
+                        </article>
 
-                        <!-- 1-on-1 Coaching -->
-                        <div class="bento-card p-8 border-t-4 border-purple">
-                            <div class="flex justify-between items-start mb-4">
-                                <div>
-                                    <h3 class="text-2xl font-bold">1-on-1 Coaching</h3>
-                                    <p class="text-purple font-bold text-xs uppercase tracking-wide mt-1">Private Session</p>
-                                </div>
-                                <span class="text-3xl font-extrabold text-white">$175<span class="text-xs text-gray-400">/hr</span></span>
-                            </div>
-                            <p class="text-gray-400 text-sm mb-6">Personalized workflow automation session tailored specifically to your business needs.</p>
-                            <a href="#contact" class="block w-full py-3 text-center rounded-xl border border-purple/50 text-purple hover:bg-purple/10 transition font-bold">Request Session</a>
-                        </div>
+                        <article class="learning-card">
+                            <span class="learning-number">03</span>
+                            <div class="learning-meta"><span class="learning-tag text-purple-300">Make it yours · Private</span><span class="learning-price">$175/hr</span></div>
+                            <h2 class="text-3xl font-bold mb-3">1-on-1 Coaching</h2>
+                            <p class="text-gray-400">Work directly on your business, role, or idea with focused personal guidance.</p>
+                            <ul class="learning-list">
+                                <li><i class="fa-solid fa-check"></i> Personalized AI workflow</li>
+                                <li><i class="fa-solid fa-check"></i> Tool and setup guidance</li>
+                                <li><i class="fa-solid fa-check"></i> Action plan you can keep using</li>
+                            </ul>
+                            <a href="#contact" class="bridge-cta bridge-cta--purple mt-auto w-full">Book a private session <span class="cta-icon"><i class="fa-solid fa-arrow-right"></i></span></a>
+                        </article>
+                    </div>
+
+                    <div class="workshop-strip">
+                        <div class="workshop-icon"><i class="fa-solid fa-users-gear"></i></div>
+                        <div><span class="text-purple-300 text-xs font-bold tracking-widest uppercase">For teams · From $750</span><h2 class="text-2xl font-bold mt-1 mb-1">Private Team Workshop</h2><p class="text-sm text-gray-400">A tailored, hands-on AI session built around your team’s real work and goals.</p></div>
+                        <a href="#contact" class="bridge-cta bridge-cta--purple whitespace-nowrap">Plan a workshop <span class="cta-icon"><i class="fa-solid fa-calendar-check"></i></span></a>
                     </div>
                 </div>
             </section>
@@ -792,7 +837,7 @@
                                     <li class="flex items-center"><i class="fa-solid fa-check text-primary mr-3"></i> Performance Analytics Report</li>
                                 </ul>
                             </div>
-                            <a href="#contact" class="block w-full py-3.5 rounded-xl border border-white/20 hover:bg-white/10 transition font-bold text-center text-white text-sm">Subscribe Now</a>
+                            <a href="#contact" class="bridge-cta bridge-cta--dark w-full text-sm">Grow my presence <span class="cta-icon"><i class="fa-solid fa-arrow-right"></i></span></a>
                         </div>
 
                         <!-- Business Website -->
@@ -815,8 +860,8 @@
                                     <li class="flex items-center"><i class="fa-solid fa-check text-cyanAcc mr-3 text-base"></i> Two Revision Rounds</li>
                                 </ul>
                             </div>
-                            <a href="#contact" class="btn-glow block w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-blue-600 hover:to-cyan-500 transition duration-300 font-extrabold text-white shadow-xl text-center text-sm">
-                                Get Started Now
+                            <a href="#contact" class="bridge-cta w-full text-sm">
+                                Build my website <span class="cta-icon"><i class="fa-solid fa-arrow-right"></i></span>
                             </a>
                         </div>
 
@@ -835,7 +880,7 @@
                                     <li class="flex items-center"><i class="fa-solid fa-check text-purple mr-3"></i> Documentation & 14-Day Support</li>
                                 </ul>
                             </div>
-                            <a href="#contact" class="block w-full py-3.5 rounded-xl border border-white/20 hover:bg-white/10 transition font-bold text-center text-white text-sm">Contact Us</a>
+                            <a href="#contact" class="bridge-cta bridge-cta--purple w-full text-sm">Automate a workflow <span class="cta-icon"><i class="fa-solid fa-arrow-right"></i></span></a>
                         </div>
                     </div>
                 </div>
@@ -925,8 +970,8 @@
                     <input type="checkbox" name="privacy-consent" required class="mt-1 accent-blue-500">
                     <span>I agree that Bridgeport AI Solutions may use my information to respond to this inquiry, as described in the <a href="privacy.html" class="text-primary hover:underline">Privacy Policy</a>.</span>
                 </label>
-                <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-primary to-cyan-500 hover:from-cyan-500 hover:to-primary text-white font-bold text-lg shadow-lg transition-all duration-300 btn-glow">
-                    Send Message
+                <button type="submit" class="bridge-cta w-full text-lg">
+                    Send Message <span class="cta-icon"><i class="fa-solid fa-paper-plane"></i></span>
                 </button>
             </form>
         </div>
