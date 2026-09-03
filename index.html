@@ -197,6 +197,34 @@
         .bridge-cta .cta-icon {display:grid;place-items:center;width:30px;height:30px;border-radius:9px 3px 9px 3px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.18);transition:transform .25s ease}
         .bridge-cta:hover .cta-icon {transform:translateX(3px) rotate(-4deg)}
 
+        /* Site-wide dimensional background */
+        .site-depth {position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;perspective:900px;background:radial-gradient(circle at 15% 15%,rgba(37,99,235,.13),transparent 28%),radial-gradient(circle at 85% 65%,rgba(16,185,129,.09),transparent 30%)}
+        .depth-grid {position:absolute;width:110vw;height:90vh;left:-5vw;bottom:-48vh;background-image:linear-gradient(rgba(56,189,248,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.09) 1px,transparent 1px);background-size:64px 64px;transform:rotateX(64deg);transform-origin:center top;mask-image:linear-gradient(to bottom,transparent,#000 22%,transparent 90%);animation:gridDrift 18s linear infinite}
+        .depth-orb {position:absolute;border-radius:50%;filter:blur(2px);opacity:.42;box-shadow:inset -18px -20px 35px rgba(0,0,0,.55),0 0 55px currentColor;animation:depthFloat 11s ease-in-out infinite}
+        .depth-orb.one {width:120px;height:120px;left:7%;top:24%;color:#2563eb;background:radial-gradient(circle at 30% 25%,#7dd3fc,#2563eb 32%,#0f172a 75%)}
+        .depth-orb.two {width:80px;height:80px;right:8%;top:17%;color:#10b981;background:radial-gradient(circle at 30% 25%,#a7f3d0,#10b981 34%,#06281e 76%);animation-delay:-5s}
+        #main-content,body>section,body>footer {position:relative;z-index:1}
+        @keyframes gridDrift {to{background-position:64px 64px}}
+        @keyframes depthFloat {50%{transform:translateY(-28px) translateX(12px) scale(1.06)}}
+
+        /* Agency command-center layout */
+        .agency-shell {position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(3,7,18,.3),rgba(15,23,42,.78))}
+        .agency-intro {display:grid;grid-template-columns:1.08fr .92fr;gap:3rem;align-items:center;margin-bottom:2.5rem}
+        .agency-console {position:relative;min-height:290px;padding:1.35rem;border:1px solid rgba(59,130,246,.28);border-radius:28px 7px 28px 7px;background:linear-gradient(145deg,rgba(30,41,59,.88),rgba(2,6,23,.94));box-shadow:0 30px 80px rgba(0,0,0,.38),inset 0 1px rgba(255,255,255,.08);transform:perspective(900px) rotateY(-5deg) rotateX(2deg)}
+        .console-top {display:flex;align-items:center;justify-content:space-between;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.08);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#94a3b8}
+        .console-status {display:flex;align-items:center;gap:.5rem;color:#6ee7b7}.console-status::before{content:"";width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 14px #34d399}
+        .console-flow {display:grid;gap:.8rem;margin-top:1rem}
+        .flow-row {display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:.9rem;padding:.8rem;border:1px solid rgba(255,255,255,.07);border-radius:14px 4px 14px 4px;background:rgba(255,255,255,.035)}
+        .flow-row i {display:grid;place-items:center;width:42px;height:42px;border-radius:12px 4px 12px 4px;background:rgba(37,99,235,.18);color:#7dd3fc}.flow-row strong{display:block;font-size:.88rem}.flow-row span{font-size:.72rem;color:#94a3b8}.flow-row b{font-size:.65rem;color:#34d399;text-transform:uppercase;letter-spacing:.08em}
+        .agency-card {position:relative;min-height:310px;padding:1.7rem;border:1px solid rgba(255,255,255,.1);border-radius:24px 6px 24px 6px;background:linear-gradient(145deg,rgba(30,41,59,.75),rgba(3,7,18,.92));overflow:hidden;transition:transform .3s ease,border-color .3s ease}
+        .agency-card::after {content:"";position:absolute;width:120px;height:120px;right:-55px;bottom:-55px;border-radius:50%;background:var(--service-glow,#2563eb);filter:blur(50px);opacity:.28}
+        .agency-card:hover {transform:translateY(-7px);border-color:rgba(125,211,252,.42)}
+        .service-icon {display:grid;place-items:center;width:54px;height:54px;margin-bottom:1.4rem;border:1px solid rgba(255,255,255,.12);border-radius:17px 5px 17px 5px;background:linear-gradient(135deg,rgba(37,99,235,.28),rgba(6,182,212,.12));font-size:1.2rem;color:#7dd3fc;box-shadow:0 14px 30px rgba(0,0,0,.25)}
+        .service-kicker {display:block;margin-bottom:.55rem;color:#7dd3fc;font-size:.67rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+        .service-list {display:grid;gap:.55rem;margin-top:1.2rem;color:#cbd5e1;font-size:.82rem}.service-list i{width:1.25rem;color:#34d399}
+        .agency-bottom {display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-top:1.5rem;padding:1.5rem 1.7rem;border:1px solid rgba(6,182,212,.25);border-radius:22px 6px 22px 6px;background:linear-gradient(105deg,rgba(37,99,235,.16),rgba(2,6,23,.9))}
+        @media(max-width:900px){.agency-intro{grid-template-columns:1fr;gap:2rem}.agency-console{transform:none}.agency-bottom{grid-template-columns:1fr}.agency-bottom .bridge-cta{width:100%}}
+
         /* Studio learning lab */
         .studio-shell {position:relative;overflow:hidden;background:radial-gradient(circle at 84% 10%,rgba(16,185,129,.17),transparent 28%),radial-gradient(circle at 8% 80%,rgba(6,182,212,.12),transparent 25%)}
         .studio-shell::before {content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,#000,transparent 82%)}
@@ -299,6 +327,7 @@
             100% { transform: rotate(360deg); }
         }
         .hero-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center;width:min(1200px,100%)}.hero-copy{text-align:left}.premium-button{position:relative;isolation:isolate;overflow:hidden;border:1px solid rgba(255,255,255,.18);box-shadow:0 16px 45px rgba(37,99,235,.28),inset 0 1px rgba(255,255,255,.3);transform:translateZ(0)}.premium-button:before{content:"";position:absolute;inset:-2px;z-index:-1;background:linear-gradient(110deg,#2563eb,#06b6d4,#8b5cf6,#2563eb);background-size:250% 100%;animation:buttonFlow 5s linear infinite}.premium-button:after{content:"";position:absolute;width:45%;height:200%;top:-50%;left:-70%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent);transform:rotate(18deg);transition:left .65s}.premium-button:hover:after{left:125%}.secondary-premium{background:rgba(15,23,42,.62);border:1px solid rgba(52,211,153,.48);box-shadow:inset 0 1px rgba(255,255,255,.1),0 15px 45px rgba(0,0,0,.28)}.ai-stage{position:relative;height:520px;perspective:1000px;transform-style:preserve-3d}.ai-orb{position:absolute;width:210px;height:210px;left:50%;top:50%;transform:translate(-50%,-50%) translateZ(60px);border-radius:50%;background:radial-gradient(circle at 32% 26%,#b6f2ff 0,#34d6ef 8%,#2563eb 35%,#111b3f 68%,#030712 100%);box-shadow:inset -24px -30px 55px rgba(0,0,0,.55),inset 16px 18px 35px rgba(255,255,255,.2),0 0 90px rgba(37,99,235,.6);animation:orbFloat 6s ease-in-out infinite}.ai-orb:before,.ai-orb:after{content:"";position:absolute;inset:-35px;border:1px solid rgba(103,232,249,.28);border-radius:50%;transform:rotateX(67deg);animation:ringSpin 10s linear infinite}.ai-orb:after{inset:-78px;border-style:dashed;transform:rotateY(65deg);animation-duration:16s;animation-direction:reverse}.orb-core{position:absolute;inset:0;display:grid;place-items:center;font:800 1rem 'Space Grotesk';letter-spacing:.16em;text-shadow:0 0 24px #fff}.data-node{position:absolute;width:245px;padding:16px 18px;border:1px solid rgba(125,211,252,.22);border-radius:16px;background:linear-gradient(135deg,rgba(15,23,42,.87),rgba(30,41,59,.58));backdrop-filter:blur(18px);box-shadow:0 24px 60px rgba(0,0,0,.35),inset 0 1px rgba(255,255,255,.1);transform-style:preserve-3d;animation:nodeFloat 6s ease-in-out infinite}.data-node strong{display:block;font:700 .85rem 'Space Grotesk';color:#fff}.data-node small{display:block;color:#7dd3fc;letter-spacing:.12em;font-size:.62rem;margin-bottom:5px}.data-node i{position:absolute;right:16px;top:50%;transform:translateY(-50%);width:8px;height:8px;background:#34d399;border-radius:50%;box-shadow:0 0 16px #34d399}.node-one{left:0;top:14%;transform:rotateY(12deg) translateZ(25px)}.node-two{right:-1%;bottom:14%;transform:rotateY(-12deg) translateZ(35px);animation-delay:-3s}.stage-grid{position:absolute;inset:7%;border-radius:50%;background:linear-gradient(rgba(56,189,248,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.08) 1px,transparent 1px);background-size:25px 25px;transform:rotateX(68deg) translateZ(-80px);mask-image:radial-gradient(circle,#000 25%,transparent 72%)}.stage-status{position:absolute;right:7%;top:11%;padding:9px 13px;border:1px solid rgba(255,255,255,.12);border-radius:99px;background:rgba(2,6,23,.68);color:#94a3b8;font-size:.64rem;letter-spacing:.13em}.stage-status span{display:inline-block;width:6px;height:6px;margin-right:7px;border-radius:50%;background:#34d399;box-shadow:0 0 12px #34d399}.bento-card,.glass-pricing,.glass-pricing-cyan{transform-style:preserve-3d}.bento-card:hover,.glass-pricing:hover,.glass-pricing-cyan:hover{transform:perspective(900px) rotateX(2deg) rotateY(-2deg) translateY(-9px)}@keyframes buttonFlow{to{background-position:250% 0}}@keyframes orbFloat{50%{transform:translate(-50%,-54%) translateZ(80px) rotate(4deg)}}@keyframes ringSpin{to{transform:rotateX(67deg) rotateZ(360deg)}}@keyframes nodeFloat{50%{margin-top:-13px}}@media(max-width:900px){.hero-layout{grid-template-columns:1fr;padding-top:4rem}.hero-copy{text-align:center}.hero-copy .hero-actions{justify-content:center}.ai-stage{height:430px}.node-one{left:3%}.node-two{right:3%}}@media(max-width:560px){.ai-stage{height:370px}.ai-orb{width:150px;height:150px}.data-node{width:190px;padding:12px}.node-one{top:5%;left:0}.node-two{right:0;bottom:5%}}@media(prefers-reduced-motion:reduce){.ai-orb,.ai-orb:before,.ai-orb:after,.data-node,.premium-button:before{animation:none!important}}
+        @media(prefers-reduced-motion:reduce){.depth-grid,.depth-orb{animation:none!important}}
     </style>
     
     <script>
@@ -319,6 +348,7 @@
     </script>
 </head>
 <body class="bg-dark text-white overflow-x-hidden flex flex-col min-h-screen">
+    <div class="site-depth" aria-hidden="true"><div class="depth-grid"></div><div class="depth-orb one"></div><div class="depth-orb two"></div></div>
 
     <!-- Preloader -->
     <div id="preloader">
@@ -703,41 +733,33 @@
 
         <!-- ==================== AGENCY SERVICES PAGE ==================== -->
         <div id="services" class="page-section">
-            <section class="py-24 px-6 relative">
+            <section class="agency-shell py-16 md:py-20 px-6">
                 <div class="max-w-7xl mx-auto relative z-10">
-                    <div class="text-center mb-16">
-                        <span class="text-primary font-bold tracking-widest uppercase text-xs">Turnkey Digital Solutions</span>
-                        <h1 class="text-5xl md:text-6xl font-bold mb-6 mt-2">We Build It For You</h1>
-                        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                            Professional websites, custom branding, and social media automation tailored for business success.
-                        </p>
-                    </div>
-
-                    <div class="grid md:grid-cols-3 gap-8 mb-20">
-                        <div class="bento-card p-8">
-                            <div class="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center text-primary text-2xl mb-6">
-                                <i class="fa-solid fa-laptop-code"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-3">Websites & Portfolios</h3>
-                            <p class="text-gray-400 mb-4 text-sm">High-converting 5-page business websites with mobile optimization and SEO setup.</p>
+                    <div class="agency-intro">
+                        <div>
+                            <span class="text-primary font-bold tracking-widest uppercase text-xs"><i class="fa-solid fa-bolt mr-2"></i> Bridgeport AI Agency</span>
+                            <h1 class="text-5xl md:text-6xl font-bold mt-3 mb-5">Digital systems that <span class="animate-text">earn their keep.</span></h1>
+                            <p class="text-lg text-gray-300 max-w-2xl leading-relaxed mb-7">We design the customer-facing experience and the behind-the-scenes automation—so your business looks sharper, responds faster, and wastes less time.</p>
+                            <a href="#contact" class="bridge-cta">Start with your biggest bottleneck <span class="cta-icon"><i class="fa-solid fa-arrow-right"></i></span></a>
                         </div>
-
-                        <div class="bento-card p-8">
-                            <div class="w-14 h-14 rounded-2xl bg-pink-500/20 flex items-center justify-center text-pink-400 text-2xl mb-6">
-                                <i class="fa-solid fa-pen-nib"></i>
+                        <div class="agency-console" aria-label="Example connected business system">
+                            <div class="console-top"><span>Connected business system</span><span class="console-status">Live workflow</span></div>
+                            <div class="console-flow">
+                                <div class="flow-row"><i class="fa-solid fa-globe"></i><div><strong>High-converting website</strong><span>Turns local traffic into inquiries</span></div><b>Attract</b></div>
+                                <div class="flow-row"><i class="fa-solid fa-wand-magic-sparkles"></i><div><strong>AI-assisted follow-up</strong><span>Routes and responds to new leads</span></div><b>Engage</b></div>
+                                <div class="flow-row"><i class="fa-solid fa-chart-line"></i><div><strong>Clear performance signals</strong><span>Shows what is creating momentum</span></div><b>Improve</b></div>
                             </div>
-                            <h3 class="text-2xl font-bold mb-3">Logo & Branding</h3>
-                            <p class="text-gray-400 mb-4 text-sm">Distinctive visual identities, logos, color palettes, and brand guidelines for local businesses.</p>
-                        </div>
-
-                        <div class="bento-card p-8">
-                            <div class="w-14 h-14 rounded-2xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-2xl mb-6">
-                                <i class="fa-solid fa-feather"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-3">Content & Writing</h3>
-                            <p class="text-gray-400 mb-4 text-sm">AI-assisted professional copywriting for landing pages, blogs, and bios.</p>
                         </div>
                     </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                        <article class="agency-card" style="--service-glow:#2563eb"><div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div><span class="service-kicker">Launch & convert</span><h2 class="text-2xl font-bold mb-3">Business Websites</h2><p class="text-sm text-gray-400">Fast, mobile-first websites designed to make your value clear and turn visitors into qualified inquiries.</p><ul class="service-list"><li><i class="fa-solid fa-check"></i> Conversion-focused structure</li><li><i class="fa-solid fa-check"></i> Local SEO foundation</li><li><i class="fa-solid fa-check"></i> Analytics and handoff</li></ul></article>
+                        <article class="agency-card" style="--service-glow:#8b5cf6"><div class="service-icon"><i class="fa-solid fa-gears"></i></div><span class="service-kicker text-purple-300">Save hours</span><h2 class="text-2xl font-bold mb-3">AI Automation</h2><p class="text-sm text-gray-400">One valuable workflow mapped, built, tested, and documented around the tools your team already uses.</p><ul class="service-list"><li><i class="fa-solid fa-check"></i> Lead and inbox workflows</li><li><i class="fa-solid fa-check"></i> Repetitive task reduction</li><li><i class="fa-solid fa-check"></i> Human review built in</li></ul></article>
+                        <article class="agency-card" style="--service-glow:#ec4899"><div class="service-icon"><i class="fa-solid fa-pen-nib"></i></div><span class="service-kicker text-pink-300">Look established</span><h2 class="text-2xl font-bold mb-3">Brand Systems</h2><p class="text-sm text-gray-400">A confident visual identity that makes your business recognizable across web, social, and print.</p><ul class="service-list"><li><i class="fa-solid fa-check"></i> Logo direction</li><li><i class="fa-solid fa-check"></i> Color and type system</li><li><i class="fa-solid fa-check"></i> Practical brand guide</li></ul></article>
+                        <article class="agency-card" style="--service-glow:#06b6d4"><div class="service-icon"><i class="fa-solid fa-bullhorn"></i></div><span class="service-kicker">Stay visible</span><h2 class="text-2xl font-bold mb-3">Content Engine</h2><p class="text-sm text-gray-400">Consistent, useful content shaped around your customers—not generic posts made to fill a calendar.</p><ul class="service-list"><li><i class="fa-solid fa-check"></i> Monthly content plan</li><li><i class="fa-solid fa-check"></i> Branded social assets</li><li><i class="fa-solid fa-check"></i> Performance reporting</li></ul></article>
+                    </div>
+
+                    <div class="agency-bottom"><div><span class="text-cyan-300 text-xs font-bold tracking-widest uppercase">Not sure where to begin? · $399</span><h2 class="text-2xl font-bold mt-1">Start with an AI Opportunity Audit</h2><p class="text-sm text-gray-400 mt-1">We identify your highest-value opportunity and give you a practical roadmap. The fee is credited toward a qualifying build.</p></div><a href="#contact" class="bridge-cta bridge-cta--dark whitespace-nowrap">Find my best opportunity <span class="cta-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></span></a></div>
                 </div>
             </section>
         </div>
