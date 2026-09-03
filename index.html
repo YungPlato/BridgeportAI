@@ -225,6 +225,26 @@
         .agency-bottom {display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-top:1.5rem;padding:1.5rem 1.7rem;border:1px solid rgba(6,182,212,.25);border-radius:22px 6px 22px 6px;background:linear-gradient(105deg,rgba(37,99,235,.16),rgba(2,6,23,.9))}
         @media(max-width:900px){.agency-intro{grid-template-columns:1fr;gap:2rem}.agency-console{transform:none}.agency-bottom{grid-template-columns:1fr}.agency-bottom .bridge-cta{width:100%}}
 
+        /* Pricing, mission, and forms */
+        .pricing-shell,.mission-shell {position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(2,6,23,.42),rgba(15,23,42,.78))}
+        .section-intro {display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:end;margin-bottom:2.5rem}
+        .price-guide {display:grid;grid-template-columns:repeat(3,1fr);gap:1px;padding:1px;border:1px solid rgba(255,255,255,.1);border-radius:18px 5px 18px 5px;background:rgba(255,255,255,.08);overflow:hidden}
+        .price-guide div {padding:1rem;background:rgba(2,6,23,.76)}.price-guide strong{display:block;color:#fff;font-size:.88rem}.price-guide span{font-size:.7rem;color:#94a3b8}
+        .pricing-card {position:relative;display:flex;flex-direction:column;min-height:475px;padding:1.75rem;border:1px solid rgba(255,255,255,.11);border-radius:26px 7px 26px 7px;background:linear-gradient(145deg,rgba(30,41,59,.83),rgba(2,6,23,.95));box-shadow:0 26px 75px rgba(0,0,0,.3);overflow:hidden;transition:transform .3s ease,border-color .3s ease}
+        .pricing-card:hover{transform:translateY(-7px);border-color:rgba(125,211,252,.44)}.pricing-card.featured{border-color:rgba(6,182,212,.55);box-shadow:0 30px 90px rgba(6,182,212,.14)}
+        .pricing-card .plan-icon {display:grid;place-items:center;width:48px;height:48px;border-radius:15px 4px 15px 4px;background:rgba(37,99,235,.18);color:#7dd3fc;margin-bottom:1.25rem}.pricing-card.featured .plan-icon{background:linear-gradient(135deg,#2563eb,#06b6d4);color:#fff}
+        .plan-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#7dd3fc}.plan-price{font:800 2.7rem/1 'Space Grotesk';margin:.7rem 0}.plan-price small{font:500 .8rem Inter;color:#94a3b8}
+        .plan-list{display:grid;gap:.72rem;margin:1.4rem 0 1.7rem;color:#cbd5e1;font-size:.86rem}.plan-list i{width:1.35rem;color:#34d399}.price-note{margin-top:1.4rem;text-align:center;color:#94a3b8;font-size:.78rem}
+        .mission-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:1.5rem}.mission-statement,.mission-panel{border:1px solid rgba(255,255,255,.1);border-radius:28px 7px 28px 7px;background:linear-gradient(145deg,rgba(30,41,59,.8),rgba(2,6,23,.94));box-shadow:0 28px 75px rgba(0,0,0,.28)}
+        .mission-statement{padding:2.5rem}.mission-panel{display:grid;gap:1px;padding:1px;overflow:hidden}.mission-value{padding:1.4rem;background:rgba(8,15,31,.95)}.mission-value i{color:#34d399;width:1.7rem}.mission-value strong{display:block;margin-bottom:.35rem;font-size:1.05rem}.mission-value p{color:#94a3b8;font-size:.85rem}
+        .mission-promise{display:grid;grid-template-columns:auto 1fr auto;gap:1.4rem;align-items:center;margin-top:1.5rem;padding:1.5rem 1.7rem;border:1px solid rgba(16,185,129,.28);border-radius:22px 6px 22px 6px;background:linear-gradient(105deg,rgba(16,185,129,.13),rgba(2,6,23,.9))}
+        .contact-shell{display:grid;grid-template-columns:.78fr 1.22fr;max-width:1100px;margin:auto;border:1px solid rgba(255,255,255,.11);border-radius:30px 8px 30px 8px;background:linear-gradient(145deg,rgba(30,41,59,.82),rgba(2,6,23,.96));box-shadow:0 32px 90px rgba(0,0,0,.4);overflow:hidden}
+        .contact-aside{padding:2.3rem;background:radial-gradient(circle at 15% 15%,rgba(37,99,235,.25),transparent 38%),rgba(15,23,42,.74);border-right:1px solid rgba(255,255,255,.08)}.contact-form{padding:2.3rem}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}.field{display:grid;gap:.45rem}.field.full{grid-column:1/-1}.field label{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#94a3b8}
+        .field-control{width:100%;padding:.9rem 1rem;border:1px solid rgba(255,255,255,.12);border-radius:14px 4px 14px 4px;background:rgba(15,23,42,.82);color:#fff;outline:none;transition:border-color .2s,box-shadow .2s}.field-control:focus{border-color:#38bdf8;box-shadow:0 0 0 4px rgba(56,189,248,.11)}.field-control::placeholder{color:#64748b}
+        .contact-point{display:flex;gap:.8rem;align-items:flex-start;margin-top:1.3rem;color:#cbd5e1;font-size:.86rem}.contact-point i{display:grid;place-items:center;width:34px;height:34px;flex:none;border-radius:11px 3px 11px 3px;background:rgba(255,255,255,.08);color:#7dd3fc}
+        @media(max-width:900px){.section-intro,.mission-grid,.contact-shell{grid-template-columns:1fr}.mission-promise{grid-template-columns:1fr}.mission-promise .bridge-cta{width:100%}.contact-aside{border-right:0;border-bottom:1px solid rgba(255,255,255,.08)}}
+        @media(max-width:560px){.price-guide,.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.mission-statement,.contact-aside,.contact-form{padding:1.5rem}.pricing-card{min-height:auto}}
+
         /* Studio learning lab */
         .studio-shell {position:relative;overflow:hidden;background:radial-gradient(circle at 84% 10%,rgba(16,185,129,.17),transparent 28%),radial-gradient(circle at 8% 80%,rgba(6,182,212,.12),transparent 25%)}
         .studio-shell::before {content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,#000,transparent 82%)}
@@ -573,19 +593,21 @@
                     </div>
                     <form action="https://formsubmit.co/bridgeportaisolutions@gmail.com" method="POST" class="space-y-4 max-w-2xl mx-auto">
                         <input type="hidden" name="_subject" value="New Free Cheat Sheet Download Request">
-                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://bridgeportaisolutions.com/?submitted=resource#contact">
+                        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                         <div class="grid md:grid-cols-3 gap-4">
                             <div>
                                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-gray-400">Name</label>
-                                <input type="text" name="name" class="w-full p-3.5 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Your Name" required>
+                                <input type="text" name="name" class="field-control" placeholder="Your name" autocomplete="name" required>
                             </div>
                             <div>
                                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-gray-400">Email</label>
-                                <input type="email" name="email" class="w-full p-3.5 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="you@example.com" required>
+                                <input type="email" name="email" class="field-control" placeholder="you@example.com" autocomplete="email" required>
                             </div>
                             <div>
                                 <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-gray-400">Business Type</label>
-                                <input type="text" name="business_type" class="w-full p-3.5 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="e.g. Retail, HVAC" required>
+                                <input type="text" name="business_type" class="field-control" placeholder="Retail, HVAC, nonprofit…" autocomplete="organization-title" required>
                             </div>
                         </div>
                         <label class="flex items-start gap-3 text-sm text-gray-400 leading-relaxed">
@@ -833,168 +855,130 @@
 
         <!-- ==================== PRICING PAGE (WITH NEURAL NETWORK TEXTURE & GLASSMORPHISM) ==================== -->
         <div id="pricing" class="page-section">
-            <section class="py-24 px-6 bg-neural-overlay">
-                <div class="max-w-7xl mx-auto">
-                    <div class="text-center mb-16">
-                        <span class="text-cyanAcc font-bold tracking-widest uppercase text-xs">Transparent Investment</span>
-                        <h1 class="text-5xl md:text-6xl font-bold mb-6 mt-2">Simple, Clear Pricing</h1>
-                        <p class="text-xl text-gray-300 max-w-xl mx-auto">High-value digital services designed for growing Bridgeport businesses.</p>
+            <section class="pricing-shell py-16 md:py-20 px-6">
+                <div class="max-w-7xl mx-auto relative z-10">
+                    <div class="section-intro">
+                        <div><span class="text-cyanAcc font-bold tracking-widest uppercase text-xs">Clear scope. Real outcomes.</span><h1 class="text-5xl md:text-6xl font-bold mt-3 mb-5">Invest in the next <span class="animate-text">version of your business.</span></h1><p class="text-lg text-gray-300 max-w-2xl">Choose a focused starting point. Every project begins with a clear scope, timeline, and definition of success.</p></div>
+                        <div class="price-guide"><div><strong>Clear scope</strong><span>Know what is included</span></div><div><strong>Human-reviewed</strong><span>Quality before speed</span></div><div><strong>Built to use</strong><span>Practical handoff</span></div></div>
                     </div>
 
-                    <!-- Glassmorphic Pricing Cards Grid -->
-                    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
+                    <div class="grid md:grid-cols-3 gap-5 items-stretch">
                         <!-- Social Growth -->
-                        <div class="glass-pricing p-8 flex flex-col justify-between">
+                        <article class="pricing-card">
                             <div>
-                                <span class="text-xs font-bold text-primary tracking-widest uppercase">Social Media Engine</span>
+                                <div class="plan-icon"><i class="fa-solid fa-bullhorn"></i></div><span class="plan-label">Ongoing visibility</span>
                                 <h3 class="text-2xl font-bold text-white mt-1 mb-2">Social Growth</h3>
-                                <div class="flex items-baseline gap-1 mb-4">
-                                    <span class="text-4xl font-extrabold text-white">$499</span>
-                                    <span class="text-sm text-gray-400">/ month</span>
-                                </div>
-                                <p class="text-xs text-gray-400 mb-6">Complete monthly local social media content creation and scheduling.</p>
-                                <ul class="space-y-3 mb-8 text-gray-300 text-sm">
-                                    <li class="flex items-center"><i class="fa-solid fa-check text-primary mr-3"></i> 12 Custom Branded Posts</li>
-                                    <li class="flex items-center"><i class="fa-solid fa-check text-primary mr-3"></i> Custom Content Calendar</li>
-                                    <li class="flex items-center"><i class="fa-solid fa-check text-primary mr-3"></i> Performance Analytics Report</li>
-                                </ul>
+                                <div class="plan-price">$499 <small>/ month</small></div>
+                                <p class="text-sm text-gray-400">A consistent monthly content system for local businesses that need to stay visible.</p>
+                                <ul class="plan-list"><li><i class="fa-solid fa-check"></i> 12 custom branded posts</li><li><i class="fa-solid fa-check"></i> Monthly content calendar</li><li><i class="fa-solid fa-check"></i> Scheduling and performance report</li></ul>
                             </div>
-                            <a href="#contact" class="bridge-cta bridge-cta--dark w-full text-sm">Grow my presence <span class="cta-icon"><i class="fa-solid fa-arrow-right"></i></span></a>
-                        </div>
+                            <a href="#contact" class="bridge-cta bridge-cta--dark w-full text-sm mt-auto">Grow my presence <span class="cta-icon"><i class="fa-solid fa-arrow-right"></i></span></a>
+                        </article>
 
                         <!-- Business Website -->
-                        <div class="glass-pricing-cyan p-8 flex flex-col justify-between relative">
-                            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyanAcc text-dark text-xs font-black px-5 py-1.5 rounded-full shadow-lg uppercase tracking-widest flex items-center gap-1.5">
-                                <i class="fa-solid fa-star text-xs"></i> Most Popular
-                            </div>
+                        <article class="pricing-card featured">
                             <div>
-                                <span class="text-xs font-bold text-cyanAcc tracking-widest uppercase">Turnkey Website</span>
+                                <div class="plan-icon"><i class="fa-solid fa-laptop-code"></i></div><span class="plan-label">Most popular · New foundation</span>
                                 <h3 class="text-3xl font-extrabold text-white mt-1 mb-2">Business Website</h3>
-                                <div class="flex items-baseline gap-1 mb-4">
-                                    <span class="text-5xl font-black text-white">$1,500</span>
-                                    <span class="text-sm text-gray-300">starting at</span>
-                                </div>
-                                <p class="text-xs text-gray-300 mb-6">Everything local businesses need to establish a strong online presence.</p>
-                                <ul class="space-y-3.5 mb-8 text-gray-100 text-sm">
-                                    <li class="flex items-center"><i class="fa-solid fa-check text-cyanAcc mr-3 text-base"></i> <strong>5-Page</strong> Custom AI-Built Website</li>
-                                    <li class="flex items-center"><i class="fa-solid fa-check text-cyanAcc mr-3 text-base"></i> Conversion-Focused Copy Structure</li>
-                                    <li class="flex items-center"><i class="fa-solid fa-check text-cyanAcc mr-3 text-base"></i> Local SEO & Analytics Setup</li>
-                                    <li class="flex items-center"><i class="fa-solid fa-check text-cyanAcc mr-3 text-base"></i> Two Revision Rounds</li>
-                                </ul>
+                                <div class="plan-price">$1,500+ <small>starting at</small></div>
+                                <p class="text-sm text-gray-300">A polished, conversion-focused home base that makes your business easier to trust.</p>
+                                <ul class="plan-list"><li><i class="fa-solid fa-check"></i> Custom five-page website</li><li><i class="fa-solid fa-check"></i> Conversion-focused copy structure</li><li><i class="fa-solid fa-check"></i> Local SEO and analytics setup</li><li><i class="fa-solid fa-check"></i> Two revision rounds</li></ul>
                             </div>
-                            <a href="#contact" class="bridge-cta w-full text-sm">
+                            <a href="#contact" class="bridge-cta w-full text-sm mt-auto">
                                 Build my website <span class="cta-icon"><i class="fa-solid fa-arrow-right"></i></span>
                             </a>
-                        </div>
+                        </article>
 
                         <!-- Automation Sprint -->
-                        <div class="glass-pricing p-8 flex flex-col justify-between">
+                        <article class="pricing-card">
                             <div>
-                                <span class="text-xs font-bold text-purple tracking-widest uppercase">Tailored Workflow</span>
+                                <div class="plan-icon"><i class="fa-solid fa-gears"></i></div><span class="plan-label text-purple-300">Operational leverage</span>
                                 <h3 class="text-2xl font-bold text-white mt-1 mb-2">Automation Sprint</h3>
-                                <div class="flex items-baseline gap-1 mb-4">
-                                    <span class="text-4xl font-extrabold text-white">$2,500+</span>
-                                </div>
-                                <p class="text-xs text-gray-400 mb-6">One valuable workflow scoped, built, tested, and handed off for your team.</p>
-                                <ul class="space-y-3 mb-8 text-gray-300 text-sm">
-                                    <li class="flex items-center"><i class="fa-solid fa-check text-purple mr-3"></i> Workflow Discovery & Build</li>
-                                    <li class="flex items-center"><i class="fa-solid fa-check text-purple mr-3"></i> Integration Testing</li>
-                                    <li class="flex items-center"><i class="fa-solid fa-check text-purple mr-3"></i> Documentation & 14-Day Support</li>
-                                </ul>
+                                <div class="plan-price">$2,500+ <small>per sprint</small></div>
+                                <p class="text-sm text-gray-400">One valuable workflow scoped, built, tested, and handed off to your team.</p>
+                                <ul class="plan-list"><li><i class="fa-solid fa-check"></i> Workflow discovery and build</li><li><i class="fa-solid fa-check"></i> Integration testing</li><li><i class="fa-solid fa-check"></i> Documentation and 14-day support</li></ul>
                             </div>
-                            <a href="#contact" class="bridge-cta bridge-cta--purple w-full text-sm">Automate a workflow <span class="cta-icon"><i class="fa-solid fa-arrow-right"></i></span></a>
-                        </div>
+                            <a href="#contact" class="bridge-cta bridge-cta--purple w-full text-sm mt-auto">Automate a workflow <span class="cta-icon"><i class="fa-solid fa-arrow-right"></i></span></a>
+                        </article>
                     </div>
+                    <p class="price-note"><i class="fa-solid fa-circle-info mr-2"></i>Final pricing depends on scope. You approve the proposal before work begins.</p>
                 </div>
             </section>
         </div>
 
         <!-- ==================== OUR MISSION PAGE (WITH NEURAL NETWORK TEXTURE) ==================== -->
         <div id="about" class="page-section">
-            <section class="py-24 px-6 bg-neural-overlay">
-                <div class="max-w-5xl mx-auto">
-                    <div class="text-center mb-16">
-                        <span class="text-studio font-bold tracking-widest uppercase text-xs mb-2 inline-block">
-                            <i class="fa-solid fa-compass mr-1.5"></i> Purpose & Vision
-                        </span>
-                        <h1 class="text-5xl md:text-6xl font-bold mb-4">Our Mission</h1>
-                        <p class="text-xl text-gray-300 max-w-2xl mx-auto">Powering the next era of Bridgeport's economic story.</p>
+            <section class="mission-shell py-16 md:py-20 px-6">
+                <div class="max-w-6xl mx-auto relative z-10">
+                    <div class="section-intro">
+                        <div><span class="text-studio font-bold tracking-widest uppercase text-xs"><i class="fa-solid fa-compass mr-2"></i> Built in Bridgeport, Connecticut</span><h1 class="text-5xl md:text-6xl font-bold mt-3 mb-5">Local ambition deserves <span class="animate-text">modern leverage.</span></h1></div>
+                        <p class="text-lg text-gray-300 leading-relaxed">Our mission is to make practical AI useful—not intimidating—for the businesses and people shaping Bridgeport’s next chapter.</p>
                     </div>
-
-                    <div class="bento-card p-8 md:p-14 relative overflow-hidden shadow-2xl">
-                        <div class="relative z-10 max-w-3xl mx-auto">
-                            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-800/80 border border-white/10 text-xs font-bold text-cyan-400 mb-6">
-                                <i class="fa-solid fa-industry"></i>
-                                <span class="tracking-wider uppercase">Bridgeport, Connecticut</span>
-                            </div>
-
-                            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-white leading-snug">
-                                Bridgeport was once the industrial capital of the world.
-                            </h2>
-                            <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-6">
-                                We built the machines, engines, and materials that powered a nation. As technology shifts, artificial intelligence provides local business owners with unprecedented leverage.
-                            </p>
-
-                            <div class="my-10 p-6 md:p-8 rounded-2xl bg-slate-900/90 border border-cyan-500/30 shadow-xl">
-                                <h3 class="text-3xl md:text-4xl font-black text-gradient-hero mb-4">
-                                    We are building the Digital Capital.
-                                </h3>
-                                <p class="text-gray-200 text-base leading-relaxed">
-                                    Every website we launch, every student we teach, and every workflow we automate strengthens the digital foundation of Bridgeport.
-                                </p>
-                            </div>
+                    <div class="mission-grid">
+                        <article class="mission-statement"><span class="text-cyan-300 text-xs font-bold tracking-widest uppercase">From industrial capital to digital capital</span><h2 class="text-3xl md:text-4xl font-bold mt-3 mb-5">Build locally. Compete confidently.</h2><p class="text-gray-300 leading-relaxed mb-5">Bridgeport helped build the machines, materials, and industries that powered a nation. Today, AI gives local organizations a new kind of leverage: the ability to create, respond, and improve faster.</p><p class="text-gray-400 leading-relaxed">We turn that potential into websites people trust, systems teams can use, and skills individuals can carry forward.</p></article>
+                        <div class="mission-panel">
+                            <div class="mission-value"><strong><i class="fa-solid fa-handshake"></i> Practical before flashy</strong><p>We start with the real problem and choose technology that makes the work better.</p></div>
+                            <div class="mission-value"><strong><i class="fa-solid fa-eye"></i> Human judgment stays involved</strong><p>AI accelerates the work; people remain responsible for quality and decisions.</p></div>
+                            <div class="mission-value"><strong><i class="fa-solid fa-seedling"></i> Knowledge should stay local</strong><p>Every project includes clarity, guidance, and a usable handoff—not dependency.</p></div>
                         </div>
                     </div>
+                    <div class="mission-promise"><div class="workshop-icon"><i class="fa-solid fa-city"></i></div><div><span class="text-studio text-xs font-bold tracking-widest uppercase">The promise</span><h2 class="text-2xl font-bold mt-1">Every build should leave Bridgeport stronger.</h2><p class="text-sm text-gray-400 mt-1">One better business, one more capable team, and one more confident learner at a time.</p></div><a href="#contact" class="bridge-cta bridge-cta--studio whitespace-nowrap">Build with us <span class="cta-icon"><i class="fa-solid fa-arrow-right"></i></span></a></div>
                 </div>
             </section>
         </div>
     </main>
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="py-24 px-6 border-t border-white/5 bg-black/50 relative">
-        <div class="max-w-2xl mx-auto bento-card p-8 md:p-12 relative z-10 shadow-2xl">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-white">Let's Build The Future</h2>
-                <p class="text-gray-400 text-base">Tell us about your project or learning goals.</p>
-            </div>
+    <section id="contact" class="py-16 md:py-20 px-6 border-t border-white/5 bg-black/40 relative">
+        <div class="contact-shell relative z-10">
+            <aside class="contact-aside">
+                <span class="text-cyan-300 text-xs font-bold tracking-widest uppercase">Start a conversation</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4 text-white">Tell us what you want to improve.</h2>
+                <p class="text-gray-400 leading-relaxed">Share the challenge, goal, or idea. We’ll review it and recommend a practical next step.</p>
+                <div class="contact-point"><i class="fa-solid fa-envelope"></i><div><strong class="block text-white">Email us directly</strong><a href="mailto:bridgeportaisolutions@gmail.com" class="text-cyan-300 hover:underline break-all">bridgeportaisolutions@gmail.com</a></div></div>
+                <div class="contact-point"><i class="fa-solid fa-location-dot"></i><div><strong class="block text-white">Based in Bridgeport</strong><span>Serving local businesses and teams.</span></div></div>
+                <div class="contact-point"><i class="fa-solid fa-shield-heart"></i><div><strong class="block text-white">No-pressure first step</strong><span>Clear advice before any commitment.</span></div></div>
+            </aside>
 
-            <form action="https://formsubmit.co/bridgeportaisolutions@gmail.com" method="POST" class="space-y-6">
+            <form action="https://formsubmit.co/bridgeportaisolutions@gmail.com" method="POST" class="contact-form">
+                <div id="form-success" class="hidden mb-5 p-4 border border-emerald-400/30 bg-emerald-400/10 text-emerald-200 rounded-xl text-sm" role="status"><i class="fa-solid fa-circle-check mr-2"></i><span>Your message was sent. We’ll be in touch soon.</span></div>
                 <input type="hidden" name="_subject" value="New Inquiry from Website">
-                <input type="hidden" name="_captcha" value="false">
-
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Name</label>
-                        <input type="text" name="name" class="w-full p-4 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="John Doe" required>
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://bridgeportaisolutions.com/?submitted=inquiry#contact">
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="contact-name">Name</label>
+                        <input id="contact-name" type="text" name="name" class="field-control" placeholder="Your name" autocomplete="name" required>
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Email</label>
-                        <input type="email" name="email" class="w-full p-4 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="john@example.com" required>
+                    <div class="field">
+                        <label for="contact-email">Email</label>
+                        <input id="contact-email" type="email" name="email" class="field-control" placeholder="you@example.com" autocomplete="email" required>
                     </div>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Interested In</label>
-                    <select name="service" class="w-full p-4 rounded-xl bg-slate-800/80 border border-white/10 text-white focus:border-primary outline-none cursor-pointer">
+                    <div class="field full">
+                    <label for="contact-service">What can we help with?</label>
+                    <select id="contact-service" name="service" class="field-control cursor-pointer" required>
+                        <option value="" disabled selected>Select a service</option>
                         <option value="Business Website">Business Website (from $1,500)</option>
                         <option value="Automation Sprint">Automation Sprint (from $2,500)</option>
+                        <option value="AI Opportunity Audit">AI Opportunity Audit ($399)</option>
                         <option value="Social Media">Social Growth ($499/mo)</option>
                         <option value="AI 101">AI 101 Class ($49)</option>
                         <option value="Prompt Pro">Prompt Pro Class ($99)</option>
                         <option value="Coaching">1-on-1 Coaching ($175/hr)</option>
                         <option value="Team Workshop">Private Team Workshop (from $750)</option>
                     </select>
+                    </div>
+                    <div class="field full"><label for="contact-message">What would success look like?</label><textarea id="contact-message" name="message" class="field-control h-32 resize-none" placeholder="A few sentences about your goal, challenge, or timeline…" required></textarea></div>
                 </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Message</label>
-                    <textarea name="message" class="w-full p-4 rounded-xl bg-slate-800/80 border border-white/10 text-white placeholder-gray-500 focus:border-primary outline-none h-32 resize-none" placeholder="Tell us about your goals..."></textarea>
-                </div>
-                <label class="flex items-start gap-3 text-sm text-gray-400 leading-relaxed">
+                <label class="flex items-start gap-3 text-sm text-gray-400 leading-relaxed my-5">
                     <input type="checkbox" name="privacy-consent" required class="mt-1 accent-blue-500">
                     <span>I agree that Bridgeport AI Solutions may use my information to respond to this inquiry, as described in the <a href="privacy.html" class="text-primary hover:underline">Privacy Policy</a>.</span>
                 </label>
                 <button type="submit" class="bridge-cta w-full text-lg">
-                    Send Message <span class="cta-icon"><i class="fa-solid fa-paper-plane"></i></span>
+                    Send my inquiry <span class="cta-icon"><i class="fa-solid fa-paper-plane"></i></span>
                 </button>
+                <p class="text-center text-xs text-gray-500 mt-3">Your message is delivered securely to bridgeportaisolutions@gmail.com.</p>
             </form>
         </div>
     </section>
@@ -1041,6 +1025,14 @@
                     preloader.style.opacity = '0';
                     preloader.style.visibility = 'hidden';
                 }, 500);
+            }
+            const submission = new URLSearchParams(window.location.search).get('submitted');
+            const success = document.getElementById('form-success');
+            if (submission && success) {
+                success.classList.remove('hidden');
+                success.querySelector('span').textContent = submission === 'resource'
+                    ? 'Your request was received. Check your inbox soon.'
+                    : 'Your message was sent. We’ll be in touch soon.';
             }
         });
 
