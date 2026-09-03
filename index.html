@@ -143,10 +143,20 @@
 
         /* Glass Navigation */
         .glass-nav {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(5, 12, 25, 0.82);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            border-bottom: 1px solid rgba(125, 211, 252, 0.12);
+            box-shadow: 0 16px 50px rgba(0,0,0,.2);
         }
+        .top-banner{position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.07);background:linear-gradient(90deg,rgba(37,99,235,.15),rgba(6,182,212,.08),rgba(16,185,129,.14));font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#cbd5e1}
+        .top-banner::after{content:"";position:absolute;left:-30%;bottom:0;width:30%;height:1px;background:linear-gradient(90deg,transparent,#67e8f9,transparent);animation:bannerScan 5s linear infinite}
+        .banner-inner{max-width:1280px;margin:auto;padding:.45rem 1.5rem;display:flex;justify-content:center;align-items:center;gap:.7rem}.banner-live{display:inline-flex;align-items:center;gap:.45rem;color:#6ee7b7}.banner-live::before{content:"";width:6px;height:6px;border-radius:50%;background:#34d399;box-shadow:0 0 12px #34d399;animation:livePulse 2s ease-in-out infinite}.banner-separator{color:#475569}.banner-link{color:#7dd3fc;text-decoration:none}.banner-link:hover{color:white}
+        .brand-lockup{position:relative;padding:.45rem .7rem;border:1px solid rgba(255,255,255,.09);border-radius:16px 5px 16px 5px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.015));box-shadow:inset 0 1px rgba(255,255,255,.08),0 12px 30px rgba(0,0,0,.18)}.brand-lockup::before{content:"";position:absolute;inset:-1px;border-radius:inherit;background:linear-gradient(120deg,rgba(59,130,246,.55),transparent 35%,transparent 65%,rgba(16,185,129,.42));z-index:-1;opacity:.55}.brand-lockup img{filter:drop-shadow(0 0 14px rgba(59,130,246,.2))}
+        .nav-links{display:flex;align-items:center;gap:.25rem;padding:.3rem;border:1px solid rgba(255,255,255,.07);border-radius:16px 5px 16px 5px;background:rgba(15,23,42,.44)}.nav-link{padding:.62rem .72rem;border-radius:11px 3px 11px 3px;color:#cbd5e1;transition:background .2s,color .2s,transform .2s}.nav-link:hover{background:rgba(255,255,255,.07);color:#fff;transform:translateY(-1px)}
+        .menu-trigger{display:grid;place-items:center;width:46px;height:42px;border:1px solid rgba(125,211,252,.24);border-radius:14px 4px 14px 4px;background:linear-gradient(145deg,rgba(37,99,235,.18),rgba(15,23,42,.8));box-shadow:0 12px 28px rgba(0,0,0,.25)}
+        @keyframes bannerScan{to{left:110%}}@keyframes livePulse{50%{opacity:.45;transform:scale(.8)}}
+        @media(max-width:640px){.banner-separator,.banner-extra{display:none}.banner-inner{font-size:.62rem}.brand-lockup{padding:.35rem .5rem}.brand-lockup img{height:2rem}}
 
         /* Neural Network Background Texture Overlay */
         .bg-neural-overlay {
@@ -351,7 +361,7 @@
             100% { transform: rotate(360deg); }
         }
         .hero-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center;width:min(1200px,100%)}.hero-copy{text-align:left}.premium-button{position:relative;isolation:isolate;overflow:hidden;border:1px solid rgba(255,255,255,.18);box-shadow:0 16px 45px rgba(37,99,235,.28),inset 0 1px rgba(255,255,255,.3);transform:translateZ(0)}.premium-button:before{content:"";position:absolute;inset:-2px;z-index:-1;background:linear-gradient(110deg,#2563eb,#06b6d4,#8b5cf6,#2563eb);background-size:250% 100%;animation:buttonFlow 5s linear infinite}.premium-button:after{content:"";position:absolute;width:45%;height:200%;top:-50%;left:-70%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent);transform:rotate(18deg);transition:left .65s}.premium-button:hover:after{left:125%}.secondary-premium{background:rgba(15,23,42,.62);border:1px solid rgba(52,211,153,.48);box-shadow:inset 0 1px rgba(255,255,255,.1),0 15px 45px rgba(0,0,0,.28)}.ai-stage{position:relative;height:520px;perspective:1000px;transform-style:preserve-3d}.ai-orb{position:absolute;width:210px;height:210px;left:50%;top:50%;transform:translate(-50%,-50%) translateZ(60px);border-radius:50%;background:radial-gradient(circle at 32% 26%,#b6f2ff 0,#34d6ef 8%,#2563eb 35%,#111b3f 68%,#030712 100%);box-shadow:inset -24px -30px 55px rgba(0,0,0,.55),inset 16px 18px 35px rgba(255,255,255,.2),0 0 90px rgba(37,99,235,.6);animation:orbFloat 6s ease-in-out infinite}.ai-orb:before,.ai-orb:after{content:"";position:absolute;inset:-35px;border:1px solid rgba(103,232,249,.28);border-radius:50%;transform:rotateX(67deg);animation:ringSpin 10s linear infinite}.ai-orb:after{inset:-78px;border-style:dashed;transform:rotateY(65deg);animation-duration:16s;animation-direction:reverse}.orb-core{position:absolute;inset:0;display:grid;place-items:center;font:800 1rem 'Space Grotesk';letter-spacing:.16em;text-shadow:0 0 24px #fff}.data-node{position:absolute;width:245px;padding:16px 18px;border:1px solid rgba(125,211,252,.22);border-radius:16px;background:linear-gradient(135deg,rgba(15,23,42,.87),rgba(30,41,59,.58));backdrop-filter:blur(18px);box-shadow:0 24px 60px rgba(0,0,0,.35),inset 0 1px rgba(255,255,255,.1);transform-style:preserve-3d;animation:nodeFloat 6s ease-in-out infinite}.data-node strong{display:block;font:700 .85rem 'Space Grotesk';color:#fff}.data-node small{display:block;color:#7dd3fc;letter-spacing:.12em;font-size:.62rem;margin-bottom:5px}.data-node i{position:absolute;right:16px;top:50%;transform:translateY(-50%);width:8px;height:8px;background:#34d399;border-radius:50%;box-shadow:0 0 16px #34d399}.node-one{left:0;top:14%;transform:rotateY(12deg) translateZ(25px)}.node-two{right:-1%;bottom:14%;transform:rotateY(-12deg) translateZ(35px);animation-delay:-3s}.stage-grid{position:absolute;inset:7%;border-radius:50%;background:linear-gradient(rgba(56,189,248,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.08) 1px,transparent 1px);background-size:25px 25px;transform:rotateX(68deg) translateZ(-80px);mask-image:radial-gradient(circle,#000 25%,transparent 72%)}.stage-status{position:absolute;right:7%;top:11%;padding:9px 13px;border:1px solid rgba(255,255,255,.12);border-radius:99px;background:rgba(2,6,23,.68);color:#94a3b8;font-size:.64rem;letter-spacing:.13em}.stage-status span{display:inline-block;width:6px;height:6px;margin-right:7px;border-radius:50%;background:#34d399;box-shadow:0 0 12px #34d399}.bento-card,.glass-pricing,.glass-pricing-cyan{transform-style:preserve-3d}.bento-card:hover,.glass-pricing:hover,.glass-pricing-cyan:hover{transform:perspective(900px) rotateX(2deg) rotateY(-2deg) translateY(-9px)}@keyframes buttonFlow{to{background-position:250% 0}}@keyframes orbFloat{50%{transform:translate(-50%,-54%) translateZ(80px) rotate(4deg)}}@keyframes ringSpin{to{transform:rotateX(67deg) rotateZ(360deg)}}@keyframes nodeFloat{50%{margin-top:-13px}}@media(max-width:900px){.hero-layout{grid-template-columns:1fr;padding-top:4rem}.hero-copy{text-align:center}.hero-copy .hero-actions{justify-content:center}.ai-stage{height:430px}.node-one{left:3%}.node-two{right:3%}}@media(max-width:560px){.ai-stage{height:370px}.ai-orb{width:150px;height:150px}.data-node{width:190px;padding:12px}.node-one{top:5%;left:0}.node-two{right:0;bottom:5%}}@media(prefers-reduced-motion:reduce){.ai-orb,.ai-orb:before,.ai-orb:after,.data-node,.premium-button:before{animation:none!important}}
-        @media(prefers-reduced-motion:reduce){.depth-grid,.depth-orb{animation:none!important}}
+        @media(prefers-reduced-motion:reduce){.depth-grid,.depth-orb,.top-banner::after,.banner-live::before{animation:none!important}}
     </style>
     
     <script>
@@ -386,38 +396,36 @@
 
     <!-- Navbar -->
     <nav id="navbar" class="sticky top-0 w-full z-50 glass-nav transition-all duration-300">
-        <div id="nav-container" class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center transition-all duration-300">
-            <a href="/" onclick="showPage('home'); return false" class="flex items-center gap-3 group cursor-pointer">
+        <div class="top-banner">
+            <div class="banner-inner"><span class="banner-live">Bridgeport-built</span><span class="banner-separator">◆</span><span class="banner-extra">Practical AI for local business</span><span class="banner-separator">◆</span><a href="#contact" class="banner-link">Start a conversation →</a></div>
+        </div>
+        <div id="nav-container" class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center transition-all duration-300">
+            <a href="/" onclick="showPage('home'); return false" class="brand-lockup flex items-center gap-3 group cursor-pointer" aria-label="Bridgeport AI Solutions home">
                 <picture>
                     <source srcset="assets/logo.webp" type="image/webp">
-                    <img id="nav-logo" src="assets/logo.png" alt="Bridgeport AI" width="160" height="40" class="h-10 w-auto group-hover:scale-105 transition-all duration-300">
+                    <img id="nav-logo" src="assets/logo.png" alt="Bridgeport AI Solutions" width="200" height="50" class="h-10 w-auto group-hover:scale-[1.03] transition-all duration-300">
                 </picture>
             </a>
             
             <!-- Desktop Menu & High-Contrast CTAs -->
-            <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-300">
-                <button onclick="showPage('home')" class="hover:text-primary transition">Home</button>
-                <button onclick="showPage('services')" class="hover:text-primary transition font-bold text-white flex items-center">
+            <div class="hidden lg:flex items-center gap-3 text-sm font-medium text-gray-300">
+              <div class="nav-links">
+                <button onclick="showPage('home')" class="nav-link">Home</button>
+                <button onclick="showPage('services')" class="nav-link font-bold text-white flex items-center">
                     <i class="fa-solid fa-bolt text-primary mr-1.5"></i> Agency Services
                 </button>
-                <button onclick="showPage('studio')" class="hover:text-studio transition font-bold text-white flex items-center">
+                <button onclick="showPage('studio')" class="nav-link font-bold text-white flex items-center">
                     <i class="fa-solid fa-graduation-cap text-studio mr-1.5"></i> The Studio
                 </button>
-                <button onclick="showPage('pricing')" class="hover:text-primary transition">Pricing</button>
-                <button onclick="showPage('about')" class="hover:text-primary transition">Our Mission</button>
+                <button onclick="showPage('pricing')" class="nav-link">Pricing</button>
+                <button onclick="showPage('about')" class="nav-link">Our Mission</button>
+              </div>
 
-                <div class="flex items-center gap-3 ml-2">
-                    <a href="#contact" onclick="showPage('studio')" class="bridge-cta bridge-cta--dark min-h-0 !py-2 !px-3 text-xs whitespace-nowrap">
-                        Studio <span class="cta-icon !w-6 !h-6"><i class="fa-solid fa-graduation-cap"></i></span>
-                    </a>
-                    <a href="#contact" onclick="showPage('services')" class="bridge-cta min-h-0 !py-2 !px-3 text-xs whitespace-nowrap">
-                        Start a project <span class="cta-icon !w-6 !h-6"><i class="fa-solid fa-arrow-right"></i></span>
-                    </a>
-                </div>
+                <a href="#contact" class="bridge-cta min-h-0 !py-2 !px-3 text-xs whitespace-nowrap">Start a project <span class="cta-icon !w-6 !h-6"><i class="fa-solid fa-arrow-right"></i></span></a>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button class="lg:hidden text-2xl text-white" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu">
+            <button class="menu-trigger lg:hidden text-xl text-white" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu" aria-controls="mobile-menu" aria-expanded="false">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
@@ -1069,7 +1077,11 @@
         // Mobile Menu
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-            if (menu) menu.classList.toggle('hidden');
+            const trigger = document.querySelector('.menu-trigger');
+            if (menu) {
+                menu.classList.toggle('hidden');
+                if (trigger) trigger.setAttribute('aria-expanded', String(!menu.classList.contains('hidden')));
+            }
         }
 
         // FAQ Toggle
