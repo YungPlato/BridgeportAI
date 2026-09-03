@@ -242,8 +242,12 @@
         .contact-aside{padding:2.3rem;background:radial-gradient(circle at 15% 15%,rgba(37,99,235,.25),transparent 38%),rgba(15,23,42,.74);border-right:1px solid rgba(255,255,255,.08)}.contact-form{padding:2.3rem}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}.field{display:grid;gap:.45rem}.field.full{grid-column:1/-1}.field label{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#94a3b8}
         .field-control{width:100%;padding:.9rem 1rem;border:1px solid rgba(255,255,255,.12);border-radius:14px 4px 14px 4px;background:rgba(15,23,42,.82);color:#fff;outline:none;transition:border-color .2s,box-shadow .2s}.field-control:focus{border-color:#38bdf8;box-shadow:0 0 0 4px rgba(56,189,248,.11)}.field-control::placeholder{color:#64748b}
         .contact-point{display:flex;gap:.8rem;align-items:flex-start;margin-top:1.3rem;color:#cbd5e1;font-size:.86rem}.contact-point i{display:grid;place-items:center;width:34px;height:34px;flex:none;border-radius:11px 3px 11px 3px;background:rgba(255,255,255,.08);color:#7dd3fc}
+        .home-service-card{position:relative;min-height:330px;padding:1.8rem;border:1px solid rgba(255,255,255,.1);border-radius:25px 6px 25px 6px;background:linear-gradient(145deg,rgba(30,41,59,.78),rgba(2,6,23,.94));overflow:hidden;cursor:pointer;transition:transform .3s ease,border-color .3s ease}.home-service-card:hover{transform:translateY(-7px);border-color:rgba(125,211,252,.42)}.home-service-card .service-index{position:absolute;right:1.2rem;top:.8rem;font:800 3.8rem 'Space Grotesk';color:rgba(255,255,255,.045)}
+        .home-service-card .service-link{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.08);font-size:.8rem;font-weight:800;color:#7dd3fc}.home-service-card .service-link i{display:grid;place-items:center;width:30px;height:30px;border-radius:10px 3px 10px 3px;background:rgba(59,130,246,.16);transition:transform .25s}.home-service-card:hover .service-link i{transform:translateX(4px)}
+        .lead-shell{display:grid;grid-template-columns:.82fr 1.18fr;gap:0;max-width:1100px;margin:auto;border:1px solid rgba(52,211,153,.3);border-radius:30px 8px 30px 8px;background:linear-gradient(145deg,rgba(16,185,129,.12),rgba(2,6,23,.96) 50%);box-shadow:0 32px 90px rgba(0,0,0,.38);overflow:hidden}.lead-preview{position:relative;padding:2rem;display:grid;place-items:center;background:radial-gradient(circle at 50% 30%,rgba(34,211,238,.18),transparent 50%)}.lead-preview img{width:100%;max-width:430px;transform:perspective(900px) rotateY(7deg) rotateX(2deg);border-radius:8px;box-shadow:0 28px 65px rgba(0,0,0,.55);transition:transform .35s}.lead-preview:hover img{transform:perspective(900px) rotateY(2deg) rotateX(0) translateY(-5px)}.lead-copy{padding:2.3rem}.lead-benefits{display:grid;gap:.65rem;margin:1.2rem 0 1.5rem;color:#cbd5e1;font-size:.86rem}.lead-benefits i{width:1.4rem;color:#34d399}.lead-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}.lead-form-grid .wide{grid-column:1/-1}
         @media(max-width:900px){.section-intro,.mission-grid,.contact-shell{grid-template-columns:1fr}.mission-promise{grid-template-columns:1fr}.mission-promise .bridge-cta{width:100%}.contact-aside{border-right:0;border-bottom:1px solid rgba(255,255,255,.08)}}
-        @media(max-width:560px){.price-guide,.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.mission-statement,.contact-aside,.contact-form{padding:1.5rem}.pricing-card{min-height:auto}}
+        @media(max-width:900px){.lead-shell{grid-template-columns:1fr}.lead-preview img{transform:none}.lead-preview{padding-bottom:1rem}}
+        @media(max-width:560px){.price-guide,.form-grid,.lead-form-grid{grid-template-columns:1fr}.field.full,.lead-form-grid .wide{grid-column:auto}.mission-statement,.contact-aside,.contact-form,.lead-copy{padding:1.5rem}.pricing-card{min-height:auto}.home-service-card{min-height:auto}}
 
         /* Studio learning lab */
         .studio-shell {position:relative;overflow:hidden;background:radial-gradient(circle at 84% 10%,rgba(16,185,129,.17),transparent 28%),radial-gradient(circle at 8% 80%,rgba(6,182,212,.12),transparent 25%)}
@@ -470,12 +474,12 @@
                         </div>
                     </div>
 
-                    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-8">
-                        Practical AI for <br>
-                        <span class="text-gradient-hero">Ambitious Local Businesses</span>
+                    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-7">
+                        Build faster. Work smarter. <br>
+                        <span class="text-gradient-hero">Stay unmistakably human.</span>
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl leading-relaxed">
-                        We build the websites, automations, and practical AI skills that help local businesses move faster—without losing the human judgment their customers trust.
+                    <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed">
+                        Bridgeport AI Solutions builds modern websites and useful automations—and teaches local teams how to use AI with confidence.
                     </p>
                     <div class="hero-actions flex flex-col md:flex-row gap-5">
                         <button onclick="showPage('services')" class="bridge-cta text-lg">
@@ -522,18 +526,18 @@
             </section>
 
             <!-- APPLE-STYLE BENTO GRID: HOW WE HELP -->
-            <section class="py-24 px-6 bg-dark/60 relative z-20">
+            <section class="py-16 md:py-20 px-6 bg-dark/60 relative z-20">
                 <div class="max-w-7xl mx-auto">
-                    <div class="text-center mb-16">
-                        <span class="text-primary font-bold tracking-widest uppercase text-xs">Services Overview</span>
-                        <h2 class="text-4xl md:text-5xl font-bold mb-4 mt-2">How We Help</h2>
-                        <p class="text-gray-400 max-w-xl mx-auto">Modern digital solutions designed specifically for Bridgeport businesses and entrepreneurs.</p>
+                    <div class="section-intro">
+                        <div><span class="text-primary font-bold tracking-widest uppercase text-xs">Two ways to move forward</span><h2 class="text-4xl md:text-5xl font-bold mt-2">We build it—or teach you to.</h2></div>
+                        <p class="text-gray-400">Choose done-for-you execution, practical learning, or combine both to give your team a stronger long-term advantage.</p>
                     </div>
 
                     <!-- Apple Bento Box Layout -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <!-- Bento Box 1: Web Design -->
-                        <div class="bento-card p-8 flex flex-col justify-between group cursor-pointer" onclick="showPage('services')">
+                        <div class="home-service-card flex flex-col group" onclick="showPage('services')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showPage('services')}">
+                            <span class="service-index">01</span>
                             <div>
                                 <div class="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center text-primary text-2xl mb-6 group-hover:scale-110 transition duration-300">
                                     <i class="fa-solid fa-laptop-code"></i>
@@ -541,13 +545,14 @@
                                 <h3 class="text-2xl font-bold mb-3">Custom Web Design</h3>
                                 <p class="text-gray-400 text-sm leading-relaxed mb-6">High-converting, lightning-fast AI-built websites optimized for search engines and mobile devices.</p>
                             </div>
-                            <div class="flex items-center text-primary font-bold text-sm group-hover:translate-x-2 transition duration-300">
-                                Explore Web Design <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                            <div class="service-link">
+                                Explore Agency Services <i class="fa-solid fa-arrow-right"></i>
                             </div>
                         </div>
 
                         <!-- Bento Box 2: AI Classes -->
-                        <div class="bento-card p-8 flex flex-col justify-between group cursor-pointer" onclick="showPage('studio')">
+                        <div class="home-service-card flex flex-col group" onclick="showPage('studio')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showPage('studio')}">
+                            <span class="service-index">02</span>
                             <div>
                                 <div class="w-14 h-14 rounded-2xl bg-studio/20 flex items-center justify-center text-studio text-2xl mb-6 group-hover:scale-110 transition duration-300">
                                     <i class="fa-solid fa-graduation-cap"></i>
@@ -555,13 +560,14 @@
                                 <h3 class="text-2xl font-bold mb-3">Hands-On AI Classes</h3>
                                 <p class="text-gray-400 text-sm leading-relaxed mb-6">Practical, non-technical workshops that teach business owners and teams how to leverage AI tools effortlessly.</p>
                             </div>
-                            <div class="flex items-center text-studio font-bold text-sm group-hover:translate-x-2 transition duration-300">
-                                View Studio Classes <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                            <div class="service-link !text-emerald-300">
+                                Enter The Studio <i class="fa-solid fa-arrow-right"></i>
                             </div>
                         </div>
 
                         <!-- Bento Box 3: Automation -->
-                        <div class="bento-card p-8 flex flex-col justify-between group cursor-pointer" onclick="showPage('services')">
+                        <div class="home-service-card flex flex-col group" onclick="showPage('services')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showPage('services')}">
+                            <span class="service-index">03</span>
                             <div>
                                 <div class="w-14 h-14 rounded-2xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-2xl mb-6 group-hover:scale-110 transition duration-300">
                                     <i class="fa-solid fa-robot"></i>
@@ -569,44 +575,43 @@
                                 <h3 class="text-2xl font-bold mb-3">Business Automation</h3>
                                 <p class="text-gray-400 text-sm leading-relaxed mb-6">Automate quote generation, customer inquiries, and social media scheduling so your team can focus on higher-value work.</p>
                             </div>
-                            <div class="flex items-center text-cyan-400 font-bold text-sm group-hover:translate-x-2 transition duration-300">
-                                Automate Workflow <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                            <div class="service-link !text-cyan-300">
+                                Explore Automation <i class="fa-solid fa-arrow-right"></i>
                             </div>
                         </div>
                     </div>
                     <div class="mt-10 max-w-6xl mx-auto rounded-2xl border border-primary/30 bg-slate-950/70 p-6 md:p-7 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
                         <div class="flex items-center gap-5"><div class="w-12 h-12 shrink-0 rounded-xl bg-primary/15 text-primary grid place-items-center text-xl"><i class="fa-solid fa-magnifying-glass-chart"></i></div><div><span class="text-xs font-bold text-primary tracking-widest uppercase">Not sure where to start?</span><h3 class="text-xl font-bold text-white">AI Opportunity Audit — $399</h3><p class="text-sm text-gray-400">We map your workflows, rank three opportunities, and give you a practical action plan. The fee is credited toward a qualifying build.</p></div></div>
-                        <a href="#contact" class="premium-button shrink-0 px-6 py-3 rounded-xl text-white font-bold text-sm">Start with clarity <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                        <a href="#contact" class="bridge-cta shrink-0 text-sm">Start with clarity <span class="cta-icon"><i class="fa-solid fa-arrow-right"></i></span></a>
                     </div>
                 </div>
             </section>
 
             <!-- Lead Magnet -->
-            <section class="py-20 px-6 bg-slate-900/60 relative z-20 border-y border-white/10">
-                <div class="max-w-4xl mx-auto bento-card p-8 md:p-12 relative overflow-hidden shadow-2xl border border-primary/30">
-                    <div class="text-center mb-8">
-                        <span class="text-studio font-bold tracking-widest uppercase text-xs mb-2 inline-block"><i class="fa-solid fa-gift mr-1"></i> Free Resource</span>
-                        <h2 class="text-3xl md:text-4xl font-bold mb-3">Not ready to hire? Start learning for free.</h2>
-                        <p class="text-gray-300 text-base md:text-lg max-w-2xl mx-auto">
-                            Request our free 1-page cheat sheet: 5 AI Prompts Every Bridgeport Business Owner Should Use Today. We’ll send it to your inbox.
-                        </p>
-                    </div>
-                    <form action="https://formsubmit.co/bridgeportaisolutions@gmail.com" method="POST" class="space-y-4 max-w-2xl mx-auto">
+            <section class="py-16 md:py-20 px-6 bg-slate-900/50 relative z-20 border-y border-white/10">
+                <div class="lead-shell">
+                    <div class="lead-preview"><img src="assets/cheat-sheet-preview.png" alt="Preview of the 5 AI Prompts cheat sheet" width="1650" height="1275" loading="lazy"></div>
+                    <div class="lead-copy">
+                        <span class="text-studio font-bold tracking-widest uppercase text-xs"><i class="fa-solid fa-gift mr-1"></i> Free one-page field guide</span>
+                        <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-3">Start using AI at work today.</h2>
+                        <p class="text-gray-300">Get five copy-ready prompts for customer emails, social content, review responses, meeting follow-ups, and finding your first automation.</p>
+                        <ul class="lead-benefits"><li><i class="fa-solid fa-check"></i> Written for real local-business tasks</li><li><i class="fa-solid fa-check"></i> Includes a 30-second safety check</li><li><i class="fa-solid fa-check"></i> Instant PDF access after signup</li></ul>
+                    <form action="https://formsubmit.co/bridgeportaisolutions@gmail.com" method="POST" class="space-y-4">
                         <input type="hidden" name="_subject" value="New Free Cheat Sheet Download Request">
                         <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_next" value="https://bridgeportaisolutions.com/?submitted=resource#contact">
+                        <input type="hidden" name="_next" value="https://bridgeportaisolutions.com/thank-you.html">
                         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-                        <div class="grid md:grid-cols-3 gap-4">
-                            <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-gray-400">Name</label>
+                        <div class="lead-form-grid">
+                            <div class="field">
+                                <label>Name</label>
                                 <input type="text" name="name" class="field-control" placeholder="Your name" autocomplete="name" required>
                             </div>
-                            <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-gray-400">Email</label>
+                            <div class="field">
+                                <label>Email</label>
                                 <input type="email" name="email" class="field-control" placeholder="you@example.com" autocomplete="email" required>
                             </div>
-                            <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-gray-400">Business Type</label>
+                            <div class="field wide">
+                                <label>Business type</label>
                                 <input type="text" name="business_type" class="field-control" placeholder="Retail, HVAC, nonprofit…" autocomplete="organization-title" required>
                             </div>
                         </div>
@@ -615,9 +620,11 @@
                             <span>I agree to receive the requested resource by email and understand how my information is handled under the <a href="privacy.html" class="text-studio hover:underline">Privacy Policy</a>.</span>
                         </label>
                         <button type="submit" class="bridge-cta bridge-cta--studio w-full text-lg">
-                            Request My Free Cheat Sheet <span class="cta-icon"><i class="fa-solid fa-download"></i></span>
+                            Get the free guide <span class="cta-icon"><i class="fa-solid fa-arrow-right"></i></span>
                         </button>
                     </form>
+                    <p class="text-xs text-gray-500 text-center mt-3"><i class="fa-solid fa-lock mr-1"></i>No spam. Your details stay private.</p>
+                    </div>
                 </div>
             </section>
 
