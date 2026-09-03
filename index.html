@@ -126,7 +126,7 @@
             box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
         }
 
-        /* Glowing Cyan Highlighted Card ($499 Launch Kit) */
+        /* Featured premium pricing card */
         .glass-pricing-cyan {
             background: rgba(17, 24, 39, 0.85);
             backdrop-filter: blur(20px);
@@ -264,6 +264,7 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        .hero-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center;width:min(1200px,100%)}.hero-copy{text-align:left}.premium-button{position:relative;isolation:isolate;overflow:hidden;border:1px solid rgba(255,255,255,.18);box-shadow:0 16px 45px rgba(37,99,235,.28),inset 0 1px rgba(255,255,255,.3);transform:translateZ(0)}.premium-button:before{content:"";position:absolute;inset:-2px;z-index:-1;background:linear-gradient(110deg,#2563eb,#06b6d4,#8b5cf6,#2563eb);background-size:250% 100%;animation:buttonFlow 5s linear infinite}.premium-button:after{content:"";position:absolute;width:45%;height:200%;top:-50%;left:-70%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent);transform:rotate(18deg);transition:left .65s}.premium-button:hover:after{left:125%}.secondary-premium{background:rgba(15,23,42,.62);border:1px solid rgba(52,211,153,.48);box-shadow:inset 0 1px rgba(255,255,255,.1),0 15px 45px rgba(0,0,0,.28)}.ai-stage{position:relative;height:520px;perspective:1000px;transform-style:preserve-3d}.ai-orb{position:absolute;width:210px;height:210px;left:50%;top:50%;transform:translate(-50%,-50%) translateZ(60px);border-radius:50%;background:radial-gradient(circle at 32% 26%,#b6f2ff 0,#34d6ef 8%,#2563eb 35%,#111b3f 68%,#030712 100%);box-shadow:inset -24px -30px 55px rgba(0,0,0,.55),inset 16px 18px 35px rgba(255,255,255,.2),0 0 90px rgba(37,99,235,.6);animation:orbFloat 6s ease-in-out infinite}.ai-orb:before,.ai-orb:after{content:"";position:absolute;inset:-35px;border:1px solid rgba(103,232,249,.28);border-radius:50%;transform:rotateX(67deg);animation:ringSpin 10s linear infinite}.ai-orb:after{inset:-78px;border-style:dashed;transform:rotateY(65deg);animation-duration:16s;animation-direction:reverse}.orb-core{position:absolute;inset:0;display:grid;place-items:center;font:800 1rem 'Space Grotesk';letter-spacing:.16em;text-shadow:0 0 24px #fff}.data-node{position:absolute;width:245px;padding:16px 18px;border:1px solid rgba(125,211,252,.22);border-radius:16px;background:linear-gradient(135deg,rgba(15,23,42,.87),rgba(30,41,59,.58));backdrop-filter:blur(18px);box-shadow:0 24px 60px rgba(0,0,0,.35),inset 0 1px rgba(255,255,255,.1);transform-style:preserve-3d;animation:nodeFloat 6s ease-in-out infinite}.data-node strong{display:block;font:700 .85rem 'Space Grotesk';color:#fff}.data-node small{display:block;color:#7dd3fc;letter-spacing:.12em;font-size:.62rem;margin-bottom:5px}.data-node i{position:absolute;right:16px;top:50%;transform:translateY(-50%);width:8px;height:8px;background:#34d399;border-radius:50%;box-shadow:0 0 16px #34d399}.node-one{left:0;top:14%;transform:rotateY(12deg) translateZ(25px)}.node-two{right:-1%;bottom:14%;transform:rotateY(-12deg) translateZ(35px);animation-delay:-3s}.stage-grid{position:absolute;inset:7%;border-radius:50%;background:linear-gradient(rgba(56,189,248,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.08) 1px,transparent 1px);background-size:25px 25px;transform:rotateX(68deg) translateZ(-80px);mask-image:radial-gradient(circle,#000 25%,transparent 72%)}.stage-status{position:absolute;right:7%;top:11%;padding:9px 13px;border:1px solid rgba(255,255,255,.12);border-radius:99px;background:rgba(2,6,23,.68);color:#94a3b8;font-size:.64rem;letter-spacing:.13em}.stage-status span{display:inline-block;width:6px;height:6px;margin-right:7px;border-radius:50%;background:#34d399;box-shadow:0 0 12px #34d399}.bento-card,.glass-pricing,.glass-pricing-cyan{transform-style:preserve-3d}.bento-card:hover,.glass-pricing:hover,.glass-pricing-cyan:hover{transform:perspective(900px) rotateX(2deg) rotateY(-2deg) translateY(-9px)}@keyframes buttonFlow{to{background-position:250% 0}}@keyframes orbFloat{50%{transform:translate(-50%,-54%) translateZ(80px) rotate(4deg)}}@keyframes ringSpin{to{transform:rotateX(67deg) rotateZ(360deg)}}@keyframes nodeFloat{50%{margin-top:-13px}}@media(max-width:900px){.hero-layout{grid-template-columns:1fr;padding-top:4rem}.hero-copy{text-align:center}.hero-copy .hero-actions{justify-content:center}.ai-stage{height:430px}.node-one{left:3%}.node-two{right:3%}}@media(max-width:560px){.ai-stage{height:370px}.ai-orb{width:150px;height:150px}.data-node{width:190px;padding:12px}.node-one{top:5%;left:0}.node-two{right:0;bottom:5%}}@media(prefers-reduced-motion:reduce){.ai-orb,.ai-orb:before,.ai-orb:after,.data-node,.premium-button:before{animation:none!important}}
     </style>
     
     <script>
@@ -322,7 +323,7 @@
                         Take a Class ($49)
                     </a>
                     <a href="#contact" onclick="showPage('services')" class="px-5 py-2 rounded-full bg-gradient-to-r from-primary to-cyan-500 text-white hover:scale-105 transition duration-300 font-bold text-xs whitespace-nowrap shadow-md">
-                        Get a Website ($499)
+                        Website Projects ($1,500+)
                     </a>
                 </div>
             </div>
@@ -347,7 +348,7 @@
                         Take a Class ($49)
                     </a>
                     <a href="#contact" onclick="showPage('services'); toggleMobileMenu()" class="w-full text-center py-2.5 rounded-full bg-gradient-to-r from-primary to-cyan-500 text-white font-bold text-xs shadow-md">
-                        Get a Website ($499)
+                        Website Projects ($1,500+)
                     </a>
                 </div>
             </div>
@@ -374,8 +375,9 @@
                 <!-- Sleek Ambient Glows -->
                 <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/15 rounded-full blur-[160px] pointer-events-none"></div>
 
-                <div class="text-center max-w-5xl relative z-10" data-aos="zoom-in" data-aos-duration="1000">
-                    <div class="flex justify-center gap-4 mb-8">
+                <div class="hero-layout relative z-10" data-aos="zoom-in" data-aos-duration="1000">
+                  <div class="hero-copy">
+                    <div class="flex flex-wrap gap-4 mb-8">
                         <div class="px-4 py-1.5 rounded-full bg-slate-900/80 border border-primary/40 text-primary text-xs font-bold tracking-wide uppercase flex items-center shadow-lg">
                             <i class="fa-solid fa-bolt mr-2"></i> We Build It For You
                         </div>
@@ -388,17 +390,25 @@
                         Practical AI for <br>
                         <span class="text-gradient-hero">Ambitious Local Businesses</span>
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-                        We are a hybrid <strong>AI Agency</strong> and <strong>Learning Studio</strong>. Whether you need a website built <em>for</em> you, or you want to learn how to use AI <em>yourself</em>, we are the bridge to your future.
+                    <p class="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl leading-relaxed">
+                        We build the websites, automations, and practical AI skills that help local businesses move faster—without losing the human judgment their customers trust.
                     </p>
-                    <div class="flex flex-col md:flex-row gap-6 justify-center">
-                        <button onclick="showPage('services')" class="btn-glow px-8 py-4 rounded-full bg-gradient-to-r from-primary to-cyan-500 text-white font-bold text-lg shadow-[0_0_30px_rgba(59,130,246,0.4)]">
-                            Hire The Agency
+                    <div class="hero-actions flex flex-col md:flex-row gap-5">
+                        <button onclick="showPage('services')" class="premium-button btn-glow px-8 py-4 rounded-xl text-white font-bold text-lg">
+                            Explore Business Solutions <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
                         </button>
-                        <button onclick="showPage('studio')" class="btn-glow px-8 py-4 rounded-full bg-slate-900/90 border border-studio text-white font-bold text-lg hover:bg-studio/20 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
-                            Enter The Studio
+                        <button onclick="showPage('studio')" class="secondary-premium btn-glow px-8 py-4 rounded-xl text-white font-bold text-lg">
+                            View AI Classes
                         </button>
                     </div>
+                    <div class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-xs text-gray-400"><span><i class="fa-solid fa-check text-studio mr-2"></i>Built around your workflow</span><span><i class="fa-solid fa-check text-studio mr-2"></i>Human-reviewed</span><span><i class="fa-solid fa-check text-studio mr-2"></i>Clear scope and pricing</span></div>
+                  </div>
+                  <div class="ai-stage" aria-label="Animated AI workflow demonstration">
+                    <div class="stage-grid"></div><div class="ai-orb"><div class="orb-core">AI CORE</div></div>
+                    <div class="data-node node-one"><small>NEW OPPORTUNITY</small><strong>Customer inquiry received</strong><i></i></div>
+                    <div class="data-node node-two"><small>WORKFLOW COMPLETE</small><strong>Qualified call scheduled</strong><i></i></div>
+                    <div class="stage-status"><span></span>SYSTEMS ACTIVE</div>
+                  </div>
                 </div>
             </section>
 
@@ -479,6 +489,10 @@
                                 Automate Workflow <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                             </div>
                         </div>
+                    </div>
+                    <div class="mt-10 max-w-6xl mx-auto rounded-2xl border border-primary/30 bg-slate-950/70 p-6 md:p-7 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+                        <div class="flex items-center gap-5"><div class="w-12 h-12 shrink-0 rounded-xl bg-primary/15 text-primary grid place-items-center text-xl"><i class="fa-solid fa-magnifying-glass-chart"></i></div><div><span class="text-xs font-bold text-primary tracking-widest uppercase">Not sure where to start?</span><h3 class="text-xl font-bold text-white">AI Opportunity Audit — $399</h3><p class="text-sm text-gray-400">We map your workflows, rank three opportunities, and give you a practical action plan. The fee is credited toward a qualifying build.</p></div></div>
+                        <a href="#contact" class="premium-button shrink-0 px-6 py-3 rounded-xl text-white font-bold text-sm">Start with clarity <i class="fa-solid fa-arrow-right ml-2"></i></a>
                     </div>
                 </div>
             </section>
@@ -643,7 +657,7 @@
                             <div class="accordion-content">
                                 <div class="accordion-inner">
                                     <div class="px-6 pb-6 pt-1 text-gray-400 leading-relaxed border-t border-white/5 mt-1">
-                                        <p>Our turnaround for the Launch Kit website ($499) is typically 3-5 business days once content is gathered.</p>
+                                        <p>A standard business website begins at $1,500 and typically launches in 7-10 business days once content is gathered. Larger or integrated projects receive a custom timeline.</p>
                                     </div>
                                 </div>
                             </div>
@@ -727,7 +741,7 @@
                                     <h3 class="text-2xl font-bold">Prompt Pro</h3>
                                     <p class="text-cyan-400 font-bold text-xs uppercase tracking-wide mt-1">Intermediate</p>
                                 </div>
-                                <span class="text-3xl font-extrabold text-white">$79</span>
+                                <span class="text-3xl font-extrabold text-white">$99</span>
                             </div>
                             <p class="text-gray-400 text-sm mb-6">Master prompt structure, custom instructions, and image generation techniques.</p>
                             <a href="#contact" class="block w-full py-3 text-center rounded-xl border border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 transition font-bold">Join Waitlist</a>
@@ -740,7 +754,7 @@
                                     <h3 class="text-2xl font-bold">1-on-1 Coaching</h3>
                                     <p class="text-purple font-bold text-xs uppercase tracking-wide mt-1">Private Session</p>
                                 </div>
-                                <span class="text-3xl font-extrabold text-white">$149<span class="text-xs text-gray-400">/hr</span></span>
+                                <span class="text-3xl font-extrabold text-white">$175<span class="text-xs text-gray-400">/hr</span></span>
                             </div>
                             <p class="text-gray-400 text-sm mb-6">Personalized workflow automation session tailored specifically to your business needs.</p>
                             <a href="#contact" class="block w-full py-3 text-center rounded-xl border border-purple/50 text-purple hover:bg-purple/10 transition font-bold">Request Session</a>
@@ -768,7 +782,7 @@
                                 <span class="text-xs font-bold text-primary tracking-widest uppercase">Social Media Engine</span>
                                 <h3 class="text-2xl font-bold text-white mt-1 mb-2">Social Growth</h3>
                                 <div class="flex items-baseline gap-1 mb-4">
-                                    <span class="text-4xl font-extrabold text-white">$299</span>
+                                    <span class="text-4xl font-extrabold text-white">$499</span>
                                     <span class="text-sm text-gray-400">/ month</span>
                                 </div>
                                 <p class="text-xs text-gray-400 mb-6">Complete monthly local social media content creation and scheduling.</p>
@@ -781,24 +795,24 @@
                             <a href="#contact" class="block w-full py-3.5 rounded-xl border border-white/20 hover:bg-white/10 transition font-bold text-center text-white text-sm">Subscribe Now</a>
                         </div>
 
-                        <!-- $499 Launch Kit (GLOWING CYAN HIGHLIGHTED GLASS CARD) -->
+                        <!-- Business Website -->
                         <div class="glass-pricing-cyan p-8 flex flex-col justify-between relative">
                             <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyanAcc text-dark text-xs font-black px-5 py-1.5 rounded-full shadow-lg uppercase tracking-widest flex items-center gap-1.5">
                                 <i class="fa-solid fa-star text-xs"></i> Most Popular
                             </div>
                             <div>
-                                <span class="text-xs font-bold text-cyanAcc tracking-widest uppercase">Turnkey Package</span>
-                                <h3 class="text-3xl font-extrabold text-white mt-1 mb-2">Launch Kit</h3>
+                                <span class="text-xs font-bold text-cyanAcc tracking-widest uppercase">Turnkey Website</span>
+                                <h3 class="text-3xl font-extrabold text-white mt-1 mb-2">Business Website</h3>
                                 <div class="flex items-baseline gap-1 mb-4">
-                                    <span class="text-5xl font-black text-white">$499</span>
-                                    <span class="text-sm text-gray-300">/ one-time</span>
+                                    <span class="text-5xl font-black text-white">$1,500</span>
+                                    <span class="text-sm text-gray-300">starting at</span>
                                 </div>
                                 <p class="text-xs text-gray-300 mb-6">Everything local businesses need to establish a strong online presence.</p>
                                 <ul class="space-y-3.5 mb-8 text-gray-100 text-sm">
                                     <li class="flex items-center"><i class="fa-solid fa-check text-cyanAcc mr-3 text-base"></i> <strong>5-Page</strong> Custom AI-Built Website</li>
-                                    <li class="flex items-center"><i class="fa-solid fa-check text-cyanAcc mr-3 text-base"></i> Custom Logo & Brand Identity</li>
-                                    <li class="flex items-center"><i class="fa-solid fa-check text-cyanAcc mr-3 text-base"></i> Google Maps & SEO Setup</li>
-                                    <li class="flex items-center"><i class="fa-solid fa-check text-cyanAcc mr-3 text-base"></i> Fast 3-5 Day Delivery</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-cyanAcc mr-3 text-base"></i> Conversion-Focused Copy Structure</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-cyanAcc mr-3 text-base"></i> Local SEO & Analytics Setup</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-cyanAcc mr-3 text-base"></i> Two Revision Rounds</li>
                                 </ul>
                             </div>
                             <a href="#contact" class="btn-glow block w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-blue-600 hover:to-cyan-500 transition duration-300 font-extrabold text-white shadow-xl text-center text-sm">
@@ -806,19 +820,19 @@
                             </a>
                         </div>
 
-                        <!-- Enterprise -->
+                        <!-- Automation Sprint -->
                         <div class="glass-pricing p-8 flex flex-col justify-between">
                             <div>
-                                <span class="text-xs font-bold text-purple tracking-widest uppercase">Tailored Workflows</span>
-                                <h3 class="text-2xl font-bold text-white mt-1 mb-2">Enterprise</h3>
+                                <span class="text-xs font-bold text-purple tracking-widest uppercase">Tailored Workflow</span>
+                                <h3 class="text-2xl font-bold text-white mt-1 mb-2">Automation Sprint</h3>
                                 <div class="flex items-baseline gap-1 mb-4">
-                                    <span class="text-4xl font-extrabold text-white">Custom</span>
+                                    <span class="text-4xl font-extrabold text-white">$2,500+</span>
                                 </div>
-                                <p class="text-xs text-gray-400 mb-6">Bespoke AI chatbots, CRM integrations, and multi-step automated workflows.</p>
+                                <p class="text-xs text-gray-400 mb-6">One valuable workflow scoped, built, tested, and handed off for your team.</p>
                                 <ul class="space-y-3 mb-8 text-gray-300 text-sm">
-                                    <li class="flex items-center"><i class="fa-solid fa-check text-purple mr-3"></i> AI Customer Support Bot</li>
-                                    <li class="flex items-center"><i class="fa-solid fa-check text-purple mr-3"></i> Full CRM Integration</li>
-                                    <li class="flex items-center"><i class="fa-solid fa-check text-purple mr-3"></i> 24/7 Dedicated Support</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-purple mr-3"></i> Workflow Discovery & Build</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-purple mr-3"></i> Integration Testing</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-check text-purple mr-3"></i> Documentation & 14-Day Support</li>
                                 </ul>
                             </div>
                             <a href="#contact" class="block w-full py-3.5 rounded-xl border border-white/20 hover:bg-white/10 transition font-bold text-center text-white text-sm">Contact Us</a>
@@ -894,10 +908,13 @@
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">Interested In</label>
                     <select name="service" class="w-full p-4 rounded-xl bg-slate-800/80 border border-white/10 text-white focus:border-primary outline-none cursor-pointer">
-                        <option value="Launch Kit">Business Launch Kit ($499)</option>
-                        <option value="Social Media">Social Media ($299/mo)</option>
+                        <option value="Business Website">Business Website (from $1,500)</option>
+                        <option value="Automation Sprint">Automation Sprint (from $2,500)</option>
+                        <option value="Social Media">Social Growth ($499/mo)</option>
                         <option value="AI 101">AI 101 Class ($49)</option>
-                        <option value="Coaching">1-on-1 Coaching ($149/hr)</option>
+                        <option value="Prompt Pro">Prompt Pro Class ($99)</option>
+                        <option value="Coaching">1-on-1 Coaching ($175/hr)</option>
+                        <option value="Team Workshop">Private Team Workshop (from $750)</option>
                     </select>
                 </div>
                 <div>
