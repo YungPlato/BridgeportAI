@@ -380,6 +380,7 @@
             }
         }
     </script>
+    <link rel="stylesheet" href="assets/visual-refresh.css">
 </head>
 <body class="bg-dark text-white overflow-x-hidden flex flex-col min-h-screen">
     <div class="site-depth" aria-hidden="true"><div class="depth-grid"></div><div class="depth-orb one"></div><div class="depth-orb two"></div></div>
@@ -1069,6 +1070,10 @@
             const target = document.getElementById(pageId);
             if (target) {
                 target.classList.add('active');
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    if (link.getAttribute('onclick') === "showPage('" + pageId + "')") link.setAttribute('aria-current', 'page');
+                    else link.removeAttribute('aria-current');
+                });
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 setTimeout(() => { AOS.refresh(); }, 100);
             }
